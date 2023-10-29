@@ -9,7 +9,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class ActasInterrogatorioService {
-  private url = `${base_url}/camara`;
+  private url = `${base_url}/actas-interrogatorio`;
   private listaCambio = new Subject<ActasInterrogatorio[]>();
   constructor(private http: HttpClient) {}
   list() {

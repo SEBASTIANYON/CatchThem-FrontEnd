@@ -9,7 +9,7 @@ const base_url = environment.base;
 })
 export class TipoEntidadService {
 
-  private url = `${base_url}/universidades`;
+  private url = `${base_url}/tipo-entidad`;
   private listaCambio = new Subject<TipoEntidad[]>();
   constructor(private http: HttpClient) {}
   list() {
