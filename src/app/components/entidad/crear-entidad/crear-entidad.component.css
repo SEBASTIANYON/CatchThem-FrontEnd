@@ -1,0 +1,50 @@
+.contenedor {
+    display: inline-flex;
+}
+
+.contenedor .fondo {
+
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.02) 0.13%, #000 94.62%), url('C:\Users\51926\Desktop\Arq. de Aplicaciones\CatchThem-FrontEnd\catchthem\src\assets\img\fondo.png'), lightgray 50% / cover no-repeat;
+    width: 989px;
+    height: 929px;
+    flex-shrink: 0;
+}
+
+.contenedor .formulario {
+    width: 691px;
+    background-color: #000;
+}
+
+h1 {
+    color: #FFF;
+    margin-top: 50px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 80px;
+    letter-spacing: -0.84px;
+    text-transform: uppercase;
+}
+
+.example-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.contenedor .formulario .example-form .linea {
+    stroke-width: 1px;
+    stroke: #FFF;
+    width: 657px;
+    height: 1px;
+    flex-shrink: 0;
+    border: 1px;
+}
+
+mat-form-field {
+    width: 50%;
+}
+

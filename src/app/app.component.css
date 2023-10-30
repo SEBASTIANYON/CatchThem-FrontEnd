@@ -1,0 +1,27 @@
+.menu {
+    background-color: #21201F;
+    height: 75px;
+    width: 1680px;
+}
+
+.menu button{
+    background-color: #21201F;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-bottom: 1px solid #FFF;
+}
+
+.menu .container-logo {
+
+    background-image: url("C:\Users\51926\Desktop\Arq. de Aplicaciones\CatchThem-FrontEnd\catchthem\src\assets\img\logo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: unset;
+    width: 148px;
+    height: 75px;
+}

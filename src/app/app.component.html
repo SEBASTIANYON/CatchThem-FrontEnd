@@ -1,0 +1,35 @@
+<mat-toolbar class="menu">
+        <button mat-button [matMenuTriggerFor]="menuEntidad">ENTIDADES</button>
+        <button mat-button [matMenuTriggerFor]="menuUsuario">USUARIOS</button>
+        <button mat-button [matMenuTriggerFor]="menuSospechoso">SOSPECHOSOS</button>
+        <div class="container-logo"></div>
+        <button mat-button [matMenuTriggerFor]="menuCamara">CAMARA</button>
+        <button mat-button [matMenuTriggerFor]="menuAntecedente">ANTECEDENTES PENALES</button>
+        <button mat-button [matMenuTriggerFor]="menuAlerta">ALERTA</button>
+</mat-toolbar>
+
+<mat-menu #menuEntidad="matMenu">
+  <button mat-menu-item routerLink="/entidades/nuevo">Registrar</button>
+  <button mat-menu-item routerLink="/entidades">Listar</button>
+</mat-menu>
+<mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item routerLink="/usuarios/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="/usuarios">Listar</button>
+  </mat-menu>
+  <mat-menu #menuSospechoso="matMenu">
+    <button mat-menu-item routerLink="/sospechosos/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="/sospechosos">Listar</button>
+  </mat-menu>
+  <mat-menu #menuCamara="matMenu">
+    <button mat-menu-item routerLink="/camaras/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="/camaras">Listar</button>
+  </mat-menu>
+  <mat-menu #menuAntecedente="matMenu">
+    <button mat-menu-item routerLink="/antecedentes/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="/antecedentes">Listar</button>
+  </mat-menu>
+  <mat-menu #menuAlerta="matMenu">
+    <button mat-menu-item routerLink="/alertas/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="/alertas">Listar</button>
+  </mat-menu>
+<router-outlet></router-outlet>
