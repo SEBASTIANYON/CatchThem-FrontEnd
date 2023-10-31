@@ -24,10 +24,12 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-
-
-
-
+import { AntecedenteComponent } from './components/antecedente/antecedente.component';
+import { CrearAntecedenteComponent } from './components/antecedente/crear-antecedente/crear-antecedente.component';
+import { ListarAntecedenteComponent } from './components/antecedente/listar-antecedente/listar-antecedente.component';
+import { CamaraComponent } from './components/camara/camara.component';
+import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
+import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,13 @@ import { MatTableModule } from '@angular/material/table';
     ListarEntidadComponent,
     SospechosoComponent,
     CrearSospechosoComponent,
-    ListarSospechosoComponent
+    ListarSospechosoComponent,
+    AntecedenteComponent,
+    CrearAntecedenteComponent,
+    ListarAntecedenteComponent,
+    CamaraComponent,
+    ListarCamaraComponent,
+    CrearCamaraComponent
   ],
   imports: [
     BrowserModule,
