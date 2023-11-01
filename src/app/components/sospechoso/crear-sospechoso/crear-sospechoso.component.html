@@ -1,1 +1,66 @@
-<p>crear-sospechoso works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <div class="formulario">
+        <h1>Registrar Sospechoso</h1>
+        <br class="linea" />
+        <br />
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre" formControlName="nombre" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Alias</mat-label>
+            <input matInput placeholder="Alias" formControlName="alias" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nacimiento</mat-label>
+            <input
+              matInput
+              placeholder="Nacimiento"
+              formControlName="nacimiento"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nacionalidad</mat-label>
+            <input
+              matInput
+              placeholder="Nacionalidad"
+              formControlName="nacionalidad"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Genero</mat-label>
+            <input matInput placeholder="Genero" formControlName="genero" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Estado</mat-label>
+            <input matInput placeholder="Estado" formControlName="estado" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary">Registrar</button>
+          <p>{{ mensaje }}</p>
+        </form>
+      </div>
+      <div class="fondo2"></div>
+    </div>
+  </body>
+</html>
