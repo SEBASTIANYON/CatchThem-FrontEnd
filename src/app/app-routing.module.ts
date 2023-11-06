@@ -6,8 +6,6 @@ import { SospechosoComponent } from './components/sospechoso/sospechoso.componen
 import { CrearSospechosoComponent } from './components/sospechoso/crear-sospechoso/crear-sospechoso.component';
 import { CamaraComponent } from './components/camara/camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
-import { CrearAntecedenteComponent } from './components/antecedente/crear-antecedente/crear-antecedente.component';
-import { AntecedenteComponent } from './components/antecedente/antecedente.component';
 
 const routes: Routes = [
   {
@@ -34,14 +32,7 @@ const routes: Routes = [
       {path:'edicion/id', component: CrearCamaraComponent}
     ]
   },
-  {
-    path:'antecedentes',
-    component:AntecedenteComponent,
-    children:[
-      {path:'nuevo', component: CrearAntecedenteComponent},
-      {path:'edicion/id', component: CrearAntecedenteComponent}
-    ]
-  }
+  
   //Colocar las rutas para las demas entidades
 ];
 
