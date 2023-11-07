@@ -24,12 +24,15 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { AntecedenteComponent } from './components/antecedente/antecedente.component';
-import { CrearAntecedenteComponent } from './components/antecedente/crear-antecedente/crear-antecedente.component';
-import { ListarAntecedenteComponent } from './components/antecedente/listar-antecedente/listar-antecedente.component';
 import { CamaraComponent } from './components/camara/camara.component';
 import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
+import { ActasComponent } from './components/actas/actas.component';
+import { AlertasComponent } from './components/alertas/alertas.component';
+import { CrearActasComponent } from './components/actas/crear-actas/crear-actas.component';
+import { ListarActasComponent } from './components/actas/listar-actas/listar-actas.component';
+import { CrearAlertasComponent } from './components/alertas/crear-alertas/crear-alertas.component';
+import { ListarAlertasComponent } from './components/alertas/listar-alertas/listar-alertas.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +43,15 @@ import { CrearCamaraComponent } from './components/camara/crear-camara/crear-cam
     SospechosoComponent,
     CrearSospechosoComponent,
     ListarSospechosoComponent,
-    AntecedenteComponent,
-    CrearAntecedenteComponent,
-    ListarAntecedenteComponent,
     CamaraComponent,
     ListarCamaraComponent,
-    CrearCamaraComponent
+    CrearCamaraComponent,
+    ActasComponent,
+    AlertasComponent,
+    CrearActasComponent,
+    ListarActasComponent,
+    CrearAlertasComponent,
+    ListarAlertasComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +71,7 @@ import { CrearCamaraComponent } from './components/camara/crear-camara/crear-cam
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
