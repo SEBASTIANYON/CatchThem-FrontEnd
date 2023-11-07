@@ -11,28 +11,26 @@ import { SospechosoComponent } from './components/sospechoso/sospechoso.componen
 import { CrearSospechosoComponent } from './components/sospechoso/crear-sospechoso/crear-sospechoso.component';
 import { ListarSospechosoComponent } from './components/sospechoso/listar-sospechoso/listar-sospechoso.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {ThemePalette} from '@angular/material/core';
-import {NgFor} from '@angular/common';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgFor } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { CamaraComponent } from './components/camara/camara.component';
 import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
-import { ActasComponent } from './components/actas/actas.component';
-import { AlertasComponent } from './components/alertas/alertas.component';
-import { CrearActasComponent } from './components/actas/crear-actas/crear-actas.component';
-import { ListarActasComponent } from './components/actas/listar-actas/listar-actas.component';
-import { CrearAlertasComponent } from './components/alertas/crear-alertas/crear-alertas.component';
-import { ListarAlertasComponent } from './components/alertas/listar-alertas/listar-alertas.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -46,12 +44,6 @@ import { ListarAlertasComponent } from './components/alertas/listar-alertas/list
     CamaraComponent,
     ListarCamaraComponent,
     CrearCamaraComponent,
-    ActasComponent,
-    AlertasComponent,
-    CrearActasComponent,
-    ListarActasComponent,
-    CrearAlertasComponent,
-    ListarAlertasComponent
   ],
   imports: [
     BrowserModule,
@@ -70,10 +62,14 @@ import { ListarAlertasComponent } from './components/alertas/listar-alertas/list
     ReactiveFormsModule,
     MatMenuModule,
     MatPaginatorModule,
-    MatTableModule
-    
+    MatTableModule,
+    NgxPaginationModule,
+    MatCardModule,
+    MatGridListModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

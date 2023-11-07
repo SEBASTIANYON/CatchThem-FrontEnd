@@ -6,6 +6,74 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>REGISTRAR SOSPECHOSO</h1> 
+    <div class="container">
+      <h1 style="padding-left: 60px">REGISTRAR SOSPECHOSO</h1>
+      <br />
+      <div class="container">
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form" style="text-align: left;">
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Nombres</mat-label>
+            <input matInput />
+          </mat-form-field>
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Alias</mat-label>
+            <input matInput />
+          </mat-form-field>
+          <br />
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Género</mat-label>
+            <mat-select formControlName="tipoGenero">
+              <mat-option *ngFor="let p of tipos" [value]="p.value">
+                {{ p.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <br />
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Nacionalidad</mat-label>
+            <input matInput />
+          </mat-form-field>
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Historial</mat-label>
+            <input matInput />
+          </mat-form-field>
+          <br />
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="tipoEstado">
+              <mat-option *ngFor="let p of tipos2" [value]="p.value2">
+                {{ p.viewValue2 }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field style="padding: 20px; width: 23%">
+            <mat-label>Fecha de Registro</mat-label>
+            <input matInput [matDatepicker]="picker" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <br />
+          <button mat-raised-button color="primary">Registrar</button>
+          <p>{{mensaje}}</p>
+          <button mat-raised-button color="primary" routerLink="/sospechosos">
+            Ver Lista
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

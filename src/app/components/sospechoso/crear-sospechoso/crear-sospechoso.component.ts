@@ -24,6 +24,11 @@ export class CrearSospechosoComponent {
     { value: 'Femenino', viewValue: 'Femenino' },
   ];
 
+  tipos2: { value2: string; viewValue2: string }[] = [
+    { value2: 'Capturado', viewValue2: 'Capturado' },
+    { value2: 'Libre', viewValue2: 'Libre' },
+  ];
+
   constructor(
     private oS: SospechosoService,
     private router: Router,
