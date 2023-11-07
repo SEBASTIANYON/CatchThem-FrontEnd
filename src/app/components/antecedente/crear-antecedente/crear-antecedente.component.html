@@ -1,1 +1,194 @@
-<p>crear-antecedente works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antecedente</title>
+  </head>
+  <body>
+    <div class="form-register">
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <h2>REGISTRAR ANTECENDENTES</h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="659"
+          height="9"
+          viewBox="0 0 659 9"
+          fill="none"
+        >
+          <path
+            d="M0.535118 4.21871C0.339856 4.41397 0.339856 4.73056 0.535118 4.92582L3.7171 8.1078C3.91236 8.30306 4.22894 8.30306 4.42421 8.1078C4.61947 7.91254 4.61947 7.59595 4.42421 7.40069L1.59578 4.57227L4.42421 1.74384C4.61947 1.54858 4.61947 1.23199 4.42421 1.03673C4.22894 0.84147 3.91236 0.84147 3.7171 1.03673L0.535118 4.21871ZM658.242 4.92582C658.438 4.73056 658.438 4.41397 658.242 4.21871L655.06 1.03673C654.865 0.84147 654.548 0.84147 654.353 1.03673C654.158 1.23199 654.158 1.54858 654.353 1.74384L657.182 4.57227L654.353 7.40069C654.158 7.59595 654.158 7.91254 654.353 8.1078C654.548 8.30306 654.865 8.30306 655.06 8.1078L658.242 4.92582ZM0.888672 5.07227H657.889V4.07227H0.888672V5.07227Z"
+            fill="black"
+          />
+        </svg>
+        <mat-form-field>
+          <mat-label>Delito</mat-label>
+          <mat-select formControlName="delito">
+            <mat-option *ngFor="let d of delitos" [value]="d.value">
+              {{ d.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Sentencia</mat-label>
+          <input matInput placeholder="Sentencia" formControlName="sentencia" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Ubicacion</mat-label>
+          <input matInput placeholder="Ubicacion" formControlName="ubicacion" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="estado">
+            <mat-option *ngFor="let e of estados" [value]="e.value">
+              {{ e.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Fecha de comision</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="fecha_comision"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Fecha de condena</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            formControlName="fecha_condena"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="last">
+          <mat-label>Sospechoso</mat-label>
+          <mat-select formControlName="sospechoso">
+            <mat-option
+              *ngFor="let s of listasospechosos"
+              [value]="s.idSospechoso"
+            >
+              {{ s.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="#ABABA9" >Registrar</button>
+        <button mat-raised-button color="#ABABA9" >Ver lista</button>
+      </form>
+    </div>
+    <!--ACA SE COLOCA LA TABLA PARA LISTAR LOS ATRIBUTOS-->
+    <div class="form-listar">
+      <div class="buscador">
+        <mat-form-field>
+          <input
+            class="in"
+            matInput
+            (keyup)="filter($event)"
+            placeholder="Buscar"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </mat-form-field>
+      </div>
+
+      <table mat-table [dataSource]="dataSource" class="mat">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id_antecedente">
+          <th mat-header-cell *matHeaderCellDef>Código</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.id_antecedente }}
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="delito">
+          <th mat-header-cell *matHeaderCellDef>Delito</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.delito }}
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="fecha_comision">
+          <th mat-header-cell *matHeaderCellDef>Comision</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.fecha_comision }}
+          </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="fecha_condena">
+          <th mat-header-cell *matHeaderCellDef>Condena</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.fecha_condena }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="sentencia">
+          <th mat-header-cell *matHeaderCellDef>Sentencia</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.sentencia }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="sospechoso">
+          <th mat-header-cell *matHeaderCellDef>Sospechoso</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.sospechoso.nombre }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="#D6CDC9"
+              (click)="eliminar(element.id_antecedente)"
+            >
+              Eliminar
+            </button>
+          </td></ng-container
+        >
+
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator
+        class="pagination"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </body>
+</html>

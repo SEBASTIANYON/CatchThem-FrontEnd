@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-antecedente',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./antecedente.component.css']
 })
 export class AntecedenteComponent {
+
+  constructor(public route:ActivatedRoute){}
 
 }
