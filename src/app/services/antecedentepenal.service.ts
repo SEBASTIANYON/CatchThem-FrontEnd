@@ -9,7 +9,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class AntecedentePenalService {
-  private url = `${base_url}/antecedente-penal`;
+  private url = `${base_url}/antecedentes`;
   private listaCambio = new Subject<AntecedentePenal[]>();
   constructor(private http: HttpClient) {}
   list() {
