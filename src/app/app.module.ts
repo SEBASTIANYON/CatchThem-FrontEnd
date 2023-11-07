@@ -30,6 +30,11 @@ import { ListarAntecedenteComponent } from './components/antecedente/listar-ante
 import { CamaraComponent } from './components/camara/camara.component';
 import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
+import { LoginComponent } from './components/login/login.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +50,8 @@ import { CrearCamaraComponent } from './components/camara/crear-camara/crear-cam
     ListarAntecedenteComponent,
     CamaraComponent,
     ListarCamaraComponent,
-    CrearCamaraComponent
+    CrearCamaraComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,9 @@ import { CrearCamaraComponent } from './components/camara/crear-camara/crear-cam
     ReactiveFormsModule,
     MatMenuModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
