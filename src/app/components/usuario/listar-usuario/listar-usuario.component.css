@@ -1,0 +1,20 @@
+
+body {
+  background: #C7CFD9;
+}
+.example-card {
+  max-width: 100%;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 10px;
+}
+
+
+
+.imagen{
+  width: 100%; /* Establece el ancho de la imagen al 100% del ancho de la tarjeta */
+  height: 400px; /* Mantiene la relación de aspecto original de las imágenes */
+  max-width: 100%; /* Establece un tamaño máximo de 100% para mantener la responsividad */
+}

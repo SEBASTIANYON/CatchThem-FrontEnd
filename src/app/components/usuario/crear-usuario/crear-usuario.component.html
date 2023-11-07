@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <div class="fondo"></div>
+      <div class="formulario">
+        <h1>Registrar Usuario</h1>
+        <br class="linea">
+        <br>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+          <mat-form-field class="example-full-width">
+            <mat-label>username</mat-label>
+            <input matInput placeholder="username" formControlName="username" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>password</mat-label>
+            <input matInput placeholder="password" formControlName="password" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>nombre</mat-label>
+            <input matInput placeholder="nombre" formControlName="nombre" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>correo</mat-label>
+            <input matInput placeholder="correo" formControlName="correo" />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>telefono</mat-label>
+            <input matInput placeholder="telefono" formControlName="telefono" />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>imagen</mat-label>
+            <input matInput placeholder="imagen" formControlName="imagen" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>entidad</mat-label>
+            <mat-select formControlName="entidad">
+              <mat-option *ngFor="let l of lista_entidades" [value]="l.idEntidad">
+                {{l.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <button mat-raised-button color="primary">Registrar</button>
+          <p>{{mensaje}}</p>
+
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

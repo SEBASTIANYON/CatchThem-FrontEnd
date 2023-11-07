@@ -15,7 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {ThemePalette} from '@angular/material/core';
-import {NgFor} from '@angular/common';
+import {CommonModule, NgFor} from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
@@ -24,12 +24,15 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { AntecedenteComponent } from './components/antecedente/antecedente.component';
-import { CrearAntecedenteComponent } from './components/antecedente/crear-antecedente/crear-antecedente.component';
-import { ListarAntecedenteComponent } from './components/antecedente/listar-antecedente/listar-antecedente.component';
 import { CamaraComponent } from './components/camara/camara.component';
 import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { CrearUsuarioComponent } from './components/usuario/crear-usuario/crear-usuario.component';
+import { ListarUsuarioComponent } from './components/usuario/listar-usuario/listar-usuario.component';
+import {MatCardModule} from '@angular/material/card';
+
+
 
 @NgModule({
   declarations: [
@@ -40,15 +43,17 @@ import { CrearCamaraComponent } from './components/camara/crear-camara/crear-cam
     SospechosoComponent,
     CrearSospechosoComponent,
     ListarSospechosoComponent,
-    AntecedenteComponent,
-    CrearAntecedenteComponent,
-    ListarAntecedenteComponent,
     CamaraComponent,
     ListarCamaraComponent,
-    CrearCamaraComponent
+    CrearCamaraComponent,
+    UsuarioComponent,
+    CrearUsuarioComponent,
+    ListarUsuarioComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    MatCardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
