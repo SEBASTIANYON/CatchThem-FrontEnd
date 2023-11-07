@@ -1,35 +1,37 @@
-<mat-toolbar class="menu">
-        <button mat-button [matMenuTriggerFor]="menuEntidad">ENTIDADES</button>
-        <button mat-button [matMenuTriggerFor]="menuUsuario">USUARIOS</button>
-        <button mat-button [matMenuTriggerFor]="menuSospechoso">SOSPECHOSOS</button>
-        <div class="container-logo"></div>
-        <button mat-button [matMenuTriggerFor]="menuCamara">CAMARA</button>
-        <button mat-button [matMenuTriggerFor]="menuAntecedente">ANTECEDENTES PENALES</button>
-        <button mat-button [matMenuTriggerFor]="menuAlerta">ALERTA</button>
+<mat-toolbar class="menu" >
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-center">
+    <img src="/assets/img/logo2.png" class="logo">
+  </div>
+  <div class="container text-center align-self-center">Usuario</div>
+  <div class="container text-center align-self-center">Entidad</div>
+  <div class="container text-center align-self-center salir"><button>Salir</button></div>
+
 </mat-toolbar>
 
-<mat-menu #menuEntidad="matMenu">
-  <button mat-menu-item routerLink="/entidades/nuevo">Registrar</button>
-  <button mat-menu-item routerLink="/entidades">Listar</button>
-</mat-menu>
-<mat-menu #menuUsuario="matMenu">
-    <button mat-menu-item routerLink="/usuarios/nuevo">Registrar</button>
-    <button mat-menu-item routerLink="/usuarios">Listar</button>
-  </mat-menu>
-  <mat-menu #menuSospechoso="matMenu">
-    <button mat-menu-item routerLink="/sospechosos/nuevo">Registrar</button>
-    <button mat-menu-item routerLink="/sospechosos">Listar</button>
-  </mat-menu>
-  <mat-menu #menuCamara="matMenu">
-    <button mat-menu-item routerLink="/camaras/nuevo">Registrar</button>
-    <button mat-menu-item routerLink="/camaras">Listar</button>
-  </mat-menu>
-  <mat-menu #menuAntecedente="matMenu">
-    <button mat-menu-item routerLink="/antecedentes/nuevo">Registrar</button>
-    <button mat-menu-item routerLink="/antecedentes">Listar</button>
-  </mat-menu>
-  <mat-menu #menuAlerta="matMenu">
-    <button mat-menu-item routerLink="/alertas/nuevo">Registrar</button>
-    <button mat-menu-item routerLink="/alertas">Listar</button>
-  </mat-menu>
-<router-outlet></router-outlet>
+<div style="background-color: #21201F;">
+  <div class="container-sm">
+    <nav mat-tab-nav-bar>
+      <a color="success" mat-tab-link routerLink="/entidades" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">ENTIDADES</a>
+      <a color="success" mat-tab-link routerLink="/usuarios" routerLinkActive #rla2="routerLinkActive"
+        [active]="rla2.isActive">USUARIOS</a>
+      <a mat-tab-link routerLink="/sospechosos" routerLinkActive #rla3="routerLinkActive"
+        [active]="rla3.isActive">SOSPECHOSO</a>
+      <a mat-tab-link routerLink="/camaras" routerLinkActive #rla4="routerLinkActive"
+        [active]="rla4.isActive">CÁMARAS</a>
+      <a mat-tab-link routerLink="/antecedentes" routerLinkActive #rla5="routerLinkActive"
+        [active]="rla5.isActive">ANTENCEDENTES PENALES</a>
+      <a mat-tab-link routerLink="/alertas" routerLinkActive #rla6="routerLinkActive"
+        [active]="rla6.isActive">ALERTAS</a>
+      <a mat-tab-link routerLink="/actas" routerLinkActive #rla7="routerLinkActive" [active]="rla7.isActive">ACTAS</a>
+      <a mat-tab-link routerLink="/roles" routerLinkActive #rla8="routerLinkActive" [active]="rla8.isActive">ROLES</a>
+      <a mat-tab-link routerLink="/tipos" routerLinkActive #rla9="routerLinkActive" [active]="rla9.isActive">TIPOS DE
+        ENTIDAD</a>
+    </nav>
+  </div>
+</div>
+<br>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

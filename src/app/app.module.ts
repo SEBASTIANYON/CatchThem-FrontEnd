@@ -27,6 +27,12 @@ import { MatTableModule } from '@angular/material/table';
 import { CamaraComponent } from './components/camara/camara.component';
 import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
+import { ActasComponent } from './components/actas/actas.component';
+import { AlertasComponent } from './components/alertas/alertas.component';
+import { CrearActasComponent } from './components/actas/crear-actas/crear-actas.component';
+import { ListarActasComponent } from './components/actas/listar-actas/listar-actas.component';
+import { CrearAlertasComponent } from './components/alertas/crear-alertas/crear-alertas.component';
+import { ListarAlertasComponent } from './components/alertas/listar-alertas/listar-alertas.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,13 @@ import { CrearCamaraComponent } from './components/camara/crear-camara/crear-cam
     ListarSospechosoComponent,
     CamaraComponent,
     ListarCamaraComponent,
-    CrearCamaraComponent
+    CrearCamaraComponent,
+    ActasComponent,
+    AlertasComponent,
+    CrearActasComponent,
+    ListarActasComponent,
+    CrearAlertasComponent,
+    ListarAlertasComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +71,7 @@ import { CrearCamaraComponent } from './components/camara/crear-camara/crear-cam
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
