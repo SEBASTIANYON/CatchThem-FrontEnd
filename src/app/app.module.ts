@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {ThemePalette} from '@angular/material/core';
+import { ThemePalette, MatNativeDateModule } from '@angular/material/core';
 import {NgFor} from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
@@ -33,6 +33,7 @@ import { CrearActasComponent } from './components/actas/crear-actas/crear-actas.
 import { ListarActasComponent } from './components/actas/listar-actas/listar-actas.component';
 import { CrearAlertasComponent } from './components/alertas/crear-alertas/crear-alertas.component';
 import { ListarAlertasComponent } from './components/alertas/listar-alertas/listar-alertas.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -70,8 +71,9 @@ import { ListarAlertasComponent } from './components/alertas/listar-alertas/list
     ReactiveFormsModule,
     MatMenuModule,
     MatPaginatorModule,
-    MatTableModule
-    
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]
