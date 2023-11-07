@@ -8,8 +8,13 @@ import { CamaraComponent } from './components/camara/camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
 import { CrearAntecedenteComponent } from './components/antecedente/crear-antecedente/crear-antecedente.component';
 import { AntecedenteComponent } from './components/antecedente/antecedente.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'entidades',
     component: EntidadComponent,
@@ -23,7 +28,7 @@ const routes: Routes = [
     component:SospechosoComponent,
     children:[
       {path:'nuevo', component: CrearSospechosoComponent},
-      {path:'edicion/id', component: CrearSospechosoComponent}
+      {path:'edicion/:id', component: CrearSospechosoComponent}
     ]
   },
   {
@@ -31,7 +36,7 @@ const routes: Routes = [
     component:CamaraComponent,
     children:[
       {path:'nuevo', component: CrearCamaraComponent},
-      {path:'edicion/id', component: CrearCamaraComponent}
+      {path:'edicion/:id', component: CrearCamaraComponent}
     ]
   },
   {
@@ -39,7 +44,7 @@ const routes: Routes = [
     component:AntecedenteComponent,
     children:[
       {path:'nuevo', component: CrearAntecedenteComponent},
-      {path:'edicion/id', component: CrearAntecedenteComponent}
+      {path:'edicion/:id', component: CrearAntecedenteComponent}
     ]
   }
   //Colocar las rutas para las demas entidades
