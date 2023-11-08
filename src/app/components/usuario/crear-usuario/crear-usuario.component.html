@@ -22,7 +22,7 @@
 
           <mat-form-field class="example-full-width">
             <mat-label>password</mat-label>
-            <input matInput placeholder="password" formControlName="password" />
+            <input type="password" matInput placeholder="password" formControlName="password" />
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -31,12 +31,16 @@
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <mat-label>correo</mat-label>
-            <input matInput placeholder="correo" formControlName="correo" />
+            <mat-label>Correo</mat-label>
+            <input matInput placeholder="Correo" formControlName="correo" />
+            <mat-error *ngIf="form?.get('correo')?.hasError('sinArroba')">
+              El correo electrónico debe contener "@".
+            </mat-error>
           </mat-form-field>
+          
           <mat-form-field class="example-full-width">
             <mat-label>telefono</mat-label>
-            <input matInput placeholder="telefono" formControlName="telefono" />
+            <input type="number" matInput placeholder="telefono" formControlName="telefono" />
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>imagen</mat-label>

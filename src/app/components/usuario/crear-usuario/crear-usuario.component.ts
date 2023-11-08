@@ -42,7 +42,7 @@ export class CrearUsuarioComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       nombre: ['', Validators.required],
-      correo:["",Validators.required],
+      correo: ["", [Validators.required, this.validarCorreo]],
       telefono: ['', Validators.required],
       imagen: ['', Validators.required],
       entidad: ['', Validators.required],
@@ -53,6 +53,15 @@ export class CrearUsuarioComponent implements OnInit {
     })
   }
 
+  validarCorreo(control: AbstractControl) {
+    const valor = control.value;
+
+    if (valor && valor.indexOf('@') === -1) {
+      return { sinArroba: true };
+    }
+
+    return null;
+  }
 
   aceptar(): void {
 
