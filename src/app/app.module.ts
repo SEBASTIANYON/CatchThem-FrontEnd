@@ -26,7 +26,6 @@ import { MatTableModule } from '@angular/material/table';
 import { CamaraComponent } from './components/camara/camara.component';
 import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { MatCardModule } from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -63,7 +62,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
-    NgxPaginationModule,
     MatCardModule,
     MatGridListModule,
     MatNativeDateModule,
