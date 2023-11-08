@@ -29,8 +29,9 @@
         <p>entidad : {{user.entidad.nombre}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [routerLink]="['edicion', user.id]">EDITAR</button>
-        <button mat-button (click)="eliminar(user.id)">ELIMINAR</button>
+        <button mat-button [routerLink]="['edicion', user.id]"><mat-icon>create</mat-icon></button>
+        <button mat-button (click)="eliminar(user.id)"><mat-icon>delete_outline</mat-icon>
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>

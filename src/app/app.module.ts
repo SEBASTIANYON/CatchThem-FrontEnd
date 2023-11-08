@@ -31,6 +31,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { CrearUsuarioComponent } from './components/usuario/crear-usuario/crear-usuario.component';
 import { ListarUsuarioComponent } from './components/usuario/listar-usuario/listar-usuario.component';
 import {MatCardModule} from '@angular/material/card';
+import { RoleComponent } from './components/role/role.component';
+import { CrearRoleComponent } from './components/role/crear-role/crear-role.component';
 
 
 
@@ -48,7 +50,9 @@ import {MatCardModule} from '@angular/material/card';
     CrearCamaraComponent,
     UsuarioComponent,
     CrearUsuarioComponent,
-    ListarUsuarioComponent
+    ListarUsuarioComponent,
+    RoleComponent,
+    CrearRoleComponent
   ],
   imports: [
     BrowserModule,

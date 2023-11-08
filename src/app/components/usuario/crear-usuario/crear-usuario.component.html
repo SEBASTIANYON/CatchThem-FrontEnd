@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <div class="contenedor">
-      <div class="fondo"></div>
-      <div class="formulario">
-        <h1>Registrar Usuario</h1>
-        <br class="linea">
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #dedede;">
+    <div class="container" style="text-align: center">
         <br>
+        <h2>Registro de usuario</h2>
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
 
           <mat-form-field class="example-full-width">
@@ -56,7 +56,6 @@
           <p>{{mensaje}}</p>
 
         </form>
-      </div>
     </div>
-  </body>
-</html>
+</body>
+

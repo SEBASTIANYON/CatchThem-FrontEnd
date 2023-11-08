@@ -8,6 +8,7 @@ import { CamaraComponent } from './components/camara/camara.component';
 import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { CrearUsuarioComponent } from './components/usuario/crear-usuario/crear-usuario.component';
+import { RoleComponent } from './components/role/role.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,11 @@ const routes: Routes = [
       {path:'nuevo', component: CrearUsuarioComponent},
       {path:'edicion/:id', component: CrearUsuarioComponent}
     ]
+  },
+
+  {
+    path:'role',
+    component:RoleComponent,
   }
  
   //Colocar las rutas para las demas entidades
