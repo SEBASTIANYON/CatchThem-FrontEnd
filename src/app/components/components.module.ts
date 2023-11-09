@@ -28,6 +28,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ActasComponent } from './actas/actas.component';
+import { CrearActasComponent } from './actas/crear-actas/crear-actas.component';
+import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.component';
+import { AlertasComponent } from './alertas/alertas.component';
+import { ListarActasComponent } from './actas/listar-actas/listar-actas.component';
+import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     CamaraComponent,
     ListarCamaraComponent,
     CrearCamaraComponent,
+    ActasComponent,
+    CrearActasComponent,
+    CrearAlertasComponent,
+    AlertasComponent,
+    ListarActasComponent,
+    ListarAlertasComponent,
   ],
   imports: [
     CommonModule,
@@ -61,6 +73,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
     MatDatepickerModule,
     ComponentsRoutingModule,
+
   ],
 })
 export class ComponentsModule { }

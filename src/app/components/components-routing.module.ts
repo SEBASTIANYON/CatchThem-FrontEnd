@@ -4,6 +4,10 @@ import { CrearSospechosoComponent } from './sospechoso/crear-sospechoso/crear-so
 import { SospechosoComponent } from './sospechoso/sospechoso.component';
 import { CrearEntidadComponent } from './entidad/crear-entidad/crear-entidad.component';
 import { EntidadComponent } from './entidad/entidad.component';
+import { ActasComponent } from './actas/actas.component';
+import { CrearActasComponent } from './actas/crear-actas/crear-actas.component';
+import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.component';
+import { AlertasComponent } from './alertas/alertas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -30,6 +34,22 @@ const routes: Routes = [
     children:[
       {path:'nuevo', component: CrearCamaraComponent},
       {path:'edicion/:id', component: CrearCamaraComponent}
+    ]
+  },
+  {
+    path:'alertas',
+    component:AlertasComponent,
+    children:[
+      {path:'nuevo', component: CrearAlertasComponent},
+      {path:'edicion/:id', component: CrearAlertasComponent}
+    ]
+  },
+  {
+    path:'actas',
+    component:ActasComponent,
+    children:[
+      {path:'nuevo', component: CrearActasComponent},
+      {path:'edicion/:id', component: CrearActasComponent}
     ]
   },
   
