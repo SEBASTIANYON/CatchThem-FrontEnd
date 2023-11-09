@@ -23,6 +23,8 @@ export class ListarAlertasComponent implements OnInit {
     'actualizar',
     'eliminar'
   ];
+
+  
   constructor(private aS: AlertaService) {}
   ngOnInit(): void {
     this.aS.list().subscribe((data) => {

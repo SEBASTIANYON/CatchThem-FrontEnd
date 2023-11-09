@@ -9,7 +9,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class AlertaService {
-  private url = `${base_url}/alerta`;
+  private url = `${base_url}/alertas`;
   private listaCambio = new Subject<Alerta[]>();
   constructor(private http: HttpClient) {}
   list() {

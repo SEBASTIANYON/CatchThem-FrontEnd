@@ -21,6 +21,11 @@ export class CrearAlertasComponent implements OnInit {
     { value: 'Urgente', viewValue: 'Urgente' },
     { value: 'No Urgente', viewValue: 'No Urgente' },
   ];
+  tipos: { value: string; viewValue: string }[] = [
+    { value: 'Informativa', viewValue: 'Informativa' },
+    { value: 'Preventiva', viewValue: 'Preventiva' },
+    { value: 'Acción', viewValue: 'Acción' },
+  ];
 
   constructor(
     private aS: AlertaService,
@@ -37,23 +42,24 @@ export class CrearAlertasComponent implements OnInit {
     });
     this.form = this.formBuilder.group({
       id: [''],
-      fecha: ['', Validators.required],
+      fecha: [''],
       tipo: ['', Validators.required],
       descripcion: ['', Validators.required],
       gravedad: ['', Validators.required],
-      ubicacion:["",Validators.required],
-      usuario:[""]
+      ubicacion:['',Validators.required],
+      usuario:['']
     });
   }
 
   aceptar(): void {
     if (this.form.valid) {
+      this.alerta.descripcion = this.form.value.id
       this.alerta.descripcion = this.form.value.descripcion;
-      this.alerta.fecha = this.form.value.fecha;
+      this.alerta.fecha = new Date(Date.now())
       this.alerta.gravedad = this.form.value.gravedad;
       this.alerta.tipo = this.form.value.tipo;
       this.alerta.ubicacion=this.form.value.ubicacion;
-      this.alerta.usuario.id=this.form.value.usuario;
+      this.alerta.usuario.id=2
 
       if (this.edicion) {
         this.aS.update(this.alerta).subscribe(() => {
@@ -91,7 +97,7 @@ export class CrearAlertasComponent implements OnInit {
           descripcion:new FormControl(data.descripcion),
           gravedad:new FormControl(data.gravedad),
           ubicacion: new FormControl(data.ubicacion),
-          usuario: new FormControl(data.usuario.nombre),
+          usuario: new FormControl(data.usuario.id),
         });
       });
     }
