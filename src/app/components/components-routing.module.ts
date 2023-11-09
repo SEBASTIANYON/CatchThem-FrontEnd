@@ -21,7 +21,7 @@ const routes: Routes = [
     component:SospechosoComponent,
     children:[
       {path:'nuevo', component: CrearSospechosoComponent},
-      {path:'edicion/id', component: CrearSospechosoComponent}
+      {path:'edicion/:id', component: CrearSospechosoComponent}
     ]
   },
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
     component:CamaraComponent,
     children:[
       {path:'nuevo', component: CrearCamaraComponent},
-      {path:'edicion/id', component: CrearCamaraComponent}
+      {path:'edicion/:id', component: CrearCamaraComponent}
     ]
   },
   
