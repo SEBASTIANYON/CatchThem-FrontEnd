@@ -43,7 +43,7 @@ export class CrearUsuarioComponent implements OnInit {
       password: ['', Validators.required],
       nombre: ['', Validators.required],
       correo: ["", [Validators.required, this.validarCorreo]],
-      telefono: ['', Validators.required],
+      telefono: ['', [Validators.required]],
       imagen: ['', Validators.required],
       entidad: ['', Validators.required],
     });
@@ -67,6 +67,8 @@ export class CrearUsuarioComponent implements OnInit {
 
     
     if (this.form.valid) {
+
+      
       this.usuario.id = this.form.value.id;
       this.usuario.username = this.form.value.username;
       this.usuario.password = this.form.value.password;

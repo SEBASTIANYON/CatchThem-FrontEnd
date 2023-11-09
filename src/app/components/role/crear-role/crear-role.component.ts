@@ -44,24 +44,34 @@ export class CrearRoleComponent implements OnInit {
 
 
   aceptar(): void {
+  if (this.form.valid) {
+    const userId = this.form.value.user;
+    const rolValue = this.form.value.rol;
 
-    if (this.form.valid) {
+    // Verifica si el rol seleccionado es válido
+    if (this.isRoleValid(rolValue)) {
       this.role.id = this.form.value.id;
-      this.role.rol = this.form.value.rol;
-      this.role.user.id = this.form.value.user;
+      this.role.rol = rolValue;
+      this.role.user.id = userId;
+
       this.rS.insert(this.role).subscribe((data) => {
         this.rS.list().subscribe((data) => {
           this.rS.setList(data);
         });
+        this.router.navigate(['usuario']);
       });
-
-      this.router.navigate(['usuario']);
     } else {
-      this.mensaje = 'Por favor complete todos los campos obligatorios.';
+      alert('El rol seleccionado no es válido.');
     }
-
-   
+  } else {
+    this.mensaje = 'Por favor complete todos los campos obligatorios.';
   }
+}
+
+isRoleValid(rolValue: string): boolean {
+  return this.tipos.some(tipo => tipo.value === rolValue);
+}
+
 
   obtenerControlCampo(nombreCampo: string): AbstractControl {
     const control = this.form.get(nombreCampo);
