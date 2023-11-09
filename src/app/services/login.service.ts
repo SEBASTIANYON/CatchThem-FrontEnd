@@ -10,6 +10,10 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
+  cerrar(){
+    sessionStorage.clear()
+  }
+
   login(request: JwtRequest) {
     return this.http.post("http://localhost:8080/authenticate", request);
   }

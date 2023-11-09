@@ -8,9 +8,9 @@
 
 </mat-toolbar>
 
-<div style="background-color: #21201F;">
+<div style="background-color: #21201F;" *ngIf="verificar()">
   <div class="container-sm">
-    <nav mat-tab-nav-bar>
+    <nav mat-tab-nav-bar >
       <a color="success" mat-tab-link routerLink="/entidades" routerLinkActive #rla="routerLinkActive"
         [active]="rla.isActive">ENTIDADES</a>
       <a color="success" mat-tab-link routerLink="/usuarios" routerLinkActive #rla2="routerLinkActive"

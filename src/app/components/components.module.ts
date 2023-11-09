@@ -42,7 +42,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     CrearCamaraComponent,
   ],
   imports: [
-    BrowserAnimationsModule,
+    CommonModule,
     HttpClientModule,
     MatIconModule,
     MatButtonModule,
@@ -63,4 +63,4 @@ import { MatNativeDateModule } from '@angular/material/core';
     ComponentsRoutingModule,
   ],
 })
-export class ComponentsModule {}
+export class ComponentsModule { }
