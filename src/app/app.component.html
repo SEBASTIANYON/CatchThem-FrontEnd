@@ -1,16 +1,16 @@
-<mat-toolbar class="menu" >
+<mat-toolbar class="menu" *ngIf="verificar()">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-center">
     <img src="/assets/img/logo2.png" class="logo">
   </div>
   <div class="container text-center align-self-center">Usuario</div>
   <div class="container text-center align-self-center">Entidad</div>
-  <div class="container text-center align-self-center salir"><button>Salir</button></div>
+  <div class="container text-center align-self-center salir"><button routerLink="/login">Salir</button></div>
 
 </mat-toolbar>
 
-<div style="background-color: #21201F;">
+<div style="background-color: #21201F;" *ngIf="verificar()">
   <div class="container-sm">
-    <nav mat-tab-nav-bar>
+    <nav mat-tab-nav-bar >
       <a color="success" mat-tab-link routerLink="/entidades" routerLinkActive #rla="routerLinkActive"
         [active]="rla.isActive">ENTIDADES</a>
       <a color="success" mat-tab-link routerLink="/usuarios" routerLinkActive #rla2="routerLinkActive"
