@@ -11,16 +11,16 @@ import { SospechosoComponent } from './components/sospechoso/sospechoso.componen
 import { CrearSospechosoComponent } from './components/sospechoso/crear-sospechoso/crear-sospechoso.component';
 import { ListarSospechosoComponent } from './components/sospechoso/listar-sospechoso/listar-sospechoso.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ThemePalette, MatNativeDateModule } from '@angular/material/core';
-import {NgFor} from '@angular/common';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -34,6 +34,7 @@ import { ListarActasComponent } from './components/actas/listar-actas/listar-act
 import { CrearAlertasComponent } from './components/alertas/crear-alertas/crear-alertas.component';
 import { ListarAlertasComponent } from './components/alertas/listar-alertas/listar-alertas.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     CrearActasComponent,
     ListarActasComponent,
     CrearAlertasComponent,
-    ListarAlertasComponent
+    ListarAlertasComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +74,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatPaginatorModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule,    
+    MatNativeDateModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
