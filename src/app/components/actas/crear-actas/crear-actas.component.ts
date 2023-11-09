@@ -38,8 +38,8 @@ export class CrearActasComponent {
       id: [''],
       detalles: ['', Validators.required],
       fecha: ['', Validators.required],
-      sospechoso:["", Validators.required],
-      usuario:[""]
+      sospechoso:['', Validators.required],
+      usuario:['']
     });
 
     this.sS.list().subscribe(data => {
@@ -49,26 +49,34 @@ export class CrearActasComponent {
 
   aceptar(): void {
     if (this.form.valid) {
+      this.acta.id_acta = this.form.value.id
       this.acta.detalles = this.form.value.detalles;
       this.acta.fecha = this.form.value.fecha;
       this.acta.sospechoso.idSospechoso = this.form.value.sospechoso;
-      this.acta.usuario.id=this.form.value.usuario;
+      this.acta.usuario.id = 2
+
 
       if (this.edicion) {
+        
         this.aS.update(this.acta).subscribe(() => {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });
+          console.log("actualizar")
         });
       } else {
         this.aS.insert(this.acta).subscribe((data) => {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });
+          console.log("insertar")
         });
       }
-
-      this.router.navigate(['actas']);
+      
+      
+      this.router.navigate(['/actas']);
+    } else {
+      this.mensaje = 'Por favor complete todos los campos obligatorios.';
     }
   }
 
@@ -85,10 +93,10 @@ export class CrearActasComponent {
       this.aS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id_acta),
-          detalles: new FormControl(data.detalles),
           fecha: new FormControl(data.fecha),
-          sospechoso:new FormControl(data.sospechoso.nombre),
-          usuario: new FormControl(data.usuario.nombre),
+          detalles:new FormControl(data.detalles),
+          sospechoso: new FormControl(data.sospechoso.idSospechoso),
+          usuario: new FormControl(data.usuario.id),
         });
       });
     }
