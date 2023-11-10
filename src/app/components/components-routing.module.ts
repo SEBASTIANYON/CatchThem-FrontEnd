@@ -10,10 +10,11 @@ import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.com
 import { AlertasComponent } from './alertas/alertas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuardService } from '../services/guard.service';
 
 const routes: Routes = [
   {
-    path: 'entidades',
+    path: 'entidades', canActivate: [GuardService],
     component: EntidadComponent,
     children: [
       { path: 'nuevo', component: CrearEntidadComponent },
@@ -21,38 +22,40 @@ const routes: Routes = [
     ]
   },
   {
-    path:'sospechosos',
-    component:SospechosoComponent,
-    children:[
-      {path:'nuevo', component: CrearSospechosoComponent},
-      {path:'edicion/:id', component: CrearSospechosoComponent}
+    path: 'sospechosos', canActivate: [GuardService],
+    component: SospechosoComponent,
+    children: [
+      { path: 'nuevo', component: CrearSospechosoComponent },
+      { path: 'edicion/:id', component: CrearSospechosoComponent }
     ]
   },
   {
-    path:'camaras',
-    component:CamaraComponent,
-    children:[
-      {path:'nuevo', component: CrearCamaraComponent},
-      {path:'edicion/:id', component: CrearCamaraComponent}
+    path: 'camaras', canActivate: [GuardService],
+    component: CamaraComponent,
+    children: [
+      { path: 'nuevo', component: CrearCamaraComponent },
+      { path: 'edicion/:id', component: CrearCamaraComponent }
     ]
   },
   {
-    path:'alertas',
-    component:AlertasComponent,
-    children:[
-      {path:'nuevo', component: CrearAlertasComponent},
-      {path:'edicion/:id', component: CrearAlertasComponent}
+    path: 'alertas', canActivate: [GuardService],
+    data: {role: ['POLICIA', 'AGENTE','ADMIN']},
+    component: AlertasComponent,
+    children: [
+      { path: 'nuevo', component: CrearAlertasComponent, data: {role: ['POLICIA', 'AGENTE','ADMIN']},canActivate: [GuardService], },
+      { path: 'edicion/:id', component: CrearAlertasComponent, data: {role: ['ADMIN']},canActivate: [GuardService], },
     ]
   },
   {
-    path:'actas',
-    component:ActasComponent,
-    children:[
-      {path:'nuevo', component: CrearActasComponent},
-      {path:'edicion/:id', component: CrearActasComponent}
+    path: 'actas', canActivate: [GuardService],
+    data: {role: ['POLICIA', 'AGENTE','ADMIN']},
+    component: ActasComponent,
+    children: [
+      { path: 'nuevo', component: CrearActasComponent, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      { path: 'edicion/:id', component: CrearActasComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
     ]
   },
-  
+
   //Colocar las rutas para las demas entidades
 ];
 
@@ -60,4 +63,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ComponentsRoutingModule {}
+export class ComponentsRoutingModule { }
