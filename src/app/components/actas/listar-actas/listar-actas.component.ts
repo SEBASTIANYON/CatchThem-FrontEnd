@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of } from 'rxjs';
 
 import { ActasinterrogatorioService } from 'src/app/services/actasinterrogatorio.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-listar-actas',
@@ -16,17 +17,18 @@ export class ListarActasComponent implements OnInit{
   @ViewChild(MatPaginator ,{static: true}) paginator!: MatPaginator;
   listaActas: ActasInterrogatorio[] = []
   obs: Observable<any> | undefined
-  
+  role: string = ''
   
 
 
   constructor(
     private aS: ActasinterrogatorioService,
-    
+    private loginService: LoginService
     ) {}
 
 
   ngOnInit(): void {
+    
 
     console.log("carga ngoninit")
     this.aS.list().subscribe((data) => {
@@ -41,6 +43,8 @@ export class ListarActasComponent implements OnInit{
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
+    
+    this.role = this.loginService.showRole()
     
     
   }
@@ -58,7 +62,33 @@ export class ListarActasComponent implements OnInit{
     
   }
 
+  reload(){
+    this.aS.list().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.listaActas = data
+      this.obs = this.dataSource.connect()
+    });
+
+
+    this.aS.getList().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
+  }
+
   filter(en:any){
+    //filtrar para objetos anidados
+    this.dataSource.filterPredicate = (data: ActasInterrogatorio, filter: string) => {
+      return data.sospechoso.nombre.toLocaleLowerCase().includes(filter) || 
+      data.usuario.nombre.toLocaleLowerCase().includes(filter) ||
+      data.detalles.toLocaleLowerCase().includes(filter) ||
+      data.id_acta.toLocaleString().includes(filter) ||
+      data.fecha.toLocaleString().includes(filter);
+    }
+
     this.dataSource.filter=en.target.value.trim();
   }
+
+  
 }

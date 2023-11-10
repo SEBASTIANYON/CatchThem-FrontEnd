@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ActasInterrogatorio } from 'src/app/models/ActasInterrogatorio';
 import { Sospechoso } from 'src/app/models/Sospechoso';
 import { ActasinterrogatorioService } from 'src/app/services/actasinterrogatorio.service';
+import { LoginService } from 'src/app/services/login.service';
 import { SospechosoService } from 'src/app/services/sospechoso.service';
 
 @Component({
@@ -24,6 +25,7 @@ export class CrearActasComponent {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private sS: SospechosoService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -53,11 +55,11 @@ export class CrearActasComponent {
       this.acta.detalles = this.form.value.detalles;
       this.acta.fecha = this.form.value.fecha;
       this.acta.sospechoso.idSospechoso = this.form.value.sospechoso;
-      this.acta.usuario.id = 2
+      this.acta.usuario.id = this.loginService.showId()
 
 
       if (this.edicion) {
-        
+        console.log(this.acta)
         this.aS.update(this.acta).subscribe(() => {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);

@@ -18,9 +18,15 @@
           <input matInput (keyup)="filter($event)" placeholder="Buscar" />
         </mat-form-field>
       </div>
-      <div>
-        <button mat-raised-button style="background-color: #20211f; color:#F4F7F9; font-weight: 800;"
-          routerLink="/actas/nuevo">
+      <div class="buttons" >
+        <button *ngIf="role == 'ADMIN' || role == 'POLICIA'" mat-mini-fab
+          style="background-color: #ABABA9; color:#20211f; font-weight: 800;" (click)="reload()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+
+
+        <button *ngIf="role == 'ADMIN' || role == 'POLICIA'" mat-raised-button
+          style="background-color: #20211f; color:#F4F7F9; font-weight: 800;" routerLink="/actas/nuevo">
           Nuevo
         </button>
       </div>
@@ -39,19 +45,20 @@
           <mat-card-content style="text-align: right; font-size: 80%;">
             <p>{{a.fecha}}</p>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button [routerLink]="['edicion', a.id_acta]">
-              edit
+          <mat-card-actions *ngIf="role == 'ADMIN'">
+            <button *ngIf="role == 'ADMIN'" mat-button [routerLink]="['edicion', a.id_acta]">
+              <mat-icon>edit</mat-icon>
             </button>
-            <button mat-button (click)="eliminar(a.id_acta)">
-              delete
+            <button *ngIf="role == 'ADMIN'" mat-button (click)="eliminar(a.id_acta)">
+              <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>
         </mat-card>
       </div>
-      <mat-paginator style="background-color: transparent;" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+      <mat-paginator style="background-color: transparent;" [pageSizeOptions]="[6, 30, 60, 90]"
+        showFirstLastButtons></mat-paginator>
     </div>
-    
+
   </div>
 </body>
 
