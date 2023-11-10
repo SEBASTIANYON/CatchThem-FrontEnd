@@ -49,7 +49,7 @@
             <button *ngIf="role == 'ADMIN'" mat-button [routerLink]="['edicion', a.id_acta]">
               <mat-icon>edit</mat-icon>
             </button>
-            <button *ngIf="role == 'ADMIN'" mat-button (click)="eliminar(a.id_acta)">
+            <button *ngIf="role == 'ADMIN'" mat-button (click)="openDialog(a.id_acta)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>

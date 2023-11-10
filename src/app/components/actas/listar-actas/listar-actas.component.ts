@@ -1,11 +1,13 @@
 import { ActasInterrogatorio } from './../../../models/ActasInterrogatorio';
 import { Component, ViewChild, OnInit, ChangeDetectorRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of } from 'rxjs';
 
 import { ActasinterrogatorioService } from 'src/app/services/actasinterrogatorio.service';
 import { LoginService } from 'src/app/services/login.service';
+import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
   selector: 'app-listar-actas',
@@ -15,7 +17,6 @@ import { LoginService } from 'src/app/services/login.service';
 export class ListarActasComponent implements OnInit{
   dataSource: MatTableDataSource<ActasInterrogatorio> = new MatTableDataSource();
   @ViewChild(MatPaginator ,{static: true}) paginator!: MatPaginator;
-  listaActas: ActasInterrogatorio[] = []
   obs: Observable<any> | undefined
   role: string = ''
   
@@ -23,7 +24,8 @@ export class ListarActasComponent implements OnInit{
 
   constructor(
     private aS: ActasinterrogatorioService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    public dialog: MatDialog
     ) {}
 
 
@@ -31,22 +33,20 @@ export class ListarActasComponent implements OnInit{
     
 
     console.log("carga ngoninit")
+    
+
     this.aS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-      this.listaActas = data
-      this.obs = this.dataSource.connect()
+      this.dataSource.paginator = this.paginator;      
+      this.obs=this.dataSource.connect()
     });
 
-
+    
     this.aS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
-    
     this.role = this.loginService.showRole()
-    
-    
   }
 
   
@@ -54,26 +54,33 @@ export class ListarActasComponent implements OnInit{
     this.aS.delete(id).subscribe((data) => {
       this.aS.list().subscribe((data) => {
         this.aS.setList(data);
-        this.listaActas = data
+        
         this.obs = this.dataSource.connect()
       });
     });
+  }
 
-    
+  openDialog(id_acta: number){
+    this.dialog.open(DialogComponent)
+    .afterClosed()
+    .subscribe((confirmacion: Boolean) => {
+      if(confirmacion){
+        this.eliminar(id_acta)
+      }
+    })
   }
 
   reload(){
     this.aS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-      this.listaActas = data
       this.obs = this.dataSource.connect()
     });
-
 
     this.aS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
+      
     });
   }
 

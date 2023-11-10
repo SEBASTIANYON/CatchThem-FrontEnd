@@ -34,6 +34,8 @@ import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.com
 import { AlertasComponent } from './alertas/alertas.component';
 import { ListarActasComponent } from './actas/listar-actas/listar-actas.component';
 import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.
     AlertasComponent,
     ListarActasComponent,
     ListarAlertasComponent,
+    DialogComponent,
   ],
   imports: [
     CommonModule,
@@ -73,6 +76,7 @@ import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.
     MatNativeDateModule,
     MatDatepickerModule,
     ComponentsRoutingModule,
+    MatDialogModule,
 
   ],
 })

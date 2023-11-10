@@ -6,7 +6,7 @@ import { Sospechoso } from 'src/app/models/Sospechoso';
 import { ActasinterrogatorioService } from 'src/app/services/actasinterrogatorio.service';
 import { LoginService } from 'src/app/services/login.service';
 import { SospechosoService } from 'src/app/services/sospechoso.service';
-
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 @Component({
   selector: 'app-crear-actas',
   templateUrl: './crear-actas.component.html',
@@ -19,13 +19,18 @@ export class CrearActasComponent {
   listaSospechosos: Sospechoso[] = []
   id: number = 0;
   edicion: boolean = false;
+
+
+
+
   constructor(
     private aS: ActasinterrogatorioService,
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private sS: SospechosoService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -47,15 +52,23 @@ export class CrearActasComponent {
     this.sS.list().subscribe(data => {
       this.listaSospechosos = data
     })
+
+    
   }
 
   aceptar(): void {
+    
     if (this.form.valid) {
       this.acta.id_acta = this.form.value.id
       this.acta.detalles = this.form.value.detalles;
       this.acta.fecha = this.form.value.fecha;
       this.acta.sospechoso.idSospechoso = this.form.value.sospechoso;
-      this.acta.usuario.id = this.loginService.showId()
+      if(this.edicion){
+        this.acta.usuario.id = this.form.value.usuario
+      }
+      else {
+        this.acta.usuario.id = this.loginService.showId()
+      }
 
 
       if (this.edicion) {
@@ -71,10 +84,9 @@ export class CrearActasComponent {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });
-          console.log("insertar")
+          console.log("insertar2222")
         });
       }
-      
       
       this.router.navigate(['/actas']);
     } else {
