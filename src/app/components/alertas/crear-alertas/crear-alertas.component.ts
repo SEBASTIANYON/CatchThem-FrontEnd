@@ -57,11 +57,21 @@ export class CrearAlertasComponent implements OnInit {
     if (this.form.valid) {
       this.alerta.id_alerta = this.form.value.id
       this.alerta.descripcion = this.form.value.descripcion;
-      this.alerta.fecha = new Date(Date.now())
+      if(this.edicion){
+        this.alerta.fecha = this.form.value.fecha
+      }
+      else {
+        this.alerta.fecha = new Date(Date.now())
+      }
       this.alerta.gravedad = this.form.value.gravedad;
       this.alerta.tipo = this.form.value.tipo;
       this.alerta.ubicacion=this.form.value.ubicacion;
-      this.alerta.usuario.id=this.loginService.showId()
+      if(this.edicion){
+        this.alerta.usuario.id = this.form.value.usuario
+      }
+      else {
+        this.alerta.usuario.id=this.loginService.showId()
+      }
 
       if (this.edicion) {
         this.aS.update(this.alerta).subscribe(() => {

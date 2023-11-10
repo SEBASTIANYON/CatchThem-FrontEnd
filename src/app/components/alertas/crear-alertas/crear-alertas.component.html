@@ -9,7 +9,8 @@
 
 <body style="background-color: #dedede;">
     <div class="container" style="text-align: center">
-        <h2>Registro de alertas</h2>
+        <h2 [hidden]="edicion">Registro de alertas</h2>
+        <h2 [hidden]="edicion !== true">Editar alertas</h2>
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
 
             <mat-form-field>

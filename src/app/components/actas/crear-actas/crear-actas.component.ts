@@ -6,7 +6,7 @@ import { Sospechoso } from 'src/app/models/Sospechoso';
 import { ActasinterrogatorioService } from 'src/app/services/actasinterrogatorio.service';
 import { LoginService } from 'src/app/services/login.service';
 import { SospechosoService } from 'src/app/services/sospechoso.service';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+
 @Component({
   selector: 'app-crear-actas',
   templateUrl: './crear-actas.component.html',
@@ -30,7 +30,6 @@ export class CrearActasComponent {
     private route: ActivatedRoute,
     private sS: SospechosoService,
     private loginService: LoginService,
-    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
