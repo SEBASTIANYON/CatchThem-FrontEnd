@@ -30,6 +30,43 @@ export class LoginService {
     }
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
+    //console.log(decodedToken)
     return decodedToken?.role;
   }
+
+  showUsername(){
+    let token = sessionStorage.getItem("token");
+    if (!token) {
+      // Manejar el caso en el que el token es nulo.
+      return null; // O cualquier otro valor predeterminado dependiendo del contexto.
+    }
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    return decodedToken?.nombre;
+  }
+
+  showEntidad(){
+    let token = sessionStorage.getItem("token");
+    if (!token) {
+      // Manejar el caso en el que el token es nulo.
+      return null; // O cualquier otro valor predeterminado dependiendo del contexto.
+    }
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    return decodedToken?.entidad;
+  }
+
+  showId(){
+    let token = sessionStorage.getItem("token");
+    if (!token) {
+      // Manejar el caso en el que el token es nulo.
+      return null; // O cualquier otro valor predeterminado dependiendo del contexto.
+    }
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    return decodedToken?.id;
+  }
+
+  
+
 }
