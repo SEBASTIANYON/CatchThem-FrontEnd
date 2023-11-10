@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Alerta } from 'src/app/models/Alerta';
 import { AlertaService } from 'src/app/services/alerta.service';
 import { LoginService } from 'src/app/services/login.service';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
   selector: 'app-listar-alertas',
@@ -14,13 +16,11 @@ export class ListarAlertasComponent implements OnInit {
   dataSource: MatTableDataSource<Alerta> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = [
-    'id',
+    'usuario',
     'fecha',
     'tipo',
     'descripcion',
-    'ubicacion',
     'gravedad',
-    'usuario',
     'actualizar',
     'eliminar'
   ];
@@ -29,7 +29,8 @@ export class ListarAlertasComponent implements OnInit {
   
   constructor(
     private aS: AlertaService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    public dialog: MatDialog
     ) {}
 
   ngOnInit(): void {
@@ -47,15 +48,24 @@ export class ListarAlertasComponent implements OnInit {
 
     if(this.role !== 'ADMIN'){
       this.displayedColumns = [
-        'id',
+        'usuario',
         'fecha',
         'tipo',
-        'descripcion',
         'ubicacion',
         'gravedad',
-        'usuario',
+        'descripcion',
       ];
     }
+  }
+
+  openDialog(id_alerta: number){
+    this.dialog.open(DialogComponent)
+    .afterClosed()
+    .subscribe((confirmacion: Boolean) => {
+      if(confirmacion){
+        this.eliminar(id_alerta)
+      }
+    })
   }
 
   eliminar(id: number) {
