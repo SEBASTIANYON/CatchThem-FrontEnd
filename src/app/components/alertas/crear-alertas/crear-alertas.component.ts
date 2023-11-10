@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Alerta } from 'src/app/models/Alerta';
 import { AlertaService } from 'src/app/services/alerta.service';
+import { LoginService } from 'src/app/services/login.service';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class CrearAlertasComponent implements OnInit {
     private aS: AlertaService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -53,13 +55,13 @@ export class CrearAlertasComponent implements OnInit {
 
   aceptar(): void {
     if (this.form.valid) {
-      this.alerta.descripcion = this.form.value.id
+      this.alerta.id_alerta = this.form.value.id
       this.alerta.descripcion = this.form.value.descripcion;
       this.alerta.fecha = new Date(Date.now())
       this.alerta.gravedad = this.form.value.gravedad;
       this.alerta.tipo = this.form.value.tipo;
       this.alerta.ubicacion=this.form.value.ubicacion;
-      this.alerta.usuario.id=2
+      this.alerta.usuario.id=this.loginService.showId()
 
       if (this.edicion) {
         this.aS.update(this.alerta).subscribe(() => {
