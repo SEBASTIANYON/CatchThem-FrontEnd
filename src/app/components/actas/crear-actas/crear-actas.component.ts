@@ -19,6 +19,7 @@ export class CrearActasComponent {
   listaSospechosos: Sospechoso[] = []
   id: number = 0;
   edicion: boolean = false;
+  maxFecha: Date = new Date(Date.now());
 
 
 
@@ -106,9 +107,9 @@ export class CrearActasComponent {
       this.aS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id_acta),
-          fecha: new FormControl(data.fecha),
-          detalles:new FormControl(data.detalles),
-          sospechoso: new FormControl(data.sospechoso.idSospechoso),
+          fecha: new FormControl(data.fecha, Validators.required),
+          detalles:new FormControl(data.detalles, Validators.required),
+          sospechoso: new FormControl(data.sospechoso.idSospechoso, Validators.required),
           usuario: new FormControl(data.usuario.id),
         });
       });
