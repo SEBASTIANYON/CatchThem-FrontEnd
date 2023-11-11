@@ -36,6 +36,9 @@ import { ListarActasComponent } from './actas/listar-actas/listar-actas.componen
 import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dialogo-confirmacion.component';
+import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ListarActasComponent,
     ListarAlertasComponent,
     DialogComponent,
+    DialogoConfirmacionComponent,
+    DialogoMapaComponent,
   ],
   imports: [
     CommonModule,
@@ -77,7 +82,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-
+    GoogleMapsModule
+    
   ],
 })
 export class ComponentsModule { }
