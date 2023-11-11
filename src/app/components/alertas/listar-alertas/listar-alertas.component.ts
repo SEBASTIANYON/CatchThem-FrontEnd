@@ -54,9 +54,9 @@ export class ListarAlertasComponent implements OnInit {
         'usuario',
         'fecha',
         'tipo',
-        'ubicacion',
         'gravedad',
         'descripcion',
+        'ubicacion',
       ];
     }
   }

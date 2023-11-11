@@ -90,9 +90,8 @@ export class ListarActasComponent implements OnInit{
     this.dataSource.filterPredicate = (data: ActasInterrogatorio, filter: string) => {
       return data.sospechoso.nombre.toLocaleLowerCase().includes(filter) || 
       data.usuario.nombre.toLocaleLowerCase().includes(filter) ||
-      data.detalles.toLocaleLowerCase().includes(filter) ||
-      data.id_acta.toLocaleString().includes(filter) ||
-      data.fecha.toLocaleString().includes(filter);
+      data.id_acta.toLocaleString().includes(filter)
+      
     }
 
     this.dataSource.filter=en.target.value.trim();
