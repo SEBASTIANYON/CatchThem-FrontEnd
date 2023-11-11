@@ -119,10 +119,10 @@ export class CrearAlertasComponent implements OnInit {
         this.form = new FormGroup({
           id: new FormControl(data.id_alerta),
           fecha: new FormControl(data.fecha),
-          tipo: new FormControl(data.tipo),
-          descripcion: new FormControl(data.descripcion),
-          gravedad: new FormControl(data.gravedad),
-          ubicacion: new FormControl(data.ubicacion),
+          tipo: new FormControl(data.tipo, Validators.required),
+          descripcion: new FormControl(data.descripcion, Validators.required),
+          gravedad: new FormControl(data.gravedad, Validators.required),
+          ubicacion: new FormControl(data.ubicacion, Validators.required),
           usuario: new FormControl(data.usuario.id),
           
         });
