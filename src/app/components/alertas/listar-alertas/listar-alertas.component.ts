@@ -6,6 +6,8 @@ import { AlertaService } from 'src/app/services/alerta.service';
 import { LoginService } from 'src/app/services/login.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
+import { DialogoMapaComponent } from '../../dialog/dialogo-mapa/dialogo-mapa.component';
 
 @Component({
   selector: 'app-listar-alertas',
@@ -21,6 +23,7 @@ export class ListarAlertasComponent implements OnInit {
     'tipo',
     'descripcion',
     'gravedad',
+    'ubicacion',
     'actualizar',
     'eliminar'
   ];
@@ -59,12 +62,18 @@ export class ListarAlertasComponent implements OnInit {
   }
 
   openDialog(id_alerta: number){
-    this.dialog.open(DialogComponent)
+    this.dialog.open(DialogoConfirmacionComponent)
     .afterClosed()
     .subscribe((confirmacion: Boolean) => {
       if(confirmacion){
         this.eliminar(id_alerta)
       }
+    })
+  }
+
+  openMap(alerta: Alerta){
+    this.dialog.open(DialogoMapaComponent, {
+      data: alerta.ubicacion
     })
   }
 

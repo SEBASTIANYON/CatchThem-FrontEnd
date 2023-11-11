@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 import { ActasinterrogatorioService } from 'src/app/services/actasinterrogatorio.service';
 import { LoginService } from 'src/app/services/login.service';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 
 @Component({
   selector: 'app-listar-actas',
@@ -61,7 +62,7 @@ export class ListarActasComponent implements OnInit{
   }
 
   openDialog(id_acta: number){
-    this.dialog.open(DialogComponent)
+    this.dialog.open(DialogoConfirmacionComponent)
     .afterClosed()
     .subscribe((confirmacion: Boolean) => {
       if(confirmacion){

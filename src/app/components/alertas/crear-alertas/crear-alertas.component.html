@@ -8,61 +8,73 @@
 </head>
 
 <body style="background-color: #dedede;">
-    <div class="container" style="text-align: center">
-        <h2 [hidden]="edicion">Registro de alertas</h2>
-        <h2 [hidden]="edicion !== true">Editar alertas</h2>
-        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+    <div class="container">
+        <div class="row" style="text-align: center">
+            <h2 [hidden]="edicion">Registro de alertas</h2>
+            <h2 [hidden]="edicion !== true">Editar alertas</h2>
+            <div class="col-sm">
+                <form [formGroup]="form" (submit)="aceptar()" class="example-form">
 
-            <mat-form-field>
-                <mat-label>Gravedad</mat-label>
-                <mat-select formControlName="gravedad">
-                    <mat-option *ngFor="let c of gravedad" [value]="c.value">
-                        {{c.viewValue}}
-                    </mat-option>
-                </mat-select>
-                <mat-error *ngIf="obtenerControlCampo('gravedad')?.errors?.['required']">
-                    La gravedad es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <br />
+                    <mat-form-field>
+                        <mat-label>Gravedad</mat-label>
+                        <mat-select formControlName="gravedad">
+                            <mat-option *ngFor="let c of gravedad" [value]="c.value">
+                                {{c.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="obtenerControlCampo('gravedad')?.errors?.['required']">
+                            La gravedad es obligatorio.
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
 
-            <mat-form-field>
-                <mat-label>Tipo</mat-label>
-                <mat-select formControlName="tipo">
-                    <mat-option *ngFor="let c of tipos" [value]="c.value">
-                        {{c.viewValue}}
-                    </mat-option>
-                </mat-select>
-                <mat-error *ngIf="obtenerControlCampo('tipo')?.errors?.['required']">
-                    El tipo es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <br />
+                    <mat-form-field>
+                        <mat-label>Tipo</mat-label>
+                        <mat-select formControlName="tipo">
+                            <mat-option *ngFor="let c of tipos" [value]="c.value">
+                                {{c.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="obtenerControlCampo('tipo')?.errors?.['required']">
+                            El tipo es obligatorio.
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Ubicación</mat-label>
-                <input matInput placeholder="Ubicación" formControlName="ubicacion" />
-                <mat-error *ngIf="obtenerControlCampo('ubicacion')?.errors?.['required']">
-                    La descripcion es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <br />
-            <mat-form-field class="example-full-width">
-                <mat-label>Descripcion</mat-label>
-                <textarea matInput placeholder="Descripción" formControlName="descripcion"></textarea>
-                
-                <mat-error *ngIf="obtenerControlCampo('descripcion')?.errors?.['required']">
-                    La descripcion es obligatorio.
-                </mat-error>
-            </mat-form-field>
-            <br />
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Ubicación</mat-label>
+                        <input matInput placeholder="Ubicación" formControlName="ubicacion" />
+                        <mat-error *ngIf="obtenerControlCampo('ubicacion')?.errors?.['required']">
+                            La descripcion es obligatorio.
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea matInput placeholder="Descripción" formControlName="descripcion"></textarea>
 
-            <button mat-raised-button style="margin-right: 5%; background-color: #20211f; color:#F4F7F9; font-weight: 800;">Aceptar</button>
-            <button mat-raised-button style="background-color: #D6CDC9; color:#20211f; font-weight: 800;" routerLink="/alertas">
-                Cancelar
-            </button>
-            <p>{{ mensaje }}</p>
-        </form>
+                        <mat-error *ngIf="obtenerControlCampo('descripcion')?.errors?.['required']">
+                            La descripcion es obligatorio.
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+
+                    <button mat-raised-button
+                        style="margin-right: 5%; background-color: #20211f; color:#F4F7F9; font-weight: 800;">Aceptar</button>
+                    <button mat-raised-button style="background-color: #D6CDC9; color:#20211f; font-weight: 800;"
+                        routerLink="/alertas">
+                        Cancelar
+                    </button>
+                    <p>{{ mensaje }}</p>
+                </form>
+            </div>
+            <div class="col-sm">
+                <google-map height="100%" width="100%" [options]="mapOptions" (mapDblclick)="onClick($event)">
+                </google-map>
+            </div>
+
+        </div>
+
     </div>
 </body>
 
