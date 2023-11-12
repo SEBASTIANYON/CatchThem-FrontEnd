@@ -4,12 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EntidadComponent } from './components/entidad/entidad.component';
-import { CrearEntidadComponent } from './components/entidad/crear-entidad/crear-entidad.component';
-import { ListarEntidadComponent } from './components/entidad/listar-entidad/listar-entidad.component';
-import { SospechosoComponent } from './components/sospechoso/sospechoso.component';
-import { CrearSospechosoComponent } from './components/sospechoso/crear-sospechoso/crear-sospechoso.component';
-import { ListarSospechosoComponent } from './components/sospechoso/listar-sospechoso/listar-sospechoso.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,26 +17,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { CamaraComponent } from './components/camara/camara.component';
-import { ListarCamaraComponent } from './components/camara/listar-camara/listar-camara.component';
-import { CrearCamaraComponent } from './components/camara/crear-camara/crear-camara.component';
-import { MatCardModule } from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { LoginComponent } from './components/login/login.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntidadComponent,
-    CrearEntidadComponent,
-    ListarEntidadComponent,
-    SospechosoComponent,
-    CrearSospechosoComponent,
-    ListarSospechosoComponent,
-    CamaraComponent,
-    ListarCamaraComponent,
-    CrearCamaraComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +36,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
-    NgFor,
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
@@ -62,10 +44,9 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
-    MatCardModule,
-    MatGridListModule,
+    MatDatepickerModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

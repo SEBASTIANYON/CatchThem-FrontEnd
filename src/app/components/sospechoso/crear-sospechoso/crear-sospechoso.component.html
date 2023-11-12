@@ -5,75 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+
   <body>
-    <div class="container">
-      <h1 style="padding-left: 60px">REGISTRAR SOSPECHOSO</h1>
-      <br />
-      <div class="container">
-        <form [formGroup]="form" (submit)="aceptar()" class="example-form" style="text-align: left;">
-          <mat-form-field style="padding: 20px; width: 23%">
-            <mat-label>Nombres</mat-label>
-            <input matInput />
+    <div class="contenedor">
+      <div class="formulario">
+        <h1>Registrar Sospechoso</h1>
+        <br class="linea" />
+        <br />
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre" formControlName="nombre" />
           </mat-form-field>
-          <mat-form-field style="padding: 20px; width: 23%">
+
+          <mat-form-field class="example-full-width">
             <mat-label>Alias</mat-label>
-            <input matInput />
+            <input matInput placeholder="Alias" formControlName="alias" />
           </mat-form-field>
-          <br />
-          <mat-form-field style="padding: 20px; width: 23%">
-            <mat-label>Género</mat-label>
-            <mat-select formControlName="tipoGenero">
-              <mat-option *ngFor="let p of tipos" [value]="p.value">
-                {{ p.viewValue }}
-              </mat-option>
-            </mat-select>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nacimiento</mat-label>
+            <input
+              matInput
+              placeholder="Nacimiento"
+              formControlName="nacimiento"
+            />
           </mat-form-field>
-          <mat-form-field style="padding: 20px; width: 23%">
-            <mat-label>Fecha de Nacimiento</mat-label>
-            <input matInput [matDatepicker]="picker" />
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle
-              matIconSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-          <br />
-          <mat-form-field style="padding: 20px; width: 23%">
+
+          <mat-form-field class="example-full-width">
             <mat-label>Nacionalidad</mat-label>
-            <input matInput />
+            <input
+              matInput
+              placeholder="Nacionalidad"
+              formControlName="nacionalidad"
+            />
           </mat-form-field>
-          <mat-form-field style="padding: 20px; width: 23%">
-            <mat-label>Historial</mat-label>
-            <input matInput />
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Genero</mat-label>
+            <input matInput placeholder="Genero" formControlName="genero" />
           </mat-form-field>
-          <br />
-          <mat-form-field style="padding: 20px; width: 23%">
+
+          <mat-form-field class="example-full-width">
             <mat-label>Estado</mat-label>
-            <mat-select formControlName="tipoEstado">
-              <mat-option *ngFor="let p of tipos2" [value]="p.value2">
-                {{ p.viewValue2 }}
-              </mat-option>
-            </mat-select>
+            <input matInput placeholder="Estado" formControlName="estado" />
           </mat-form-field>
-          <mat-form-field style="padding: 20px; width: 23%">
-            <mat-label>Fecha de Registro</mat-label>
-            <input matInput [matDatepicker]="picker" />
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle
-              matIconSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
           </mat-form-field>
-          <br />
+
           <button mat-raised-button color="primary">Registrar</button>
-          <p>{{mensaje}}</p>
-          <button mat-raised-button color="primary" routerLink="/sospechosos">
-            Ver Lista
-          </button>
+          <p>{{ mensaje }}</p>
         </form>
       </div>
+      <div class="fondo2"></div>
     </div>
   </body>
 </html>

@@ -1,15 +1,15 @@
-import { Sospechoso } from './../../../models/Sospechoso';
-import { SospechosoService } from './../../../services/sospechoso.service';
-import { Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SospechosoService } from 'src/app/services/sospechoso.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { Sospechoso } from 'src/app/models/Sospechoso';
 
 @Component({
   selector: 'app-listar-sospechoso',
   templateUrl: './listar-sospechoso.component.html',
   styleUrls: ['./listar-sospechoso.component.css'],
 })
-export class ListarSospechosoComponent {
+export class ListarSospechosoComponent implements OnInit {
   dataSource: MatTableDataSource<Sospechoso> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = [
@@ -18,19 +18,15 @@ export class ListarSospechosoComponent {
     'alias',
     'nacimiento',
     'genero',
-    'nacionalidad',
-    'descripcion',
-    'historial',
-    'estado',
-    'fecharegistro',
+    'nacionalidad'
   ];
-  constructor(private oS: SospechosoService) {}
+  constructor(private uS: SospechosoService) {}
   ngOnInit(): void {
-    this.oS.list().subscribe((data) => {
+    this.uS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
-    this.oS.getList().subscribe((data) => {
+    this.uS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
@@ -38,9 +34,9 @@ export class ListarSospechosoComponent {
 
   //se agrega eliminar por id
   eliminar(id: number) {
-    this.oS.delete(id).subscribe((data) => {
-      this.oS.list().subscribe((data) => {
-        this.oS.setList(data);
+    this.uS.delete(id).subscribe((data) => {
+      this.uS.list().subscribe((data) => {
+        this.uS.setList(data);
       });
     });
   }

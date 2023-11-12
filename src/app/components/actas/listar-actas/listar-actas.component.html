@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body style="background-color: #dedede;">
+  <div class="container ">
+    <br />
+    <h2 style="text-align: center">ACTAS DE INTERROGATORIO</h2>
+    <div class="d-flex justify-content-between">
+      <div>
+        <mat-form-field>
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput (keyup)="filter($event)" placeholder="Buscar" />
+        </mat-form-field>
+      </div>
+      <div class="buttons" >
+        <button *ngIf="role == 'ADMIN' || role == 'POLICIA'" mat-mini-fab
+          style="background-color: #ABABA9; color:#20211f; font-weight: 800;" (click)="reload()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+
+
+        <button *ngIf="role == 'ADMIN' || role == 'POLICIA'" mat-raised-button
+          style="background-color: #20211f; color:#F4F7F9; font-weight: 800;" routerLink="/actas/nuevo">
+          Nuevo
+        </button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card-container">
+        <mat-card class="example-card" *ngFor="let a of obs | async ">
+          <mat-card-header>
+            <mat-card-title>{{a.sospechoso.nombre}}</mat-card-title>
+            <mat-card-subtitle>Interrogado por {{a.usuario.nombre}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{a.detalles}}</p>
+          </mat-card-content>
+          <mat-card-content style="text-align: right; font-size: 80%;">
+            <p>{{a.fecha}}</p>
+          </mat-card-content>
+          <mat-card-actions *ngIf="role == 'ADMIN'">
+            <button *ngIf="role == 'ADMIN'" mat-button [routerLink]="['edicion', a.id_acta]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button *ngIf="role == 'ADMIN'" mat-button (click)="eliminar(a.id_acta)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <mat-paginator style="background-color: transparent;" [pageSizeOptions]="[6, 30, 60, 90]"
+        showFirstLastButtons></mat-paginator>
+    </div>
+
+  </div>
+</body>
+
+</html>
