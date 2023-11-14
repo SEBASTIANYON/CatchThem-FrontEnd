@@ -8,10 +8,10 @@
   <body>
     <br />
     <h1 style="text-align: center">LISTA DE SOSPECHOSOS</h1>
-    <div style="text-align: center; margin-bottom: 20px">
-      <button style="text-align: right" mat-raised-button color="primary" mat-button [routerLink]="['nuevo']">
-        NUEVO
-      </button>
+    <div class="boton">
+        <button mat-raised-button style="background-color: #20211f; color:#F4F7F9; font-weight: 800;" routerLink="/sospechosos/nuevo">
+            Nuevo
+        </button>
     </div>
     <div class="container">
       <div class="card-container">
@@ -30,12 +30,12 @@
             <p>Estado : {{ sospechoso.estado }}</p>
             <p>Fecha de registro : {{ sospechoso.fecharegistro }}</p>
           </mat-card-content>
-          <mat-card-actions style="align-items: center;">
-            <button mat-button [routerLink]="['edicion', sospechoso.idSospechoso]">
-              <mat-icon>create</mat-icon>
+          <mat-card-actions >
+            <button mat-mini-fab style="background-color: #20211f; color:#D6CDC9; font-weight: 800; margin: 20px;" [routerLink]="['edicion', sospechoso.idSospechoso]">
+              <mat-icon>edit</mat-icon>
             </button>
-            <button mat-button (click)="eliminar(sospechoso.idSospechoso)">
-              <mat-icon>delete_outline</mat-icon>
+            <button mat-mini-fab style="background-color: #20211f; color:#D6CDC9; font-weight: 800; margin: 20px;" (click)="openDialog(sospechoso.idSospechoso)">
+              <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>
         </mat-card>

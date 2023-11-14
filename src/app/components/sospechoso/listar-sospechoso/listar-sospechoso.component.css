@@ -12,6 +12,11 @@ h1 {
   font-weight: bold;
 }
 
+.boton{
+    text-align: right;
+    padding: 20px;
+}
+
 .example-card {
   max-width: 100%;
 }
