@@ -35,7 +35,7 @@
           
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Fecha de Nacimiento</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="nacimiento"/>
+            <input matInput [matDatepicker]="picker" [max]="maxFecha" formControlName="nacimiento"/>
             <mat-hint style="color: white;">MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -66,7 +66,7 @@
           
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Fecha de Registro</mat-label>
-            <input matInput [matDatepicker]="picker2" formControlName="fecharegistro"/>
+            <input matInput [matDatepicker]="picker2" [max]="maxFecha" formControlName="fecharegistro"/>
             <mat-hint style="color: white;">MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
