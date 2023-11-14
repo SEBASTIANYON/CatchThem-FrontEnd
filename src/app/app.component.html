@@ -1,38 +1,106 @@
 <mat-toolbar class="menu" *ngIf="verificar()">
-  <div class="container-fluid container-xl d-flex align-items-center justify-content-center">
-    <img src="/assets/img/logo2.png" class="logo">
+  <div
+    class="container-fluid container-xl d-flex align-items-center justify-content-center"
+  >
+    <img src="/assets/img/logo2.png" class="logo" />
   </div>
-  <div class="container text-center align-self-center"><strong style="color: #ababa9;">Usuario:</strong> {{username}}</div>
-  <div class="container text-center align-self-center"><strong style="color: #ababa9;">Entidad:</strong> {{entidad}}</div>
-  <div class="container text-center align-self-center salir"><button (click)="cerrar()"
-      routerLink="/login">Salir</button></div>
-
+  <div class="container text-center align-self-center">
+    <strong style="color: #ababa9">Usuario:</strong> {{ username }}
+  </div>
+  <div class="container text-center align-self-center">
+    <strong style="color: #ababa9">Entidad:</strong> {{ entidad }}
+  </div>
+  <div class="container text-center align-self-center salir">
+    <button (click)="cerrar()" routerLink="/login">Salir</button>
+  </div>
 </mat-toolbar>
 
-<div style="background-color: #21201F;" *ngIf="verificar()">
+<div style="background-color: #21201f" *ngIf="verificar()">
   <div class="container-sm">
     <nav mat-tab-nav-bar>
-      <a color="success" mat-tab-link routerLink="components/entidades" routerLinkActive #rla="routerLinkActive"
-        [active]="rla.isActive" *ngIf="role == 'ADMIN'">ENTIDADES</a>
-      <a color="success" mat-tab-link routerLink="components/usuarios" routerLinkActive #rla2="routerLinkActive"
-        [active]="rla2.isActive" *ngIf="role == 'ADMIN'">USUARIOS</a>
-      <a mat-tab-link routerLink="components/sospechosos" routerLinkActive #rla3="routerLinkActive"
-        [active]="rla3.isActive">SOSPECHOSO</a>
-      <a mat-tab-link routerLink="components/camaras" routerLinkActive #rla4="routerLinkActive"
-        [active]="rla4.isActive">CÁMARAS</a>
-      <a mat-tab-link routerLink="components/antecedentes" routerLinkActive #rla5="routerLinkActive"
-        [active]="rla5.isActive">ANTENCEDENTES PENALES</a>
-      <a mat-tab-link routerLink="components/alertas" routerLinkActive #rla6="routerLinkActive"
-        [active]="rla6.isActive">ALERTAS</a>
-      <a mat-tab-link routerLink="components/actas" routerLinkActive #rla7="routerLinkActive" [active]="rla7.isActive">ACTAS</a>
-      <a mat-tab-link routerLink="components/roles" routerLinkActive #rla8="routerLinkActive" [active]="rla8.isActive"
-        *ngIf="role == 'ADMIN'">ROLES</a>
-      <a mat-tab-link routerLink="components/tipos" routerLinkActive #rla9="routerLinkActive" [active]="rla9.isActive">TIPOS DE
-        ENTIDAD</a>
+      <a
+        color="success"
+        mat-tab-link
+        routerLink="components/entidades"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [active]="rla.isActive"
+        *ngIf="role == 'ADMIN'"
+        >ENTIDADES</a
+      >
+      <a
+        color="success"
+        mat-tab-link
+        routerLink="components/usuarios"
+        routerLinkActive
+        #rla2="routerLinkActive"
+        [active]="rla2.isActive"
+        *ngIf="role == 'ADMIN'"
+        >USUARIOS</a
+      >
+      <a
+        mat-tab-link
+        routerLink="components/sospechosos"
+        routerLinkActive
+        #rla3="routerLinkActive"
+        [active]="rla3.isActive"
+        >SOSPECHOSO</a
+      >
+      <a
+        mat-tab-link
+        routerLink="components/camaras"
+        routerLinkActive
+        #rla4="routerLinkActive"
+        [active]="rla4.isActive"
+        *ngIf="role == 'ADMIN'" 
+        >CAMARAS</a
+      >
+      <a
+        mat-tab-link
+        routerLink="components/antecedentes"
+        routerLinkActive
+        #rla5="routerLinkActive"
+        [active]="rla5.isActive"
+        *ngIf="role == 'ADMIN'"
+        >ANTECEDENTES PENALES</a
+      >
+      <a
+        mat-tab-link
+        routerLink="components/alertas"
+        routerLinkActive
+        #rla6="routerLinkActive"
+        [active]="rla6.isActive"
+        >ALERTAS</a
+      >
+      <a
+        mat-tab-link
+        routerLink="components/actas"
+        routerLinkActive
+        #rla7="routerLinkActive"
+        [active]="rla7.isActive"
+        >ACTAS</a
+      >
+      <a
+        mat-tab-link
+        routerLink="components/roles"
+        routerLinkActive
+        #rla8="routerLinkActive"
+        [active]="rla8.isActive"
+        *ngIf="role == 'ADMIN'"
+        >ROLES</a
+      >
+      <a
+        mat-tab-link
+        routerLink="components/tipos"
+        routerLinkActive
+        #rla9="routerLinkActive"
+        [active]="rla9.isActive"
+        >TIPOS DE ENTIDAD</a
+      >
     </nav>
   </div>
 </div>
-<br>
+<br />
 
 <div>
   <router-outlet></router-outlet>
