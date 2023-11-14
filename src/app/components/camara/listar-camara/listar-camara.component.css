@@ -1,11 +1,32 @@
 .container {
-    width: 1680px;
+
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
-    background: #C7CFD9;
-    width: 1680px;
+    background: #DEDEDE;
+    width: auto;
     height: 929px;
+}
+
+h2{
+    color: #000;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    letter-spacing: -0.84px;
+    text-transform: uppercase;
 }
 
 nav {
@@ -13,8 +34,9 @@ nav {
 }
 
 .pagination {
-    margin-top: 10px;
+    margin-top: 0;
     display: inline-flex;
+    width: 1296px;
 }
 
 
