@@ -3,27 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.component.css" />
     <title>Document</title>
   </head>
-  <body style="background-color: #dedede;">
-    <div class="container" style="text-align: center">
-      <h2>Iniciar sesión</h2>
-      <mat-form-field class="example-full-width">
-        <mat-label>Usuario</mat-label>
-        <input matInput placeholder="Username" [(ngModel)]="username" />
-      </mat-form-field>
-      <br>
-      <mat-form-field class="example-full-width">
-        <mat-label>Password</mat-label>
+  <body style="background-color: #dedede">
+    <div class="container-total">
+      <div class="container" style="text-align: center">
+        <h2>Iniciar sesión</h2>
+        <p>Coloque su usuario y su contraseña</p>
+        <input matInput placeholder="Usuario" [(ngModel)]="username" />
+
         <input
           type="password"
           matInput
-          placeholder="Password"
+          placeholder="Contraseña"
           [(ngModel)]="password"
         />
-      </mat-form-field>
-      <br />
-      <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+
+        <button mat-raised-button (click)="login()">
+          Ingresar
+        </button>
+      </div>
+      <div class="container-2" style="text-align: center">
+        <img src="assets/img/logo.png" alt="Logo" />
+        <h2>!Bienvenido!</h2>
+        <p style="color: #fff">Su seguridad en nuestras manos</p>
+      </div>
     </div>
   </body>
 </html>

@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { SospechosoService } from './../../../services/sospechoso.service';
 import { Sospechoso } from './../../../models/Sospechoso';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, AbstractControl,FormControl} from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-sospechoso',
@@ -18,7 +13,8 @@ export class CrearSospechosoComponent {
   form: FormGroup = new FormGroup({});
   sospechoso: Sospechoso = new Sospechoso();
   mensaje: string = '';
-
+  id: number = 0;
+  edicion: boolean = false;
   tipos: { value: string; viewValue: string }[] = [
     { value: 'Masculino', viewValue: 'Masculino' },
     { value: 'Femenino', viewValue: 'Femenino' },
@@ -37,6 +33,12 @@ export class CrearSospechosoComponent {
   ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+    });
+
     this.form = this.formBuilder.group({
       idSospechoso: [''],
       nombre: ['', Validators.required],
@@ -48,6 +50,7 @@ export class CrearSospechosoComponent {
       historial: ['', Validators.required],
       estado: ['', Validators.required],
       fecharegistro: ['', Validators.required],
+      imagen:['', Validators.required]
     });
   }
 
@@ -63,6 +66,7 @@ export class CrearSospechosoComponent {
       this.sospechoso.historial = this.form.value.historial;
       this.sospechoso.estado = this.form.value.estado;
       this.sospechoso.fecharegistro = this.form.value.fecharegistro;
+      this.sospechoso.imagen = this.form.value.imagen;
 
       this.oS.insert(this.sospechoso).subscribe((data) => {
         this.oS.list().subscribe((data) => {
@@ -70,7 +74,9 @@ export class CrearSospechosoComponent {
         });
       });
 
-      this.router.navigate(['sospechoso']);
+      this.router.navigate(['sospechosos']);
+    }else {
+      this.mensaje = 'Por favor complete todos los campos obligatorios.';
     }
   }
 
@@ -80,5 +86,24 @@ export class CrearSospechosoComponent {
       throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
     }
     return control;
+  }
+  init() {
+    if (this.edicion) {
+      this.oS.listId(this.id).subscribe((data) => {
+        this.form = new FormGroup({
+          idSospechoso: new FormControl(data.idSospechoso),
+          nombre: new FormControl(data.nombre),
+          alias: new FormControl(data.alias),
+          nacimiento: new FormControl(data.nacimiento),
+          genero: new FormControl(data.genero),
+          nacionalidad: new FormControl(data.nacionalidad),
+          descripcion: new FormControl(data.descripcion),
+          historial: new FormControl(data.historial),
+          estado: new FormControl(data.estado),
+          fecharegistro: new FormControl(data.fecharegistro),
+          imagen: new FormControl(data.imagen),
+        });
+      });
+    }
   }
 }
