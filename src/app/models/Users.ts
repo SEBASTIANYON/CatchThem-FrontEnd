@@ -9,6 +9,7 @@ export class Users {
   nombre: string = '';
   correo: string = '';
   telefono: string = '';
+  imagen: string = '';
   entidad: Entidad = new Entidad();
   roles: Role[] = new Array<Role>();
 }
