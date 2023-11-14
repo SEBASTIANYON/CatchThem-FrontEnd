@@ -21,7 +21,7 @@ import {MatTabsModule} from '@angular/material/tabs';
   declarations: [
     AppComponent,
 
-    LoginComponent
+    LoginComponent,
     ],
 
   imports: [

@@ -38,7 +38,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
-
+import { UsuarioComponent } from './usuario/usuario.component';
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,9 @@ import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.compone
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
+    CrearUsuarioComponent,
+    ListarUsuarioComponent,
+    UsuarioComponent
   ],
   imports: [
     CommonModule,
