@@ -11,6 +11,8 @@ import { AlertasComponent } from './alertas/alertas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GuardService } from '../services/guard.service';
+import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
+import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 
 const routes: Routes = [
   {
@@ -23,10 +25,11 @@ const routes: Routes = [
   },
   {
     path: 'sospechosos', canActivate: [GuardService],
+    data: {role: ['POLICIA', 'AGENTE','ADMIN']},
     component: SospechosoComponent,
     children: [
-      { path: 'nuevo', component: CrearSospechosoComponent },
-      { path: 'edicion/:id', component: CrearSospechosoComponent }
+      { path: 'nuevo', component: CrearSospechosoComponent, data: {role: ['POLICIA', 'AGENTE','ADMIN']},canActivate: [GuardService],  },
+      { path: 'edicion/:id', component: CrearSospechosoComponent, data: {role: ['POLICIA', 'AGENTE','ADMIN']},canActivate: [GuardService] }
     ]
   },
   {
@@ -53,6 +56,15 @@ const routes: Routes = [
     children: [
       { path: 'nuevo', component: CrearActasComponent, data: {role: ['ADMIN']},canActivate: [GuardService], },
       { path: 'edicion/:id', component: CrearActasComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
+    ]
+  },
+  {
+    path: 'tipos', canActivate: [GuardService],
+    data: {role: ['POLICIA', 'AGENTE','ADMIN']},
+    component: TipoEntidadComponent,
+    children: [
+      { path: 'nuevo', component: CrearTipoEntidadComponent, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      { path: 'edicion/:id', component: CrearTipoEntidadComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
     ]
   },
 

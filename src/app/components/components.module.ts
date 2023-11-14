@@ -41,6 +41,9 @@ import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.compone
 import { UsuarioComponent } from './usuario/usuario.component';
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
+import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
+import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
+import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
     DialogoMapaComponent,
     CrearUsuarioComponent,
     ListarUsuarioComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    TipoEntidadComponent,
+    ListarTipoEntidadComponent,
+    CrearTipoEntidadComponent
   ],
   imports: [
     CommonModule,
@@ -87,8 +93,7 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-    GoogleMapsModule
-    
+    GoogleMapsModule    
   ],
 })
 export class ComponentsModule { }
