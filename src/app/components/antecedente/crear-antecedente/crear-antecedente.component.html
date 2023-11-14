@@ -91,8 +91,8 @@
           </mat-select>
         </mat-form-field>
 
-        <button mat-raised-button color="#ABABA9" >Registrar</button>
-        <button mat-raised-button color="#ABABA9" >Ver lista</button>
+        <button mat-raised-button color="#ABABA9">Registrar</button>
+
       </form>
     </div>
     <!--ACA SE COLOCA LA TABLA PARA LISTAR LOS ATRIBUTOS-->
@@ -123,7 +123,7 @@
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
-        <ng-container matColumnDef="id_antecedente">
+        <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>Código</th>
           <td mat-cell *matCellDef="let element">
             {{ element.id_antecedente }}
@@ -171,16 +171,14 @@
           <th mat-header-cell *matHeaderCellDef>Eliminar</th>
           <td mat-cell *matCellDef="let element">
             <button
-              mat-raised-button
-              color="#D6CDC9"
+              class="example-button-container"
+              mat-button
               (click)="eliminar(element.id_antecedente)"
             >
-              Eliminar
+              <mat-icon >delete</mat-icon>
             </button>
           </td></ng-container
         >
-
-        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>

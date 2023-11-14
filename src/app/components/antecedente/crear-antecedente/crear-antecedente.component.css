@@ -119,8 +119,16 @@ table ng-container {
 .pagination {
     display: inline-flex;
     width: inherit;
+    margin-top: -10px;
 }
 
 button:hover{
     border: 2px groove black;
 }
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+  }

@@ -39,7 +39,7 @@ export class CrearAntecedenteComponent implements OnInit {
   //Para el listar
   dataSource: MatTableDataSource<AntecedentePenal> = new MatTableDataSource();
   displayedColumns: string[] = [
-    'id_antecedente',
+    'id',
     'delito',
     'fecha_comision',
     'fecha_condena',
