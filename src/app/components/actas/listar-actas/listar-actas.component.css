@@ -1,0 +1,21 @@
+.example-card {
+    max-width: 100%;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 10px;
+  }
+
+  .mdc-fab--mini{
+    margin-right: 20px;
+    align-items: center;
+
+  }
+
+  .buttons {
+    align-items: center;
+    display: flex;
+  }
+  

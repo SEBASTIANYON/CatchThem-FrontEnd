@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
 import { EntidadComponent } from './components/entidad/entidad.component';
 import { CrearEntidadComponent } from './components/entidad/crear-entidad/crear-entidad.component';
 import { SospechosoComponent } from './components/sospechoso/sospechoso.component';
@@ -12,44 +13,20 @@ import { RoleComponent } from './components/role/role.component';
 
 const routes: Routes = [
   {
-    path: 'entidades',
-    component: EntidadComponent,
-    children: [
-      { path: 'nuevo', component: CrearEntidadComponent },
-      { path: 'edicion/:id', component: CrearEntidadComponent },
-    ]
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path:'sospechosos',
-    component:SospechosoComponent,
-    children:[
-      {path:'nuevo', component: CrearSospechosoComponent},
-      {path:'edicion/id', component: CrearSospechosoComponent}
-    ]
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'camaras',
-    component:CamaraComponent,
-    children:[
-      {path:'nuevo', component: CrearCamaraComponent},
-      {path:'edicion/id', component: CrearCamaraComponent}
-    ]
-  },
-  {
-    path:'usuario',
-    component:UsuarioComponent,
-    children:[
-      {path:'nuevo', component: CrearUsuarioComponent},
-      {path:'edicion/:id', component: CrearUsuarioComponent}
-    ]
-  },
 
-  {
-    path:'role',
-    component:RoleComponent,
-  }
- 
-  //Colocar las rutas para las demas entidades
+    path: '',
+    loadChildren: () =>
+      import('./components/components.module').then((m) => m.ComponentsModule),
+  },
 ];
 
 @NgModule({
