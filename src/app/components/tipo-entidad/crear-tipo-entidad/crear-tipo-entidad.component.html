@@ -1,1 +1,34 @@
-<p>crear-tipo-entidad works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <div class="fondo"></div>
+      <div class="formulario">
+        <h1>Registrar Tipo de Entidad</h1>
+        <br class="linea">
+        <br>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Sector</mat-label>
+            <mat-select formControlName="sector">
+              <mat-option *ngFor="let p of tipos" [value]="p.value">
+                {{p.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <button mat-raised-button color="primary">Registrar</button>
+          <p>{{mensaje}}</p>
+
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

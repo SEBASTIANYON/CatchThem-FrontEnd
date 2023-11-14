@@ -13,7 +13,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { GuardService } from '../services/guard.service';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
-
 const routes: Routes = [
   {
     path: 'entidades', canActivate: [GuardService],
