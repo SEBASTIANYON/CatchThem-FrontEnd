@@ -15,18 +15,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginComponent } from './components/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatTabsModule} from '@angular/material/tabs';
-
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
 import {ThemePalette} from '@angular/material/core';
 import {CommonModule, NgFor} from '@angular/common';
-import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { CamaraComponent } from './components/camara/camara.component';
@@ -38,29 +30,19 @@ import { ListarUsuarioComponent } from './components/usuario/listar-usuario/list
 import {MatCardModule} from '@angular/material/card';
 import { RoleComponent } from './components/role/role.component';
 import { CrearRoleComponent } from './components/role/crear-role/crear-role.component';
+import { EntidadComponent } from './components/entidad/entidad.component';
+import { CrearEntidadComponent } from './components/entidad/crear-entidad/crear-entidad.component';
+import { ListarEntidadComponent } from './components/entidad/listar-entidad/listar-entidad.component';
+import { SospechosoComponent } from './components/sospechoso/sospechoso.component';
+import { CrearSospechosoComponent } from './components/sospechoso/crear-sospechoso/crear-sospechoso.component';
+import { ListarSospechosoComponent } from './components/sospechoso/listar-sospechoso/listar-sospechoso.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
     LoginComponent,
-    EntidadComponent,
-    CrearEntidadComponent,
-    ListarEntidadComponent,
-    SospechosoComponent,
-    CrearSospechosoComponent,
-    ListarSospechosoComponent,
-    CamaraComponent,
-    ListarCamaraComponent,
-    CrearCamaraComponent,
-    UsuarioComponent,
-    CrearUsuarioComponent,
-    ListarUsuarioComponent,
-    RoleComponent,
-    CrearRoleComponent
   ],
 
   imports: [
@@ -77,7 +59,6 @@ import { CrearRoleComponent } from './components/role/crear-role/crear-role.comp
     MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
-
     MatSnackBarModule,
     MatTabsModule,
     
