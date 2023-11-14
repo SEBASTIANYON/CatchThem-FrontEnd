@@ -13,7 +13,6 @@ export class AntecedentePenalService {
   private listaCambio = new Subject<AntecedentePenal[]>();
   constructor(private http: HttpClient) {}
   list() {
-
     let token = sessionStorage.getItem('token');
 
     return this.http.get<AntecedentePenal[]>(this.url, {
@@ -45,11 +44,20 @@ export class AntecedentePenalService {
     return this.http.get<AntecedentePenal>(`${this.url}/${id}`);
   }
 
+  /*
   update(ant: AntecedentePenal) {
+    let token = sessionStorage.getItem('token');
     return this.http.put(this.url, ant);
   }
-
+  */
+ 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application'),
+    });
   }
 }
