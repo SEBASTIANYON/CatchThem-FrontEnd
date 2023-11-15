@@ -46,7 +46,7 @@
             <p>Nombre de Entidad:{{ a.entidad}} </p>
           </mat-card-content>
           <mat-card-actions class="justify-content-center">
-            <button *ngIf="role == 'ADMIN' || role == 'POLICIA' || role == 'AGENTE'" mat-mini-fab style="background-color: #20211f; color:#D6CDC9; font-weight: 800; margin: 20px;" [routerLink]="['edicion', a.idSospechoso]">
+            <button *ngIf="role == 'ADMIN'" mat-mini-fab style="background-color: #20211f; color:#D6CDC9; font-weight: 800; margin: 20px;" [routerLink]="['edicion', a.idSospechoso]">
               <mat-icon>edit</mat-icon>
             </button>
             <button *ngIf="role == 'ADMIN'" mat-mini-fab style="background-color: #20211f; color:#D6CDC9; font-weight: 800; margin: 20px;" (click)="openDialog(a.idSospechoso)">
