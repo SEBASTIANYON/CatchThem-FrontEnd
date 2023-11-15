@@ -77,11 +77,6 @@ export class ListarSospechosoComponent implements OnInit {
   }
 
   filter(en: any) {
-    this.dataSource.filterPredicate = (data: Sospechoso, filter: string) => {
-      return data.entidad.nombre.toLocaleLowerCase().includes(filter) || 
-      data.idSospechoso.toLocaleString().includes(filter)  
-    }
-
     this.dataSource.filter = en.target.value.trim();
   }
 }

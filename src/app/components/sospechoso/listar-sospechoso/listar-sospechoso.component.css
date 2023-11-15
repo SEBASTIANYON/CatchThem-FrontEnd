@@ -4,6 +4,7 @@ h1 {
 }
 
 .example-card {
+  padding: 10px;
   max-width: 100%;
 }
 

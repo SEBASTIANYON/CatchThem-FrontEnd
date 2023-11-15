@@ -28,23 +28,24 @@
       <div class="container">
         <div class="card-container">
           <mat-card class="example-card" *ngFor="let a of obs | async">
-            <mat-card-header>
-              <mat-card-title style="font-size: 30px; font-weight: bold">{{ a.nombre }}</mat-card-title>
+            <mat-card-header class="justify-content-center">
               <div mat-card-avatar class="example-header-image" style="background-image: url('{{a.imagen}}'); background-size: cover; width: 200px;height: 200px;"></div>
             </mat-card-header>
-            <mat-card-content>
-              <mat-card-subtitle style="font-size: 20px; font-weight: bold">"{{ a.alias }}"</mat-card-subtitle>
-              <br/>
-              <div style="align-content: right;">
-              <p>Nacimiento : {{ a.nacimiento }}</p>
-              <p>Género : {{ a.genero }}</p>
-              <p>Nacionalidad : {{ a.nacionalidad }}</p>
-              <p>Descripcion : {{ a.descripcion }}</p>
-              <p>Historial : {{ a.historial }}</p>
-              <p>Estado : {{ a.estado }}</p>
-              <p>Fecha de registro : {{ a.fecharegistro }}</p>
-              <p>Entidad asociada: {{a.entidad.nombre}} </p>
-            </div>
+            <mat-card-content style="text-align: center;">
+                <mat-card-title style="font-size: 30px; font-weight: bold;flex: auto; justify-content: center;">{{ a.nombre }}</mat-card-title>
+                <br>
+                <mat-card-subtitle style="font-size: 20px; font-weight: bold;">"{{ a.alias }}"</mat-card-subtitle>
+                <br/>
+              <div>
+                <p>Nacimiento : {{ a.nacimiento }}</p>
+                <p>Género : {{ a.genero }}</p>
+                <p>Nacionalidad : {{ a.nacionalidad }}</p>
+                <p>Descripcion : {{ a.descripcion }}</p>
+                <p>Historial : {{ a.historial }}</p>
+                <p>Estado : {{ a.estado }}</p>
+                <p>Fecha de registro : {{ a.fecharegistro }}</p>
+                <p>Entidad asociada: {{a.entidad.nombre}} </p>
+              </div>
             </mat-card-content>
             <mat-card-actions class="justify-content-center">
               <button *ngIf="role == 'ADMIN'" mat-mini-fab style="background-color: #20211f; color: #d6cdc9; font-weight: 800; margin: 20px;" [routerLink]="['edicion', a.idSospechoso]">
