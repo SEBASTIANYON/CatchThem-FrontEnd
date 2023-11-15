@@ -36,15 +36,15 @@
                 <br>
                 <mat-card-subtitle style="font-size: 20px; font-weight: bold;">"{{ a.alias }}"</mat-card-subtitle>
                 <br/>
-              <div>
-                <p>Nacimiento : {{ a.nacimiento }}</p>
-                <p>Género : {{ a.genero }}</p>
-                <p>Nacionalidad : {{ a.nacionalidad }}</p>
-                <p>Descripcion : {{ a.descripcion }}</p>
-                <p>Historial : {{ a.historial }}</p>
-                <p>Estado : {{ a.estado }}</p>
-                <p>Fecha de registro : {{ a.fecharegistro }}</p>
-                <p>Entidad asociada: {{a.entidad.nombre}} </p>
+              <div style="text-align: left;">
+                <p><strong>Nacimiento :</strong> {{ a.nacimiento }}</p>
+                <p><strong>Género :</strong> {{ a.genero }}</p>
+                <p><strong>Nacionalidad :</strong> {{ a.nacionalidad }}</p>
+                <p><strong>Descripción :</strong> {{ a.descripcion }}</p>
+                <p><strong>Historial :</strong> {{ a.historial }}</p>
+                <p><strong>Estado :</strong> {{ a.estado }}</p>
+                <p><strong>Fecha de registro :</strong> {{ a.fecharegistro }}</p>
+                <p><strong>Entidad asociada:</strong> {{a.entidad.nombre}} </p>
               </div>
             </mat-card-content>
             <mat-card-actions class="justify-content-center">

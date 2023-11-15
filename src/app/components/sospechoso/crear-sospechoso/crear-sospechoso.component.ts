@@ -123,16 +123,16 @@ export class CrearSospechosoComponent {
       this.oS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           idSospechoso: new FormControl(data.idSospechoso),
-          nombre: new FormControl(data.nombre),
-          alias: new FormControl(data.alias),
-          nacimiento: new FormControl(data.nacimiento),
-          genero: new FormControl(data.genero),
-          nacionalidad: new FormControl(data.nacionalidad),
-          descripcion: new FormControl(data.descripcion),
-          historial: new FormControl(data.historial),
-          estado: new FormControl(data.estado),
-          fecharegistro: new FormControl(data.fecharegistro),
-          imagen: new FormControl(data.imagen),
+          nombre: new FormControl(data.nombre, Validators.required),
+          alias: new FormControl(data.alias, Validators.required),
+          nacimiento: new FormControl(data.nacimiento, Validators.required),
+          genero: new FormControl(data.genero, Validators.required),
+          nacionalidad: new FormControl(data.nacionalidad, Validators.required),
+          descripcion: new FormControl(data.descripcion, Validators.required),
+          historial: new FormControl(data.historial, Validators.required),
+          estado: new FormControl(data.estado, Validators.required),
+          fecharegistro: new FormControl(data.fecharegistro, Validators.required),
+          imagen: new FormControl(data.imagen, Validators.required),
           entidad: new FormControl(data.entidad.idEntidad),
         });
       });
