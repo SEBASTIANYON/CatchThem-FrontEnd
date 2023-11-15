@@ -10,6 +10,8 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { EntidadService } from 'src/app/services/entidad.service';
+import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-crear-entidad',
@@ -20,6 +22,8 @@ export class CrearEntidadComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   entidad: Entidad = new Entidad();
   mensaje: string = '';
+  idEntidad: number = 0;
+  edicion: boolean = false;
 
   tipos: { value: string; viewValue: string }[] = [
     { value: 'Pública', viewValue: 'Pública' },
@@ -30,11 +34,17 @@ export class CrearEntidadComponent implements OnInit {
     private eS: EntidadService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loginService: LoginService,
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
+    this.route.params.subscribe((data: Params) => {
+      this.idEntidad = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+      });
+      this.form = this.formBuilder.group({
       idEntidad: [''],
       nombre: ['', Validators.required],
       direccion: ['', Validators.required],
@@ -51,11 +61,19 @@ export class CrearEntidadComponent implements OnInit {
       this.entidad.telefono = this.form.value.telefono;
       this.entidad.tipoEntidad=this.form.value.tipoEntidad.tipoEntidad;
 
-      this.eS.insert(this.entidad).subscribe((data) => {
-        this.eS.list().subscribe((data) => {
-          this.eS.setList(data);
+      if (this.edicion) {
+        this.eS.update(this.entidad).subscribe(() => {
+          this.eS.list().subscribe((data) => {
+            this.eS.setList(data);
+          });
         });
-      });
+      } else {
+        this.eS.insert(this.entidad).subscribe((data) => {
+          this.eS.list().subscribe((data) => {
+            this.eS.setList(data);
+          });
+        });
+      }
 
       this.router.navigate(['entidades']);
     }
@@ -67,5 +85,19 @@ export class CrearEntidadComponent implements OnInit {
       throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
     }
     return control;
+  }
+
+  init() {
+    if (this.edicion) {
+      this.eS.listId(this.idEntidad).subscribe((data) => {
+        this.form = new FormGroup({
+          idEntidad: new FormControl(data.idEntidad),
+          nombre: new FormControl(data.nombre),
+          direccion: new FormControl(data.direccion, Validators.required),
+          telefono: new FormControl(data.telefono, Validators.required),
+          TipoEntidad: new FormControl(data.tipoEntidad, Validators.required)       
+        });
+      });
+    } 
   }
 }
