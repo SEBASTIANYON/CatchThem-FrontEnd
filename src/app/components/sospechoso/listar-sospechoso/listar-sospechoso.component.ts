@@ -80,7 +80,13 @@ export class ListarSospechosoComponent implements OnInit {
     this.dataSource.filterPredicate = (data: Sospechoso, filter: string) => {
       return data.entidad.nombre.toLocaleLowerCase().includes(filter) || 
       data.idSospechoso.toLocaleString().includes(filter)  ||
-      data.nombre.toLocaleString().includes(filter)  
+      data.nombre.toLocaleString().includes(filter)  ||
+      data.alias.toLocaleString().includes(filter)  ||
+      data.descripcion.toLocaleString().includes(filter)  ||
+      data.estado.toLocaleString().includes(filter)  ||
+      data.genero.toLocaleString().includes(filter)  ||
+      data.historial.toLocaleString().includes(filter)  ||
+      data.nacionalidad.toLocaleString().includes(filter)  
     }
 
     this.dataSource.filter = en.target.value.trim();
