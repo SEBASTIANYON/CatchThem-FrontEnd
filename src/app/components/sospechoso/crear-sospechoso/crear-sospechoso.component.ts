@@ -15,8 +15,8 @@ import { LoginService } from 'src/app/services/login.service';
 export class CrearSospechosoComponent {
   form: FormGroup = new FormGroup({});
   sospechoso: Sospechoso = new Sospechoso();
-  listaEntidad: Entidad[] = []
   mensaje: string = '';
+  listaEntidad: Entidad[] = []
   id: number = 0;
   edicion: boolean = false;
   maxFecha: Date = new Date(Date.now());
@@ -57,7 +57,8 @@ export class CrearSospechosoComponent {
       historial: ['', Validators.required],
       estado: ['', Validators.required],
       fecharegistro: ['', Validators.required],
-      imagen:['', Validators.required]
+      imagen:['', Validators.required],
+      entidad:['']
     });
 
     this.eS.list().subscribe(data => {
@@ -67,6 +68,7 @@ export class CrearSospechosoComponent {
   }
 
   aceptar(): void {
+
     if (this.form.valid) {
       this.sospechoso.idSospechoso = this.form.value.idSospechoso;
       this.sospechoso.nombre = this.form.value.nombre;
@@ -131,6 +133,7 @@ export class CrearSospechosoComponent {
           estado: new FormControl(data.estado),
           fecharegistro: new FormControl(data.fecharegistro),
           imagen: new FormControl(data.imagen),
+          entidad: new FormControl(data.entidad.idEntidad),
         });
       });
     }
