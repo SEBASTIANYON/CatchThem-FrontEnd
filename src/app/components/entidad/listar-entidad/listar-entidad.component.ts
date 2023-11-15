@@ -3,6 +3,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Entidad } from 'src/app/models/Entidad';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
+import { LoginService } from 'src/app/services/login.service';
+import {MatDialog} from '@angular/material/dialog';
+import { TipoEntidad } from 'src/app/models/TipoEntidad';
 
 @Component({
   selector: 'app-listar-entidad',
@@ -17,10 +21,16 @@ export class ListarEntidadComponent implements OnInit {
     'nombre',
     'direccion',
     'telefono',
-    'tipoEntidad'
+    'tipoEntidad',
+    'actualizar',
+    'eliminar'
   ];
-  constructor(private uS: EntidadService) {}
-  ngOnInit(): void {
+  role: string = ''
+
+  constructor(private uS: EntidadService,private loginService: LoginService,
+    public dialog: MatDialog) {}
+  
+    ngOnInit(): void {
     this.uS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -29,6 +39,18 @@ export class ListarEntidadComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
+
+    this.role = this.loginService.showRole()
+
+    if(this.role !== 'AGENTE'){
+      this.displayedColumns = [
+        'idEntidad',
+        'nombre',
+        'direccion',
+        'telefono',
+        'tipoEntidad',
+      ];
+    }
   }
 
   //se agrega eliminar por id
@@ -41,6 +63,23 @@ export class ListarEntidadComponent implements OnInit {
   }
 
   filter(en:any){
+    this.dataSource.filterPredicate = (data: Entidad, filter: string) => {
+      return data.nombre.toLocaleLowerCase().includes(filter) ||
+      data.direccion.toLocaleLowerCase().includes(filter) ||
+      data.telefono.toLocaleLowerCase().includes(filter) ||
+      data.tipoEntidad.toLocaleString().includes(filter) ||
+      data.idEntidad.toLocaleString().includes(filter) 
+    }
     this.dataSource.filter=en.target.value.trim();
+  }
+
+  openDialog(idEntidad: number){
+    this.dialog.open(DialogoConfirmacionComponent)
+    .afterClosed()
+    .subscribe((confirmacion: Boolean) => {
+      if(confirmacion){
+        this.eliminar(idEntidad)
+      }
+    })
   }
 }
