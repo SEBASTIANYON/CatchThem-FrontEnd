@@ -35,6 +35,7 @@ import { AlertasComponent } from './alertas/alertas.component';
 import { ListarActasComponent } from './actas/listar-actas/listar-actas.component';
 import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.component';
 import { MatCardModule } from '@angular/material/card';
+import { ListarAntecedenteComponent } from './antecedente/listar-antecedente/listar-antecedente.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MatCardModule } from '@angular/material/card';
     AlertasComponent,
     ListarActasComponent,
     ListarAlertasComponent,
+    ListarAntecedenteComponent
 
   ],
   imports: [
