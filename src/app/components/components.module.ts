@@ -1,4 +1,3 @@
-import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
@@ -72,7 +71,7 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     UsuarioComponent,
     TipoEntidadComponent,
     ListarTipoEntidadComponent,
-    CrearTipoEntidadComponent
+    CrearTipoEntidadComponent,
     RoleComponent,
     CrearRoleComponent,
 ],

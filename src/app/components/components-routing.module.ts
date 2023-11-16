@@ -70,7 +70,7 @@ const routes: Routes = [
       { path: 'edicion/:id', component: CrearTipoEntidadComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
     ]
   },
-    path:'usuario',
+    {path:'usuario',
     component:UsuarioComponent,
     children:[
       {path:'nuevo', component: CrearUsuarioComponent},
