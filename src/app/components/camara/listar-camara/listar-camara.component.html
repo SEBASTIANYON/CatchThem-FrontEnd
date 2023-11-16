@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <h2 style="text-align: center">Listar Cámaras</h2>
-     
+
       <div class="container-2">
         <div class="buscador">
           <mat-form-field>
@@ -21,12 +21,22 @@
             />
           </mat-form-field>
         </div>
+<<<<<<< HEAD
         <div>
           <button mat-raised-button class="nuevo" style="background-color: #20211f; color:#F4F7F9; font-weight: 800;"
               routerLink="/camaras/nuevo">
               Nuevo
           </button>
       </div>
+=======
+        <button
+          class="nuevo"
+          routerLink="/components/camaras/nuevo"
+          *ngIf="role == 'ADMIN' || role == 'POLICIA' || role == 'AGENTE'"
+        >
+          Nuevo
+        </button>
+>>>>>>> 26bd7d7 (Actualizacion 2 Camaras)
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <!--- Note that these columns can be defined in any order.
@@ -76,12 +86,13 @@
           </ng-container>
 
           <ng-container matColumnDef="accion02">
-            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
             <td mat-cell *matCellDef="let element">
               <button
                 class="example-button-container"
                 mat-button
                 (click)="eliminar(element.id_camara)"
+                *ngIf="role == 'ADMIN'"
               >
                 <mat-icon>delete</mat-icon>
               </button>
