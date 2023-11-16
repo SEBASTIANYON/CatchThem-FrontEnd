@@ -42,6 +42,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { RoleComponent } from './role/role.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     CrearUsuarioComponent,
     RoleComponent,
     CrearRoleComponent,
+    ReportesComponent,
+    Reporte1Component,
     
   ],
   imports: [
