@@ -30,7 +30,6 @@ h1 {
     color: #000;
     margin-top: 20px;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
     font-size: 50px;
     line-height: 80px;
     letter-spacing: -0.84px;
@@ -56,5 +55,9 @@ h1 {
 
 mat-form-field {
     width: 100%;
+}
+
+button:hover{
+    border: 1px solid black;
 }
 
