@@ -1,12 +1,13 @@
 import { TipoEntidad } from './../../../models/TipoEntidad';
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   AbstractControl,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router,Params } from '@angular/router';
 import { TipoEntidadService } from 'src/app/services/tipoentidad.service';
 
 @Component({
@@ -18,6 +19,8 @@ export class CrearTipoEntidadComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   tipoEntidad: TipoEntidad = new TipoEntidad();
   mensaje: string = '';
+  id: number = 0;
+  edicion: boolean = false;
 
   tipos: { value: string; viewValue: string }[] = [
     { value: 'Pública', viewValue: 'Pública' },
@@ -28,7 +31,8 @@ export class CrearTipoEntidadComponent implements OnInit {
     private iS: TipoEntidadService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loginService: LoginService,
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +50,13 @@ export class CrearTipoEntidadComponent implements OnInit {
           this.iS.setList(data);
         });
       });
+      if (this.edicion) {
+        this.iS.update(this.tipoEntidad).subscribe(() => {
+          this.iS.list().subscribe((data) => {
+            this.iS.setList(data);
+          });
+        });
+      }
       this.router.navigate(['tipo']);
     }
   }
