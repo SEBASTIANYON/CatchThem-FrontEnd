@@ -21,9 +21,9 @@ export class CrearAlertasComponent implements OnInit {
   geocoder: google.maps.Geocoder = new google.maps.Geocoder()
 
   gravedad: { value: string; viewValue: string }[] = [
-    { value: 'Emergencia', viewValue: 'Emergencia' },
-    { value: 'Urgente', viewValue: 'Urgente' },
-    { value: 'No Urgente', viewValue: 'No Urgente' },
+    { value: 'Alto', viewValue: 'Alto' },
+    { value: 'Medio', viewValue: 'Medio' },
+    { value: 'Bajo', viewValue: 'Bajo' },
   ];
   tipos: { value: string; viewValue: string }[] = [
     { value: 'Informativa', viewValue: 'Informativa' },
