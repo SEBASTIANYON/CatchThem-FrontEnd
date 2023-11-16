@@ -4,14 +4,16 @@
   >
     <img src="/assets/img/logo2.png" class="logo" />
   </div>
-  <div class="container text-center align-self-center">
-    <strong style="color: #ababa9">Usuario:</strong> {{ username }}
+  <div class="container text-center align-self-center align-items-center" style="display: flex; justify-content: center;">
+    <strong style="color: #ababa9; display: flex; margin-right: 10px;" class="align-items-center" ><mat-icon>person</mat-icon></strong> {{ username }}
   </div>
-  <div class="container text-center align-self-center">
-    <strong style="color: #ababa9">Entidad:</strong> {{ entidad }}
+  <div class="container text-center align-self-center align-items-center" style="display: flex; justify-content: center;">
+    <strong style="color: #ababa9; display: flex; margin-right: 10px;"><mat-icon>home</mat-icon></strong> {{ entidad }}
   </div>
-  <div class="container text-center align-self-center salir">
-    <button (click)="cerrar()" routerLink="/login">Salir</button>
+  <div class="container text-center align-self-center align-items-center">
+    <button
+    class="container text-center align-self-center align-items-center"  style="display: flex; justify-content: center; "
+     (click)="cerrar()" routerLink="/login"><mat-icon style="margin-right: 10px;">logout</mat-icon>  Salir</button>
   </div>
 </mat-toolbar>
 
