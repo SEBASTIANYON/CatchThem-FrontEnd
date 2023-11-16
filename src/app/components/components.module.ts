@@ -69,7 +69,7 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     AlertasComponent,
     ListarActasComponent,
     ListarAlertasComponent,
-    ListarAntecedenteComponent
+    ListarAntecedenteComponent,
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
