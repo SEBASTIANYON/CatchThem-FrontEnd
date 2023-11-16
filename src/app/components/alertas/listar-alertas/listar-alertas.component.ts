@@ -4,6 +4,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Alerta } from 'src/app/models/Alerta';
 import { AlertaService } from 'src/app/services/alerta.service';
 import { LoginService } from 'src/app/services/login.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog/dialog.component';
+import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
+import { DialogoMapaComponent } from '../../dialog/dialogo-mapa/dialogo-mapa.component';
+
 
 @Component({
   selector: 'app-listar-alertas',
@@ -14,22 +19,22 @@ export class ListarAlertasComponent implements OnInit {
   dataSource: MatTableDataSource<Alerta> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = [
-    'id',
+    'usuario',
     'fecha',
     'tipo',
     'descripcion',
-    'ubicacion',
     'gravedad',
-    'usuario',
+    'ubicacion',
     'actualizar',
     'eliminar'
   ];
   role: string = ''
 
-  
+
   constructor(
     private aS: AlertaService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    public dialog: MatDialog
     ) {}
 
   ngOnInit(): void {
@@ -47,15 +52,30 @@ export class ListarAlertasComponent implements OnInit {
 
     if(this.role !== 'ADMIN'){
       this.displayedColumns = [
-        'id',
+        'usuario',
         'fecha',
         'tipo',
+        'gravedad',
         'descripcion',
         'ubicacion',
-        'gravedad',
-        'usuario',
       ];
     }
+  }
+
+  openDialog(id_alerta: number){
+    this.dialog.open(DialogoConfirmacionComponent)
+    .afterClosed()
+    .subscribe((confirmacion: Boolean) => {
+      if(confirmacion){
+        this.eliminar(id_alerta)
+      }
+    })
+  }
+
+  openMap(alerta: Alerta){
+    this.dialog.open(DialogoMapaComponent, {
+      data: alerta.ubicacion
+    })
   }
 
   eliminar(id: number) {
@@ -69,7 +89,7 @@ export class ListarAlertasComponent implements OnInit {
   filter(en:any){
     //filtrar para objetos anidados
     this.dataSource.filterPredicate = (data: Alerta, filter: string) => {
-      return data.descripcion.toLocaleLowerCase().includes(filter) || 
+      return data.descripcion.toLocaleLowerCase().includes(filter) ||
       data.gravedad.toLocaleLowerCase().includes(filter) ||
       data.tipo.toLocaleLowerCase().includes(filter) ||
       data.ubicacion.toLocaleLowerCase().includes(filter) ||

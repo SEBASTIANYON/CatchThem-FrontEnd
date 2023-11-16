@@ -19,13 +19,15 @@ export class CrearActasComponent {
   listaSospechosos: Sospechoso[] = []
   id: number = 0;
   edicion: boolean = false;
+  maxFecha: Date = new Date(Date.now());
+
   constructor(
     private aS: ActasinterrogatorioService,
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private sS: SospechosoService,
-    private loginService: LoginService
+    private loginService: LoginService,
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class CrearActasComponent {
     this.sS.list().subscribe(data => {
       this.listaSospechosos = data
     })
+
   }
 
   aceptar(): void {
@@ -55,8 +58,12 @@ export class CrearActasComponent {
       this.acta.detalles = this.form.value.detalles;
       this.acta.fecha = this.form.value.fecha;
       this.acta.sospechoso.idSospechoso = this.form.value.sospechoso;
-      this.acta.usuario.id = this.loginService.showId()
-
+      if(this.edicion){
+        this.acta.usuario.id = this.form.value.usuario
+      }
+      else {
+        this.acta.usuario.id = this.loginService.showId()
+      }
 
       if (this.edicion) {
         console.log(this.acta)
@@ -71,11 +78,10 @@ export class CrearActasComponent {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });
-          console.log("insertar")
+          console.log("insertar2222")
         });
       }
-      
-      
+
       this.router.navigate(['/actas']);
     } else {
       this.mensaje = 'Por favor complete todos los campos obligatorios.';
@@ -89,15 +95,15 @@ export class CrearActasComponent {
     }
     return control;
   }
-  
+
   init() {
     if (this.edicion) {
       this.aS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id_acta),
-          fecha: new FormControl(data.fecha),
-          detalles:new FormControl(data.detalles),
-          sospechoso: new FormControl(data.sospechoso.idSospechoso),
+          fecha: new FormControl(data.fecha, Validators.required),
+          detalles:new FormControl(data.detalles, Validators.required),
+          sospechoso: new FormControl(data.sospechoso.idSospechoso, Validators.required),
           usuario: new FormControl(data.usuario.id),
         });
       });

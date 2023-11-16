@@ -1,3 +1,4 @@
+import { Entidad } from './Entidad';
 export class Sospechoso {
   idSospechoso: number = 0;
   nombre: string = '';
@@ -9,4 +10,6 @@ export class Sospechoso {
   historial: string = '';
   estado: string = '';
   fecharegistro: Date = new Date(Date.now());
+  imagen: string = '';
+  entidad: Entidad = new Entidad();
 }

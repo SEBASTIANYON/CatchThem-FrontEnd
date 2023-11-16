@@ -9,9 +9,9 @@
 
 <body style="background-color: #dedede;">
     <div class="container" style="text-align: center">
-        <h2>Registro de actas de interrogatorio</h2>
+        <h2 [hidden]="edicion">Registro de actas de interrogatorio</h2>
+        <h2 [hidden]="edicion !== true">Editar actas de interrogatorio</h2>
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-
             <mat-form-field>
                 <mat-label>Sospechoso</mat-label>
                 <mat-select formControlName="sospechoso">
@@ -26,9 +26,9 @@
             <br />
 
             <mat-form-field appearance="fill" class="example-full-width">
-                <input matInput placeholder="Ingrese fecha" [matDatepicker]="picker" formControlName="fecha" />
+                <input matInput placeholder="Ingrese fecha" [max]="maxFecha" [matDatepicker]="picker" formControlName="fecha" />
                 <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                 <mat-error *ngIf="obtenerControlCampo('fecha')?.errors?.['required']">
                     La fecha del acta es obligatorio.

@@ -20,16 +20,14 @@ export class LoginComponent implements OnInit {
   password: string = '';
   mensaje: string = '';
   ngOnInit(): void {}
-
   login() {
     let request = new JwtRequest();
     request.username = this.username;
     request.password = this.password;
-
     this.loginService.login(request).subscribe(
       (data: any) => {
         sessionStorage.setItem('token', data.jwttoken);
-        this.router.navigate(['components/entidades']);
+        this.router.navigate(['/sospechosos']);
       },
       (error) => {
         this.mensaje = 'Credenciales incorrectas';
@@ -38,3 +36,4 @@ export class LoginComponent implements OnInit {
     );
   }
 }
+

@@ -1,14 +1,6 @@
-
-.contenedor {
-    display: inline-flex;
-}
-
-.contenedor .fondo2 {
-
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.02) 0.13%, #000 94.62%), url("\src\assets\img\fondo2.gif") lightgray 50% / cover no-repeat;
-    width: 849px;
-    height: 929px;
-    flex-shrink: 0;
+h1{
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .contenedor .formulario {
@@ -52,7 +44,7 @@ form{
 }
 
 mat-form-field {
-    
+
     margin-right:10px;
     margin-left: 10px;
     width:40%;
