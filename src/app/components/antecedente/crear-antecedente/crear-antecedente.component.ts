@@ -36,18 +36,6 @@ export class CrearAntecedenteComponent implements OnInit {
 
   listasospechosos: Sospechoso[] = [];
 
-  //Para el listar
-  dataSource: MatTableDataSource<AntecedentePenal> = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'id',
-    'delito',
-    'fecha_comision',
-    'fecha_condena',
-    'sentencia',
-    'sospechoso',
-    'accion02',
-  ];
-
   constructor(
     private aS: AntecedentePenalService,
     private formBuilder: FormBuilder,
@@ -74,14 +62,6 @@ export class CrearAntecedenteComponent implements OnInit {
       this.listasospechosos = data;
     });
 
-    this.aS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
-    this.aS.getList().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
   }
 
   aceptar() {
@@ -101,7 +81,7 @@ export class CrearAntecedenteComponent implements OnInit {
         });
       });
 
-      this.router.navigate(['antecedentes/nuevo']);
+      this.router.navigate(['components/antecedentes']);
     }
   }
 
@@ -113,15 +93,5 @@ export class CrearAntecedenteComponent implements OnInit {
     return control;
   }
 
-  eliminar(id: number) {
-    this.aS.delete(id).subscribe((data) => {
-      this.aS.list().subscribe((data) => {
-        this.aS.setList(data);
-      });
-    });
-  }
 
-  filter(en: any) {
-    this.dataSource.filter = en.target.value.trim();
-  }
 }
