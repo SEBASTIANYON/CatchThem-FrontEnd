@@ -35,6 +35,7 @@ import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.com
 import { AlertasComponent } from './alertas/alertas.component';
 import { ListarActasComponent } from './actas/listar-actas/listar-actas.component';
 import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.component';
+import { ListarAntecedenteComponent } from './antecedente/listar-antecedente/listar-antecedente.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -48,7 +49,6 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { RoleComponent } from './role/role.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
-
 
 @NgModule({
   declarations: [
@@ -69,6 +69,7 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     AlertasComponent,
     ListarActasComponent,
     ListarAlertasComponent,
+    ListarAntecedenteComponent
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
@@ -97,7 +98,6 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
-
     MatCardModule,
     MatGridListModule,
     MatNativeDateModule,

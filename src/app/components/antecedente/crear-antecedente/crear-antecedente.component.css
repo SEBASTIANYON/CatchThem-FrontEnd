@@ -1,22 +1,24 @@
 * {
-    width: 1680px;
+    width: auto;
 
 }
 
 body {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-repeat: no-repeat;
     background-color: #DEDEDE;
-    display: flex;
 }
 
 .form-register {
-    width: 840px;
+    
+    width: auto;
 
 }
 
 .example-form {
-    position: relative;
+   
     top: 50px;
     width: 840px;
 }
@@ -27,7 +29,6 @@ h2 {
     width: inherit;
     text-align: center;
     font-size: 36px;
-    font-family: 'Times New Roman', Times, serif;
 
 }
 
@@ -66,55 +67,6 @@ button:hover{
 }
 
 
-/*Ahora para la tabla*/
-
-.form-listar {
-
-    display: flexbox;
-    width: 840px;
-
-
-}
-.form-listar .buscador {
-    position: relative;
-    left:  150px;
-    width: 350px;
-    height: 78px;
-    margin-top: 25px;
-
-}
-
-.form-listar .buscador mat-form-field {
-    display: inline-block;
-    position: absolute;
-    width: 350px;
-    height: auto;
-
-}
-
-.form-listar .buscador .bi{ 
-    position: absolute;
-    width: 18px;
-    margin-left: -15px;
-    color: #000;
-}
-
-
-.form-listar .in{
-    border-radius: 25px;
-}
-
-.form-listar table {
-    display: inline-block;
-    position: relative;
-    width: 840px;
-    top: 0px;
-    border-radius: 10px;
-}
-
-table ng-container {
-    width: 100px;
-}
 
 .pagination {
     display: inline-flex;
