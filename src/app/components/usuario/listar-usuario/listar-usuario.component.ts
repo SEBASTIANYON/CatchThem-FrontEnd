@@ -32,3 +32,4 @@ export class ListarUsuarioComponent implements OnInit {
     this.users.filter = en.target.value.trim();
   }
 }
+

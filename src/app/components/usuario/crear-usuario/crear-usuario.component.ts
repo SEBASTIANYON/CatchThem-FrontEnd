@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {
   AbstractControl,
   FormBuilder,
@@ -6,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Entidad } from 'src/app/models/Entidad';
 import { Users } from 'src/app/models/Users';
@@ -15,7 +17,9 @@ import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
+
   styleUrls: ['./crear-usuario.component.css'],
+
 })
 export class CrearUsuarioComponent implements OnInit {
   form: FormGroup = new FormGroup({});
@@ -48,11 +52,12 @@ export class CrearUsuarioComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       nombre: ['', Validators.required],
-      correo: ['', [Validators.required, this.validarCorreo]],
+      correo: ["", [Validators.required, this.validarCorreo]],
       telefono: ['', [Validators.required]],
       imagen: ['', Validators.required],
       entidad: ['', Validators.required],
     });
+
 
     this.eS.list().subscribe((data) => {
       this.lista_entidades = data;
@@ -76,6 +81,7 @@ export class CrearUsuarioComponent implements OnInit {
       this.usuario.password = this.form.value.password;
       this.usuario.nombre = this.form.value.nombre;
       this.usuario.correo = this.form.value.correo;
+
       this.usuario.telefono = this.form.value.telefono;
       this.usuario.imagen = this.form.value.imagen;
       this.usuario.entidad.idEntidad = this.form.value.entidad;
@@ -116,3 +122,4 @@ export class CrearUsuarioComponent implements OnInit {
     }
   }
 }
+

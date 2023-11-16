@@ -13,6 +13,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { GuardService } from '../services/guard.service';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
+import { RoleComponent } from './role/role.component';
+
 const routes: Routes = [
   {
     path: 'entidades', canActivate: [GuardService],
@@ -66,6 +70,18 @@ const routes: Routes = [
       { path: 'edicion/:id', component: CrearTipoEntidadComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
     ]
   },
+    path:'usuario',
+    component:UsuarioComponent,
+    children:[
+      {path:'nuevo', component: CrearUsuarioComponent},
+      {path:'edicion/:id', component: CrearUsuarioComponent}
+    ]
+  },
+  {
+    path:'role',
+    component:RoleComponent,
+  }
+
 
   //Colocar las rutas para las demas entidades
 ];
