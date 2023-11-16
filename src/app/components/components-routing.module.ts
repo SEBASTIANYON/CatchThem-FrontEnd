@@ -16,6 +16,7 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 const routes: Routes = [
   {
     path: 'entidades', canActivate: [GuardService],
+    data: {role: ['POLICIA', 'AGENTE','ADMIN']},
     component: EntidadComponent,
     children: [
       { path: 'nuevo', component: CrearEntidadComponent },
