@@ -1,23 +1,9 @@
-.contenedor {
-    display: flex;
-    height: 1000px;
-}
-
-.fondo {
-
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.02) 0.13%, #000 94.62%), url("\src\assets\img\fondo.png") lightgray 50% / cover no-repeat;
-    width: 60%;
-
-    flex-shrink: 0;
-}
-
-.formulario {
-    width: 40%;
-    background-color: #000;
+body{
+background-color: #dedede;
 }
 
 h1 {
-    color: #FFF;
+    color: #000;
     margin-top: 50px;
     text-align: center;
     font-family: Inter;
@@ -36,8 +22,16 @@ h1 {
 
 }
 
-
+.contenedor .formulario .example-form .linea {
+    stroke-width: 1px;
+    stroke: #FFF;
+    width: 657px;
+    height: 1px;
+    flex-shrink: 0;
+    border: 1px;
+}
 
 mat-form-field {
     width: 50%;
 }
+

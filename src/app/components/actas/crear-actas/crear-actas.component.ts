@@ -21,9 +21,6 @@ export class CrearActasComponent {
   edicion: boolean = false;
   maxFecha: Date = new Date(Date.now());
 
-
-
-
   constructor(
     private aS: ActasinterrogatorioService,
     private router: Router,

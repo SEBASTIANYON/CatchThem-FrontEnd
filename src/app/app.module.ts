@@ -43,8 +43,7 @@ import { ListarSospechosoComponent } from './components/sospechoso/listar-sospec
   declarations: [
     AppComponent,
     LoginComponent,
-  ],
-
+    ],
   imports: [
     BrowserModule,
     CommonModule,
