@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #dedede;">
+    <div class="container" style="text-align: center">
+        <h2 [hidden]="edicion">Registro de actas de interrogatorio</h2>
+        <h2 [hidden]="edicion !== true">Editar actas de interrogatorio</h2>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+            <mat-form-field>
+                <mat-label>Sospechoso</mat-label>
+                <mat-select formControlName="sospechoso">
+                    <mat-option *ngFor="let s of listaSospechosos" [value]="s.idSospechoso">
+                        {{s.nombre}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('sospechoso')?.errors?.['required']">
+                    El nombre del sospechoso es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field appearance="fill" class="example-full-width">
+                <input matInput placeholder="Ingrese fecha" [max]="maxFecha" [matDatepicker]="picker" formControlName="fecha" />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="obtenerControlCampo('fecha')?.errors?.['required']">
+                    La fecha del acta es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Detalle</mat-label>
+                <textarea matInput placeholder="Detalles" formControlName="detalles"></textarea>
+
+                <mat-error *ngIf="obtenerControlCampo('detalles')?.errors?.['required']">
+                    El detalle es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <button mat-raised-button
+                style="margin-right: 5%; background-color: #20211f; color:#F4F7F9; font-weight: 800;">Aceptar</button>
+            <button mat-raised-button style="background-color: #D6CDC9; color:#20211f; font-weight: 800;"
+                routerLink="/actas">
+                Cancelar
+            </button>
+            <p>{{ mensaje }}</p>
+        </form>
+    </div>
+</body>
+
+</html>

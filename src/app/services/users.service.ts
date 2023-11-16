@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Users } from '../models/Users';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root',
@@ -29,6 +29,12 @@ export class UsersService {
 
   listId(id: number) {
     return this.http.get<Users>(`${this.url}/${id}`);
+  }
+
+  insertarRol(authority: string, id: number) {
+    const body = { authority, id: id }; 
+
+    return this.http.post<any>(`${this.url}/insertarrol`, body);
   }
 
   update(u: Users) {

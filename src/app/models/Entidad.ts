@@ -5,5 +5,5 @@ export class Entidad {
   nombre: string = '';
   direccion: string = '';
   telefono: string = '';
-  tipoEntidad: string = '';
+  tipoEntidad: TipoEntidad = new TipoEntidad();
 }
