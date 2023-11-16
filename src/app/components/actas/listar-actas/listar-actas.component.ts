@@ -10,6 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 
+
 @Component({
   selector: 'app-listar-actas',
   templateUrl: './listar-actas.component.html',
@@ -20,7 +21,7 @@ export class ListarActasComponent implements OnInit{
   @ViewChild(MatPaginator ,{static: true}) paginator!: MatPaginator;
   obs: Observable<any> | undefined
   role: string = ''
-  
+
 
 
   constructor(
@@ -31,18 +32,16 @@ export class ListarActasComponent implements OnInit{
 
 
   ngOnInit(): void {
-    
+
 
     console.log("carga ngoninit")
-    
-
     this.aS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;      
+      this.dataSource.paginator = this.paginator;
       this.obs=this.dataSource.connect()
     });
 
-    
+
     this.aS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -50,12 +49,11 @@ export class ListarActasComponent implements OnInit{
     this.role = this.loginService.showRole()
   }
 
-  
+
   eliminar(id: number) {
     this.aS.delete(id).subscribe((data) => {
       this.aS.list().subscribe((data) => {
         this.aS.setList(data);
-        
         this.obs = this.dataSource.connect()
       });
     });
@@ -81,21 +79,21 @@ export class ListarActasComponent implements OnInit{
     this.aS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-      
+
     });
   }
 
   filter(en:any){
     //filtrar para objetos anidados
     this.dataSource.filterPredicate = (data: ActasInterrogatorio, filter: string) => {
-      return data.sospechoso.nombre.toLocaleLowerCase().includes(filter) || 
+      return data.sospechoso.nombre.toLocaleLowerCase().includes(filter) ||
       data.usuario.nombre.toLocaleLowerCase().includes(filter) ||
       data.id_acta.toLocaleString().includes(filter)
-      
+
     }
 
     this.dataSource.filter=en.target.value.trim();
   }
 
-  
+
 }

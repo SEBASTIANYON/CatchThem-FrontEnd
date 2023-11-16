@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgFor } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -26,6 +27,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AntecedenteComponent } from './antecedente/antecedente.component';
+import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
 import { ActasComponent } from './actas/actas.component';
 import { CrearActasComponent } from './actas/crear-actas/crear-actas.component';
 import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.component';
@@ -46,6 +49,7 @@ import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/l
 import { RoleComponent } from './role/role.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
 
+
 @NgModule({
   declarations: [
     EntidadComponent,
@@ -57,6 +61,8 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     CamaraComponent,
     ListarCamaraComponent,
     CrearCamaraComponent,
+    AntecedenteComponent,
+    CrearAntecedenteComponent,
     ActasComponent,
     CrearActasComponent,
     CrearAlertasComponent,
@@ -82,6 +88,7 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
+    NgFor,
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
@@ -90,13 +97,14 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
+
     MatCardModule,
     MatGridListModule,
     MatNativeDateModule,
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-    GoogleMapsModule    
+    GoogleMapsModule
   ],
 })
 export class ComponentsModule { }

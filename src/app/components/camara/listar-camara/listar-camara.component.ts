@@ -17,7 +17,9 @@ export class ListarCamaraComponent {
     'ubicacion',
     'tipo_camara',
     'area_vigilada',
-    'estado'
+    'estado',
+    'entidad',
+    'accion02'
   ];
   constructor(private uS: CamaraService) {}
   ngOnInit(): void {

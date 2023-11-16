@@ -1,11 +1,32 @@
 .container {
-    width: 1680px;
+
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
-    background: #C7CFD9;
-    width: 100%;
+    background: #DEDEDE;
+    width: auto;
     height: 929px;
+}
+
+h2{
+    color: #000;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    letter-spacing: -0.84px;
+    text-transform: uppercase;
 }
 
 nav {
@@ -13,6 +34,36 @@ nav {
 }
 
 .pagination {
-    margin-top: 10px;
+    margin-top: 0;
     display: inline-flex;
+    width: 1296px;
+}
+
+
+.container-2 .buscador {
+    position: relative;
+    left:  150px;
+    width: 350px;
+    height: 78px;
+    margin-top: 25px;
+
+}
+
+.container-2 .buscador mat-form-field {
+    display: inline-block;
+    position: absolute;
+    width: 350px;
+    height: auto;
+
+}
+
+.container-2 .buscador .bi{
+    position: absolute;
+    width: 18px;
+    margin-left: -15px;
+}
+
+
+.container-2 .in{
+    border-radius: 25px;
 }

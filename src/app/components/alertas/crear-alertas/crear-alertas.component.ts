@@ -113,8 +113,6 @@ export class CrearAlertasComponent implements OnInit {
 
   init() {
     if (this.edicion) {
-      
-      
       this.aS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id_alerta),
@@ -124,7 +122,7 @@ export class CrearAlertasComponent implements OnInit {
           gravedad: new FormControl(data.gravedad, Validators.required),
           ubicacion: new FormControl(data.ubicacion, Validators.required),
           usuario: new FormControl(data.usuario.id),
-          
+
         });
         let coordinates = data.ubicacion.substring(1, data.ubicacion.length - 1).split(', ');
         let lat = Number(coordinates[0]);
@@ -133,11 +131,11 @@ export class CrearAlertasComponent implements OnInit {
           lat: lat,
           lng: lng
         };
-        
+
       });
     }
 
-    
+
   }
 
   onClick(e: any) {
@@ -154,8 +152,6 @@ export class CrearAlertasComponent implements OnInit {
 
     this.form.patchValue({ ubicacion: latLngString })
   }
-
-
 
 
 }

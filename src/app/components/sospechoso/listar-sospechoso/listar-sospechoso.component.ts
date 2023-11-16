@@ -8,6 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of } from 'rxjs';
 
+
 @Component({
   selector: 'app-listar-sospechoso',
   templateUrl: './listar-sospechoso.component.html',
@@ -18,7 +19,6 @@ export class ListarSospechosoComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   obs: Observable<any> | undefined;
   role: string = '';
-
   constructor(
     private oS: SospechosoService,
     public dialog: MatDialog,
@@ -30,6 +30,7 @@ export class ListarSospechosoComponent implements OnInit {
     console.log("carga ngoninit")
 
     this.oS.list().subscribe((data) => {
+
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.obs = this.dataSource.connect();
@@ -78,7 +79,7 @@ export class ListarSospechosoComponent implements OnInit {
 
   filter(en: any) {
     this.dataSource.filterPredicate = (data: Sospechoso, filter: string) => {
-      return data.entidad.nombre.toLocaleLowerCase().includes(filter) || 
+      return data.entidad.nombre.toLocaleLowerCase().includes(filter) ||
       data.idSospechoso.toLocaleString().includes(filter)  ||
       data.nombre.toLocaleString().includes(filter)  ||
       data.alias.toLocaleString().includes(filter)  ||
@@ -86,7 +87,7 @@ export class ListarSospechosoComponent implements OnInit {
       data.estado.toLocaleString().includes(filter)  ||
       data.genero.toLocaleString().includes(filter)  ||
       data.historial.toLocaleString().includes(filter)  ||
-      data.nacionalidad.toLocaleString().includes(filter)  
+      data.nacionalidad.toLocaleString().includes(filter)
     }
 
     this.dataSource.filter = en.target.value.trim();

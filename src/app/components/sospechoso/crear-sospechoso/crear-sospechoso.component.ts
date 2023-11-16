@@ -7,12 +7,15 @@ import { FormBuilder, FormGroup, Validators, AbstractControl,FormControl} from '
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
+
 @Component({
   selector: 'app-crear-sospechoso',
   templateUrl: './crear-sospechoso.component.html',
-  styleUrls: ['./crear-sospechoso.component.css'],
+  styleUrls: ['./crear-sospechoso.component.css']
 })
 export class CrearSospechosoComponent {
+
+
   form: FormGroup = new FormGroup({});
   sospechoso: Sospechoso = new Sospechoso();
   mensaje: string = '';
@@ -21,17 +24,12 @@ export class CrearSospechosoComponent {
   edicion: boolean = false;
   maxFecha: Date = new Date(Date.now());
   tipos: { value: string; viewValue: string }[] = [
-    { value: 'Masculino', viewValue: 'Masculino' },
     { value: 'Femenino', viewValue: 'Femenino' },
-  ];
-
-  tipos2: { value2: string; viewValue2: string }[] = [
-    { value2: 'Capturado', viewValue2: 'Capturado' },
-    { value2: 'Libre', viewValue2: 'Libre' },
+    { value: 'Masculino', viewValue: 'Masculino' }
   ];
 
   constructor(
-    private oS: SospechosoService,
+    private sS: SospechosoService,
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -82,7 +80,7 @@ export class CrearSospechosoComponent {
       this.sospechoso.fecharegistro = this.form.value.fecharegistro;
       this.sospechoso.imagen = this.form.value.imagen;
       this.sospechoso.entidad.idEntidad= this.form.value.entidad;
- 
+
       if(this.edicion){
         this.sospechoso.entidad.idEntidad = this.form.value.entidad
       }

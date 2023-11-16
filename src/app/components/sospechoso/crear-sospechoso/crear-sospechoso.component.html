@@ -12,17 +12,17 @@
       <br />
       <div class="container">
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-          
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Nombre</mat-label>
             <input matInput placeholder="Nombre" formControlName="nombre"/>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Alias</mat-label>
             <input matInput placeholder="Alias" formControlName="alias"/>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Género</mat-label>
             <mat-select formControlName="genero">
@@ -31,14 +31,14 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Fecha de Nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" [max]="maxFecha" formControlName="nacimiento"/>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Nacionalidad</mat-label>
             <input matInput formControlName="nacionalidad" />
@@ -48,7 +48,7 @@
             <mat-label>Imagen</mat-label>
             <input matInput placeholder="Colocar imagen" formControlName="imagen"/>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Estado</mat-label>
             <mat-select formControlName="estado">
@@ -57,19 +57,19 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Fecha de Registro</mat-label>
             <input matInput [matDatepicker]="picker2" [max]="maxFecha" formControlName="fecharegistro"/>
             <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 46% ;">
             <mat-label>Historial</mat-label>
             <textarea matInput placeholder="Historial" formControlName="historial"></textarea>
           </mat-form-field>
-          
+
           <mat-form-field style="padding: 20px; width: 46% ;">
             <mat-label>Descripción</mat-label>
             <textarea matInput placeholder="Descripción" formControlName="descripcion"></textarea>
@@ -85,6 +85,7 @@
           </div>
         </form>
       </div>
+      <div class="fondo2"></div>
     </div>
   </body>
 </html>
