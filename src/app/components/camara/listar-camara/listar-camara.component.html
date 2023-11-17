@@ -21,22 +21,16 @@
             />
           </mat-form-field>
         </div>
-<<<<<<< HEAD
         <div>
-          <button mat-raised-button class="nuevo" style="background-color: #20211f; color:#F4F7F9; font-weight: 800;"
-              routerLink="/camaras/nuevo">
-              Nuevo
+          <button
+            mat-raised-button
+            class="nuevo"
+            style="background-color: #20211f; color: #f4f7f9; font-weight: 800"
+            routerLink="/camaras/nuevo"
+          >
+            Nuevo
           </button>
-      </div>
-=======
-        <button
-          class="nuevo"
-          routerLink="/components/camaras/nuevo"
-          *ngIf="role == 'ADMIN' || role == 'POLICIA' || role == 'AGENTE'"
-        >
-          Nuevo
-        </button>
->>>>>>> 26bd7d7 (Actualizacion 2 Camaras)
+        </div>
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <!--- Note that these columns can be defined in any order.
