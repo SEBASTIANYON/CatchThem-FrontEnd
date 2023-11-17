@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { TipoEntidadService } from 'src/app/services/tipoentidad.service';
 import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 import {MatDialog} from '@angular/material/dialog';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-listar-tipo-entidad',
@@ -22,6 +23,8 @@ export class ListarTipoEntidadComponent implements OnInit {
     'eliminar'
   ];
   role: string = ''
+  obs: Observable<any> | undefined
+
   constructor(private iS: TipoEntidadService, private loginService:LoginService,
     public dialog: MatDialog) {}
 
@@ -29,19 +32,13 @@ export class ListarTipoEntidadComponent implements OnInit {
     this.iS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
+      this.obs=this.dataSource.connect()
     });
     this.iS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
     this.role = this.loginService.showRole()
-
-    if(this.role !== 'AGENTE'){
-      this.displayedColumns = [
-        'idTipo',
-        'sector',
-      ];
-    }
   }
 
   openDialog(idTipo: number){
@@ -58,6 +55,8 @@ export class ListarTipoEntidadComponent implements OnInit {
     this.iS.delete(id).subscribe((data) => {
       this.iS.list().subscribe((data) => {
         this.iS.setList(data);
+
+        this.obs=this.dataSource.connect()
       });
     });
   }
