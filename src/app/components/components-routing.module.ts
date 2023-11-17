@@ -11,6 +11,9 @@ import { AlertasComponent } from './alertas/alertas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GuardService } from '../services/guard.service';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
+import { RoleComponent } from './role/role.component';
 
 const routes: Routes = [
   {
@@ -55,6 +58,19 @@ const routes: Routes = [
       { path: 'edicion/:id', component: CrearActasComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
     ]
   },
+  {
+    path:'usuario',
+    component:UsuarioComponent,
+    children:[
+      {path:'nuevo', component: CrearUsuarioComponent},
+      {path:'edicion/:id', component: CrearUsuarioComponent}
+    ]
+  },
+
+  {
+    path:'role',
+    component:RoleComponent,
+  }
 
   //Colocar las rutas para las demas entidades
 ];

@@ -1,8 +1,7 @@
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ComponentsRoutingModule } from './components-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CrearCamaraComponent } from './camara/crear-camara/crear-camara.component';
 import { ListarCamaraComponent } from './camara/listar-camara/listar-camara.component';
 import { CamaraComponent } from './camara/camara.component';
@@ -39,6 +38,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
+import { RoleComponent } from './role/role.component';
+import { CrearRoleComponent } from './role/crear-role/crear-role.component';
+
 
 @NgModule({
   declarations: [
@@ -60,6 +64,12 @@ import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.compone
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
+    UsuarioComponent,
+    ListarUsuarioComponent,
+    CrearUsuarioComponent,
+    RoleComponent,
+    CrearRoleComponent,
+    
   ],
   imports: [
     CommonModule,
