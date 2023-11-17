@@ -12,6 +12,7 @@
       <div class="container-2">
         <div class="buscador">
           <mat-form-field>
+            <mat-icon matPrefix>search</mat-icon>
             <input
               class="in"
               matInput
@@ -20,7 +21,12 @@
             />
           </mat-form-field>
         </div>
-        <button class="nuevo" routerLink="/components/camaras/nuevo">Nuevo</button>
+        <div>
+          <button mat-raised-button class="nuevo" style="background-color: #20211f; color:#F4F7F9; font-weight: 800;"
+              routerLink="/camaras/nuevo">
+              Nuevo
+          </button>
+      </div>
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <!--- Note that these columns can be defined in any order.
