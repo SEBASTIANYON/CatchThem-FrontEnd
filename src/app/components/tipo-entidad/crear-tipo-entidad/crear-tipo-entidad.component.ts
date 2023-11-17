@@ -5,7 +5,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  AbstractControl,
+  AbstractControl,FormControl
 } from '@angular/forms';
 import { ActivatedRoute, Router,Params } from '@angular/router';
 import { TipoEntidadService } from 'src/app/services/tipoentidad.service';
@@ -19,12 +19,12 @@ export class CrearTipoEntidadComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   tipoEntidad: TipoEntidad = new TipoEntidad();
   mensaje: string = '';
-  id: number = 0;
+  sector: number=0;
   edicion: boolean = false;
 
   tipos: { value: string; viewValue: string }[] = [
-    { value: 'Pública', viewValue: 'Pública' },
-    { value: 'Privada', viewValue: 'Privada' },
+    { value: 'Publico', viewValue: 'Publico' },
+    { value: 'Privado', viewValue: 'Privado' },
   ];
 
   constructor(
@@ -32,24 +32,24 @@ export class CrearTipoEntidadComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private loginService: LoginService,
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.form = this.formBuilder.group({
       sector: ['', Validators.required],
     });
   }
 
+  ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.sector = data['sector'];
+      this.edicion = data['sector'] != null;
+      this.init();  
+  });
+  }
+
   aceptar(): void {
     if (this.form.valid) {
       this.tipoEntidad.sector = this.form.value.sector;
-
-      this.iS.insert(this.tipoEntidad).subscribe((data) => {
-        this.iS.list().subscribe((data) => {
-          this.iS.setList(data);
-        });
-      });
+      
       if (this.edicion) {
         this.iS.update(this.tipoEntidad).subscribe(() => {
           this.iS.list().subscribe((data) => {
@@ -57,7 +57,14 @@ export class CrearTipoEntidadComponent implements OnInit {
           });
         });
       }
-      this.router.navigate(['tipo']);
+      else{
+        this.iS.insert(this.tipoEntidad).subscribe((data) => {
+          this.iS.list().subscribe((data) => {
+            this.iS.setList(data);
+          });
+        });
+      }
+      this.router.navigate(['/tipo']);
     }
   }
 
@@ -67,5 +74,15 @@ export class CrearTipoEntidadComponent implements OnInit {
       throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
     }
     return control;
+  }
+
+  init() {
+    if (this.edicion) {
+      this.iS.listId(this.sector).subscribe((data) => {
+        this.form = new FormGroup({
+          sector: new FormControl(data.sector),
+        });
+      });
+    }
   }
 }
