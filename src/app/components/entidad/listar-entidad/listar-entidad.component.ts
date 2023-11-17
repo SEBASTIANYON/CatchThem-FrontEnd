@@ -6,16 +6,19 @@ import { MatPaginator } from '@angular/material/paginator';
 import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 import { LoginService } from 'src/app/services/login.service';
 import {MatDialog} from '@angular/material/dialog';
-import { TipoEntidad } from 'src/app/models/TipoEntidad';
+import { Observable, of } from 'rxjs';
+
 
 @Component({
   selector: 'app-listar-entidad',
   templateUrl: './listar-entidad.component.html',
-  styleUrls: ['./listar-entidad.component.css']
+  styleUrls: ['./listar-entidad.component.css'],
 })
 export class ListarEntidadComponent implements OnInit {
   dataSource: MatTableDataSource<Entidad> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  role: string = ''
+  obs: Observable<any> | undefined
   displayedColumns: string[] = [
     'idEntidad',
     'nombre',
@@ -25,7 +28,6 @@ export class ListarEntidadComponent implements OnInit {
     'actualizar',
     'eliminar'
   ];
-  role: string = ''
 
   constructor(private uS: EntidadService,private loginService: LoginService,
     public dialog: MatDialog) {}
@@ -34,23 +36,12 @@ export class ListarEntidadComponent implements OnInit {
     this.uS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
+      this.obs=this.dataSource.connect()
     });
     this.uS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
-
-    this.role = this.loginService.showRole()
-
-    if(this.role !== 'AGENTE'){
-      this.displayedColumns = [
-        'idEntidad',
-        'nombre',
-        'direccion',
-        'telefono',
-        'tipoEntidad',
-      ];
-    }
   }
 
   //se agrega eliminar por id
@@ -58,18 +49,13 @@ export class ListarEntidadComponent implements OnInit {
     this.uS.delete(id).subscribe((data) => {
       this.uS.list().subscribe((data) => {
         this.uS.setList(data);
+
+        this.obs = this.dataSource.connect()
       });
     });
-  }
-
+  } 
+  
   filter(en:any){
-    this.dataSource.filterPredicate = (data: Entidad, filter: string) => {
-      return data.nombre.toLocaleLowerCase().includes(filter) ||
-      data.direccion.toLocaleLowerCase().includes(filter) ||
-      data.telefono.toLocaleLowerCase().includes(filter) ||
-      data.tipoEntidad.toLocaleString().includes(filter) ||
-      data.idEntidad.toLocaleString().includes(filter) 
-    }
     this.dataSource.filter=en.target.value.trim();
   }
 
