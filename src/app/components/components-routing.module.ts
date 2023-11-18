@@ -14,6 +14,7 @@ import { GuardService } from '../services/guard.service';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { RoleComponent } from './role/role.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   {
@@ -70,9 +71,11 @@ const routes: Routes = [
   {
     path:'role',
     component:RoleComponent,
+  },
+  {
+    path:'reportes',
+    component:ReportesComponent,
   }
-
-  //Colocar las rutas para las demas entidades
 ];
 
 @NgModule({

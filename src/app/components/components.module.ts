@@ -42,6 +42,9 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { RoleComponent } from './role/role.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte3Component } from './reportes/reporte3/reporte3.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -69,6 +72,8 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     CrearUsuarioComponent,
     RoleComponent,
     CrearRoleComponent,
+    ReportesComponent,
+    Reporte3Component,
     
   ],
   imports: [
@@ -92,8 +97,8 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-    GoogleMapsModule
-    
+    GoogleMapsModule,
+    NgChartsModule
   ],
 })
 export class ComponentsModule { }
