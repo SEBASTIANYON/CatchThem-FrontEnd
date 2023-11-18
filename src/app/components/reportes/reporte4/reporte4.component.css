@@ -1,0 +1,9 @@
+.container{
+    width: 35%;
+}
+
+h1{
+    font-size: 35px;
+    font-weight: bold;
+    padding: 10px;
+}

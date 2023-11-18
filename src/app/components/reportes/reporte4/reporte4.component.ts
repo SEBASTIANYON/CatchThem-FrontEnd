@@ -15,7 +15,7 @@ export class Reporte4Component implements OnInit {
   };
   barChartLabels: string[] = [];
   //para cambiar el tipo del gráfico
-  barChartType: ChartType = 'bar';
+  barChartType: ChartType = 'pie';
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
 
@@ -28,6 +28,8 @@ export class Reporte4Component implements OnInit {
         {
           data: data.map((item) => item.cantidad_antecedentes),
           label: 'Cantidad de antecedentes por delito',
+          backgroundColor: ['#4682B4', '#000033', '#000080'],
+          borderColor: 'white',
         },
       ];
     });

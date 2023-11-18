@@ -6,19 +6,21 @@
     <title>Document</title>
   </head>
   <body style="background-color: #dedede">
-    <div style="text-align: center">
-      <h1>Cantidad de antecedentes por delito</h1>
-    </div>
-    <div style="text-align: center">
-      <canvas
-        baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [type]="barChartType"
-      >
-      </canvas>
+    <div class="container">
+      <div style="text-align: center">
+        <h1>Cantidad de antecedentes por delito</h1>
+      </div>
+      <div style="text-align: center">
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType"
+        >
+        </canvas>
+      </div>
     </div>
   </body>
 </html>
