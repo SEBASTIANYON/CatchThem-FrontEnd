@@ -31,10 +31,10 @@
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <mat-label>Tipo de Entidad</mat-label>
-            <mat-select formControlName="tipoEntidad">
-              <mat-option *ngFor="let p of tipos" [value]="p.value">
-                {{p.viewValue}}
+            <mat-label>TipoEntidad</mat-label>
+            <mat-select formControlName="TipoEntidad">
+              <mat-option *ngFor="let l of listaTipo" [value]="l.idTipo">
+                {{l.sector}}
               </mat-option>
             </mat-select>
           </mat-form-field>
