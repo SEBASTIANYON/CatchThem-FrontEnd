@@ -45,9 +45,6 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { RoleComponent } from './role/role.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
-import { ReporteComponent } from './reporte/reporte.component';
-import { ReportsComponent } from './reports/reports.component';
-import { Reporte4Component } from './reports/reporte4/reporte4.component';
 import { ReportesComponent } from './reportes/reportes.component';
 
 @NgModule({
@@ -78,9 +75,6 @@ import { ReportesComponent } from './reportes/reportes.component';
     CrearTipoEntidadComponent,
     RoleComponent,
     CrearRoleComponent,
-    ReporteComponent,
-    ReportsComponent,
-    Reporte4Component,
     ReportesComponent,
 ],
   imports: [
