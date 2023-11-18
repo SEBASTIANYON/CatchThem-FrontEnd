@@ -20,11 +20,6 @@ export class CrearEntidadComponent implements OnInit {
   idEntidad: number = 0;
   edicion: boolean = false;
 
-  tipos: { value: string; viewValue: string }[] = [
-    { value: 'Publico', viewValue: 'Publico' },
-    { value: 'Privado', viewValue: 'Privado' },
-  ];
-
   constructor(
     private eS: EntidadService,
     private router: Router,
@@ -45,9 +40,10 @@ export class CrearEntidadComponent implements OnInit {
       nombre: ['', Validators.required],
       direccion: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      TipoEntidad: ['', Validators.required],
     });
     this.iS.list().subscribe(data => {
-      this.listaTipo = data
+      this.listaTipo = data;
     })
   }
 
@@ -59,12 +55,6 @@ export class CrearEntidadComponent implements OnInit {
       this.entidad.telefono = this.form.value.telefono;
       this.entidad.tipoEntidad.idTipo= this.form.value.TipoEntidad;
       
-      if(this.edicion){
-        this.entidad.tipoEntidad.idTipo = this.form.value.tipoEntidad
-      }
-      else {
-        this.entidad.tipoEntidad.idTipo = this.loginService.showId()
-      }
 
       if (this.edicion) { console.log(this.entidad)
         this.eS.update(this.entidad).subscribe(() => {
@@ -101,6 +91,7 @@ export class CrearEntidadComponent implements OnInit {
           nombre: new FormControl(data.nombre),
           direccion: new FormControl(data.direccion, Validators.required),
           telefono: new FormControl(data.telefono, [Validators.required, Validators.pattern(/^\d+$/)]),
+          TipoEntidad: new FormControl(data.tipoEntidad),
         });
       });
     } 
