@@ -16,6 +16,9 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 import { UsuarioComponent } from './usuario/usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { RoleComponent } from './role/role.component';
+import { AntecedenteComponent } from './antecedente/antecedente.component';
+import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   {
@@ -77,6 +80,24 @@ const routes: Routes = [
       {path:'edicion/:id', component: CrearUsuarioComponent}
     ]
   },
+  {
+    path: 'antecedentes',
+    canActivate: [GuardService],
+    data: { role: ['POLICIA', 'AGENTE', 'ADMIN'] },
+    component: AntecedenteComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: CrearAntecedenteComponent,
+        data: { role: ['ADMIN', 'POLICIA'] },
+        canActivate: [GuardService],
+      },
+    ],
+  },{
+    path:'reportes',
+    component:ReportesComponent,
+  },
+
   {
     path:'role',
     component:RoleComponent,
