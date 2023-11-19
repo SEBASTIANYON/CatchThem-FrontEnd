@@ -17,6 +17,8 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 import { UsuarioComponent } from './usuario/usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { RoleComponent } from './role/role.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 
 const routes: Routes = [
   {
@@ -72,6 +74,7 @@ const routes: Routes = [
       { path: 'edicion/:id', component: CrearTipoEntidadComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
     ]
   },
+  {
     path:'usuario',
     component:UsuarioComponent,
     children:[
@@ -83,7 +86,16 @@ const routes: Routes = [
   {
     path:'role',
     component:RoleComponent,
+  },
+  {
+    path: 'reportes',
+    component: ReportesComponent,
+    children:[
+      {path:'reporte1', component: Reporte1Component},
+    ]
+
   }
+
 
 
   //Colocar las rutas para las demas entidades

@@ -1,4 +1,3 @@
-import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
@@ -44,7 +43,11 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
-
+import { CrearRoleComponent } from './role/crear-role/crear-role.component';
+import { RoleComponent } from './role/role.component';
+import { NgChartsModule } from 'ng2-charts';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -66,13 +69,16 @@ import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/l
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
-
+    CrearRoleComponent,
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     UsuarioComponent,
     TipoEntidadComponent,
     ListarTipoEntidadComponent,
-    CrearTipoEntidadComponent
+    CrearTipoEntidadComponent,
+    RoleComponent,
+    ReportesComponent,
+    Reporte1Component
   ],
   imports: [
     CommonModule,
@@ -95,7 +101,8 @@ import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/l
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-    GoogleMapsModule    
+    GoogleMapsModule,
+    NgChartsModule
   ],
 })
 export class ComponentsModule { }
