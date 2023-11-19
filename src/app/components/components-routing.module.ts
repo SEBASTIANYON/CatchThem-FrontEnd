@@ -21,6 +21,8 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 import { AntecedenteComponent } from './antecedente/antecedente.component';
 import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
+import { Reporte2Component } from './reportes/reporte2/reporte2.component';
+import { ListarCamaraComponent } from './camara/listar-camara/listar-camara.component';
 import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 
 const routes: Routes = [
@@ -135,6 +137,26 @@ const routes: Routes = [
       {
         path: 'nuevo',
         component: CrearCamaraComponent,
+        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
+        canActivate: [GuardService],
+      },
+      {
+        path: 'list',
+        component: ListarCamaraComponent,
+        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
+        canActivate: [GuardService],
+      }
+    ],
+  },
+  {
+    path: 'reportes',
+    canActivate: [GuardService],
+    data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
+    component: ReportesComponent,
+    children: [
+      {
+        path: 'reportes2',
+        component: Reporte2Component,
         data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
         canActivate: [GuardService],
       },

@@ -8,16 +8,19 @@
 
   <body>
     <div class="contenedor">
-    
       <div class="formulario">
         <h1>Registrar Camara</h1>
-        
+
         <br />
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-
           <mat-form-field class="example-full-width" *ngIf="edicion">
             <mat-label>id_camara</mat-label>
             <input matInput placeholder="Id" formControlName="id_camara" />
+            <mat-error
+              *ngIf="obtenerControlCampo('id_camara')?.errors?.['required']"
+            >
+              La camara es obligatorio.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -27,6 +30,11 @@
               placeholder="Ubicacion"
               formControlName="ubicacion"
             />
+            <mat-error
+              *ngIf="obtenerControlCampo('ubicacion')?.errors?.['required']"
+            >
+              La ubicacion es obligatorio.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -36,6 +44,11 @@
               placeholder="Tipo de Camara"
               formControlName="tipo_camara"
             />
+            <mat-error
+              *ngIf="obtenerControlCampo('tipo_camara')?.errors?.['required']"
+            >
+              El modelo es obligatorio.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -45,6 +58,12 @@
               placeholder="Area Vigilada"
               formControlName="area_vigilada"
             />
+
+            <mat-error
+              *ngIf="obtenerControlCampo('area_vigilada')?.errors?.['required']"
+            >
+              El area vigilada es obligatoria.
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -59,10 +78,18 @@
           <mat-form-field class="example-full-width">
             <mat-label>Entidad</mat-label>
             <mat-select formControlName="entidad">
-              <mat-option *ngFor="let p of listaEntidades" [value]="p.idEntidad">
+              <mat-option
+                *ngFor="let p of listaEntidades"
+                [value]="p.idEntidad"
+              >
                 {{ p.nombre }}
               </mat-option>
             </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('entidad')?.errors?.['required']"
+            >
+              La entidad es obligatoria.
+            </mat-error>
           </mat-form-field>
 
           <button mat-raised-button color="#ababa9">Registrar</button>

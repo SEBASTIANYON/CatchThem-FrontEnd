@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { SospechosoEntidadDTO } from '../models/SospechosoEntidadDTO';
+
 import { Observable, Subject } from 'rxjs';
 import { Entidad } from '../models/Entidad';
 import { EntidadCamarasDTO } from '../models/EntidadCamarasDTO';
 import { cantidadsospechososDTO } from '../models/cantidadsospechososDTO';
-
 
 const base_url = environment.base;
 @Injectable({
@@ -67,6 +68,16 @@ export class EntidadService {
         .set('Content-Type', 'application/json'),
     });
   }
+
+  //Funcion que me permite mostrar informacion sobre la edad promedio de sospechosos en una entidad
+  getEdadPromedio(): Observable<SospechosoEntidadDTO[]> {
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<SospechosoEntidadDTO[]>(`${this.url}/edadpromedio`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'), 
+    });
 
   getCantidadDeCamaras(): Observable<EntidadCamarasDTO[]> {
     let token = sessionStorage.getItem('token');

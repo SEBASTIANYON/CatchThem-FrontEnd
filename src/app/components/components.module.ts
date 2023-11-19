@@ -49,6 +49,7 @@ import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
+import { Reporte2Component } from './reportes/reporte2/reporte2.component';
 import { Reporte4Component } from './reportes/reporte4/reporte4.component';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { RoleComponent } from './role/role.component';
@@ -92,10 +93,8 @@ import { Reporte5Component } from './reportes/reporte5/reporte5.component';
     Reporte1Component,
     CrearRoleComponent,
     ReportesComponent,
+    Reporte2Component,
     Reporte4Component,
-    AntecedenteComponent,
-    CrearAntecedenteComponent,
-    ListarAntecedenteComponent,
 ],
   imports: [
     CommonModule,
@@ -120,7 +119,7 @@ import { Reporte5Component } from './reportes/reporte5/reporte5.component';
     ComponentsRoutingModule,
     MatDialogModule,
     GoogleMapsModule,
-    NgChartsModule
+    NgChartsModule,
   ],
 })
 export class ComponentsModule { }

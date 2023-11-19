@@ -11,11 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AntecedentePenal } from 'src/app/models/AntecedentePenal';
 import { Sospechoso } from 'src/app/models/Sospechoso';
 import { AntecedentePenalService } from 'src/app/services/antecedentepenal.service';
+import { LoginService } from 'src/app/services/login.service';
 import { SospechosoService } from 'src/app/services/sospechoso.service';
 @Component({
   selector: 'app-listar-antecedente',
   templateUrl: './listar-antecedente.component.html',
-  styleUrls: ['./listar-antecedente.component.css']
+  styleUrls: ['./listar-antecedente.component.css'],
 })
 export class ListarAntecedenteComponent implements OnInit {
   form: FormGroup = new FormGroup({});
@@ -40,13 +41,14 @@ export class ListarAntecedenteComponent implements OnInit {
     private formBuilder: FormBuilder,
     private sS: SospechosoService,
     public route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
   ) {}
 
   antecedente: AntecedentePenal = new AntecedentePenal();
+  role: string = '';
 
   ngOnInit(): void {
-
     this.sS.list().subscribe((data) => {
       this.listasospechosos = data;
     });
@@ -59,6 +61,8 @@ export class ListarAntecedenteComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
+
+    this.role = this.loginService.showRole();
   }
 
   obtenerControlCampo(nombreCampo: string): AbstractControl {
