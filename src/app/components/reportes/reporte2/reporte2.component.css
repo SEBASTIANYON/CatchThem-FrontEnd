@@ -8,6 +8,11 @@ body{
     width: 80%;
 }
 
+h1{
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px;
+}
 
 .botones-container {
     display: flex;
