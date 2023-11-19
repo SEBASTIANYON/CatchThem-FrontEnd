@@ -51,14 +51,11 @@ svg {
     left: 210px;
 }
 
-
-
-button {
-    display: block;
-    margin: auto;
-    margin-top: 10px;
-    width: 100px;
-
+button{
+    display: inline-block;
+    margin-top: 20%;
+    left: -110px;
+   
 }
 
 
