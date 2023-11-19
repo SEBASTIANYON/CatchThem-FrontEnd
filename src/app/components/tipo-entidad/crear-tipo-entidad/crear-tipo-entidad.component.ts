@@ -1,12 +1,7 @@
 import { TipoEntidad } from './../../../models/TipoEntidad';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,FormControl
-} from '@angular/forms';
+import {FormBuilder,FormGroup,Validators,AbstractControl,FormControl} from '@angular/forms';
 import { ActivatedRoute, Router,Params } from '@angular/router';
 import { TipoEntidadService } from 'src/app/services/tipoentidad.service';
 
@@ -15,56 +10,56 @@ import { TipoEntidadService } from 'src/app/services/tipoentidad.service';
   templateUrl: './crear-tipo-entidad.component.html',
   styleUrls: ['./crear-tipo-entidad.component.css'],
 })
-export class CrearTipoEntidadComponent implements OnInit {
+
+export class CrearTipoEntidadComponent implements OnInit{ 
   form: FormGroup = new FormGroup({});
   tipoEntidad: TipoEntidad = new TipoEntidad();
   mensaje: string = '';
-  sector: number=0;
+  idTipo: number = 0;
   edicion: boolean = false;
-
-  tipos: { value: string; viewValue: string }[] = [
-    { value: 'Publico', viewValue: 'Publico' },
-    { value: 'Privado', viewValue: 'Privado' },
-  ];
 
   constructor(
     private iS: TipoEntidadService,
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-  ) {
-    this.form = this.formBuilder.group({
-      sector: ['', Validators.required],
-    });
-  }
+    private loginService: LoginService,
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
-      this.sector = data['sector'];
-      this.edicion = data['sector'] != null;
-      this.init();  
-  });
+      this.idTipo = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+      });
+      this.form = this.formBuilder.group({
+      idTipo: [''],
+      sector: ['', Validators.required],
+    })
   }
 
   aceptar(): void {
     if (this.form.valid) {
+      this.tipoEntidad.idTipo = this.form.value.idTipo;
       this.tipoEntidad.sector = this.form.value.sector;
       
-      if (this.edicion) {
+
+      if (this.edicion) { console.log(this.tipoEntidad)
         this.iS.update(this.tipoEntidad).subscribe(() => {
           this.iS.list().subscribe((data) => {
             this.iS.setList(data);
           });
         });
-      }
-      else{
+      } else {
         this.iS.insert(this.tipoEntidad).subscribe((data) => {
           this.iS.list().subscribe((data) => {
             this.iS.setList(data);
           });
         });
-      }
-      this.router.navigate(['/tipo']);
+      } 
+      this.router.navigate(['/tipoentidad']);
+    } else {
+      this.mensaje = 'Por favor complete todos los campos obligatorios.';
     }
   }
 
@@ -78,11 +73,12 @@ export class CrearTipoEntidadComponent implements OnInit {
 
   init() {
     if (this.edicion) {
-      this.iS.listId(this.sector).subscribe((data) => {
+      this.iS.listId(this.idTipo).subscribe((data) => {
         this.form = new FormGroup({
+          idTipo: new FormControl(data.idTipo),
           sector: new FormControl(data.sector),
         });
       });
-    }
+    } 
   }
 }
