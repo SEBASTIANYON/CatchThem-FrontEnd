@@ -1,6 +1,8 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Role } from 'src/app/models/Role';
 import { Users } from 'src/app/models/Users';
@@ -13,6 +15,15 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./crear-role.component.css']
 })
 export class CrearRoleComponent implements OnInit {
+  dataSource: MatTableDataSource<Role> = new MatTableDataSource();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  displayedColumns: string[] = [
+    'id',
+    'rol',
+    'usuario',
+    'eliminar'
+  ];
+
   form: FormGroup = new FormGroup({});
   role: Role = new Role();
   mensaje: string = '';
@@ -41,14 +52,29 @@ export class CrearRoleComponent implements OnInit {
     });
 
     this.uS.list().subscribe(data=>{
-      this.lista_users=data;
+      this.uS.list().subscribe(data => {
+        this.lista_users = data.filter(user => !this.hasAdminRole(user));
+      });
     })
 
     this.rS.list().subscribe((data: Role[]) => {
       this.roles = data;
     });
+
+
+    this.rS.list().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
+    this.rS.getList().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
   }
 
+  hasAdminRole(user: Users): boolean {
+    return this.roles.some(role => role.user.id === user.id && role.rol === 'ADMIN');
+  } 
 
   aceptar(): void {
   if (this.form.valid) {
@@ -65,7 +91,7 @@ export class CrearRoleComponent implements OnInit {
         this.rS.list().subscribe((data) => {
           this.rS.setList(data);
         });
-        this.router.navigate(['usuario']);
+        this.router.navigate(['role']);
       });
     } else {
       this.mensaje = 'El usuario ya posee este rol';
@@ -89,5 +115,20 @@ isRoleValid(userId: number, rolValue: string): boolean {
       throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
     }
     return control;
+  }
+
+  eliminar(id: number) {
+    this.rS.delete(id).subscribe((data) => {
+      this.rS.list().subscribe((data) => {
+        this.rS.setList(data);
+      });
+    });
+
+    this.rS.getList().subscribe((data: Role[]) => {
+      this.roles = data;
+    });
+  }
+  filter(en: any) {
+    this.dataSource.filter = en.target.value.trim();
   }
 }
