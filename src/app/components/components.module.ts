@@ -86,7 +86,7 @@ import { ReportesComponent } from './reportes/reportes.component';
     CrearTipoEntidadComponent,
     RoleComponent,
     ReportesComponent,
-    Reporte1Component
+    Reporte1Component,
     CrearRoleComponent,
 ],
   imports: [
