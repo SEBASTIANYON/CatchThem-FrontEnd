@@ -45,6 +45,10 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
 import { RoleComponent } from './role/role.component';
+
+import { NgChartsModule } from 'ng2-charts';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 @NgModule({
   declarations: [
     EntidadComponent,
@@ -72,7 +76,9 @@ import { RoleComponent } from './role/role.component';
     TipoEntidadComponent,
     ListarTipoEntidadComponent,
     CrearTipoEntidadComponent,
-    RoleComponent
+    RoleComponent,
+    ReportesComponent,
+    Reporte5Component
   ],
   imports: [
     CommonModule,
@@ -95,7 +101,8 @@ import { RoleComponent } from './role/role.component';
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-    GoogleMapsModule    
+    GoogleMapsModule,
+    NgChartsModule    
   ],
 })
 export class ComponentsModule { }
