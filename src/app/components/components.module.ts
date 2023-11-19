@@ -88,14 +88,14 @@ import { Reporte5Component } from './reportes/reporte5/reporte5.component';
     CrearTipoEntidadComponent,
     RoleComponent,
     ReportesComponent,
-    Reporte5Component
+    Reporte5Component,
     Reporte1Component,
     CrearRoleComponent,
     ReportesComponent,
     Reporte4Component,
     AntecedenteComponent,
     CrearAntecedenteComponent,
-    ListarAntecedenteComponent
+    ListarAntecedenteComponent,
 ],
   imports: [
     CommonModule,
@@ -120,6 +120,7 @@ import { Reporte5Component } from './reportes/reporte5/reporte5.component';
     ComponentsRoutingModule,
     MatDialogModule,
     GoogleMapsModule,
+    NgChartsModule
   ],
 })
 export class ComponentsModule { }
