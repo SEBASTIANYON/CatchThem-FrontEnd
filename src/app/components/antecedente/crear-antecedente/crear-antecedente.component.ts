@@ -81,7 +81,7 @@ export class CrearAntecedenteComponent implements OnInit {
         });
       });
 
-      this.router.navigate(['components/antecedentes']);
+      this.router.navigate(['/antecedentes']);
     }
   }
 
