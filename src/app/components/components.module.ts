@@ -46,7 +46,6 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 import { NgChartsModule } from 'ng2-charts';
-import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
