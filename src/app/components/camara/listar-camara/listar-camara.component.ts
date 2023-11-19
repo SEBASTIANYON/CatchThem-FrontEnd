@@ -1,9 +1,11 @@
+import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from './../../../services/login.service';
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Camara } from 'src/app/models/Camara';
 import { CamaraService } from 'src/app/services/camara.service';
+import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 
 @Component({
   selector: 'app-listar-camara',
@@ -22,7 +24,8 @@ export class ListarCamaraComponent {
     'entidad',
     'accion02',
   ];
-  constructor(private uS: CamaraService, private loginService: LoginService) {}
+  constructor(private uS: CamaraService, private loginService: LoginService,
+    public dialog: MatDialog) {}
   role: string = '';
 
   ngOnInit(): void {
@@ -49,5 +52,15 @@ export class ListarCamaraComponent {
 
   filter(en: any) {
     this.dataSource.filter = en.target.value.trim();
+  }
+
+  openDialog(id_alerta: number){
+    this.dialog.open(DialogoConfirmacionComponent)
+    .afterClosed()
+    .subscribe((confirmacion: Boolean) => {
+      if(confirmacion){
+        this.eliminar(id_alerta)
+      }
+    })
   }
 }
