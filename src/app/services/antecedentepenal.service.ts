@@ -49,6 +49,7 @@ export class AntecedentePenalService {
     });
   }
 
+  /*
   update(ant: AntecedentePenal) {
     let token = sessionStorage.getItem('token');
     return this.http.put(this.url, ant, {
@@ -57,7 +58,8 @@ export class AntecedentePenalService {
         .set('Content-Type', 'application/json'),
     });
   }
-
+  */
+ 
   delete(id: number) {
     let token = sessionStorage.getItem('token');
     return this.http.delete(`${this.url}/${id}`, {

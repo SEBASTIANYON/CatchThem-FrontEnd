@@ -1,36 +1,34 @@
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtRequest } from '../models/jwtRequest';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
+const base_url = environment.base;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  cerrar(){
-    sessionStorage.clear()
-  }
+  private url = `${base_url}/authenticate`;
 
   login(request: JwtRequest) {
-    return this.http.post("http://localhost:8080/authenticate", request);
+    return this.http.post(this.url, request);
   }
-  verificar() {
-    let token = sessionStorage.getItem("token");
-    return token != null;
 
+  verificar() {
+    let token = sessionStorage.getItem('token');
+    return token != null;
   }
+
   showRole(){
-    let token = sessionStorage.getItem("token");
-    if (!token) {
-      // Manejar el caso en el que el token es nulo.
-      return null; // O cualquier otro valor predeterminado dependiendo del contexto.
+    let token = sessionStorage.getItem('token')
+    if(!token){
+      return null;
     }
-    const helper = new JwtHelperService();
-    const decodedToken = helper.decodeToken(token);
-    //console.log(decodedToken)
+
+    const helper= new JwtHelperService();
+    const decodedToken=helper.decodeToken(token)
     return decodedToken?.role;
   }
 
@@ -66,7 +64,5 @@ export class LoginService {
     const decodedToken = helper.decodeToken(token);
     return decodedToken?.id;
   }
-
-  
 
 }

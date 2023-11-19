@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reporte01</title>
+  </head>
+  <body style="background-color: #dedede;">
+    
+    <div class="botones-container">
+      <button routerLink="reporte1">Reporte 1</button>
+      <button routerLink="reporte2">Reporte 2</button>
+      <button routerLink="reporte3">Reporte 3</button>
+      <button routerLink="reporte4">Reporte 4</button>
+      <button routerLink="reporte5">Reporte 5</button>
+    </div>
+
+    <br>
+    
+    <div class="container">
+      <div style="text-align: center">
+        <h1>Cantidad de sospechosos por entidad</h1>
+      </div>
+      <div style="text-align: center">
+        <!-- Gráfico de barras -->
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType"
+        >
+          <!-- Cambiado de 'chartType' a 'type' -->
+        </canvas>
+      </div>
+    </div>
+  </body>
+</html>

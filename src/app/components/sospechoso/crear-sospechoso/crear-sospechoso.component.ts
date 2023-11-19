@@ -10,21 +10,23 @@ import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-crear-sospechoso',
   templateUrl: './crear-sospechoso.component.html',
-  styleUrls: ['./crear-sospechoso.component.css'],
+  styleUrls: ['./crear-sospechoso.component.css']
 })
 export class CrearSospechosoComponent {
+
+
   form: FormGroup = new FormGroup({});
   sospechoso: Sospechoso = new Sospechoso();
-  mensaje: string = '';
   listaEntidad: Entidad[] = []
+  mensaje: string = '';
   id: number = 0;
   edicion: boolean = false;
   maxFecha: Date = new Date(Date.now());
   tipos: { value: string; viewValue: string }[] = [
-    { value: 'Masculino', viewValue: 'Masculino' },
     { value: 'Femenino', viewValue: 'Femenino' },
+    { value: 'Masculino', viewValue: 'Masculino' }
   ];
-
+  
   tipos2: { value2: string; viewValue2: string }[] = [
     { value2: 'Capturado', viewValue2: 'Capturado' },
     { value2: 'Libre', viewValue2: 'Libre' },
@@ -82,7 +84,7 @@ export class CrearSospechosoComponent {
       this.sospechoso.fecharegistro = this.form.value.fecharegistro;
       this.sospechoso.imagen = this.form.value.imagen;
       this.sospechoso.entidad.idEntidad= this.form.value.entidad;
- 
+
       if(this.edicion){
         this.sospechoso.entidad.idEntidad = this.form.value.entidad
       }

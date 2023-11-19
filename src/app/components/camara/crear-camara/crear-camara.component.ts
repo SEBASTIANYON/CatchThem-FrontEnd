@@ -8,7 +8,9 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { Camara } from 'src/app/models/Camara';
+import { Entidad } from 'src/app/models/Entidad';
 import { CamaraService } from 'src/app/services/camara.service';
+import { EntidadService } from 'src/app/services/entidad.service';
 
 @Component({
   selector: 'app-crear-camara',
@@ -19,6 +21,9 @@ export class CrearCamaraComponent {
   form: FormGroup = new FormGroup({});
   camara: Camara = new Camara();
   mensaje: string = '';
+  id: number = 0;
+  edicion: boolean = false;
+  listaEntidades: Entidad[] = [];
 
   tipos: { value: string; viewValue: string }[] = [
     { value: 'A', viewValue: 'Activado' },
@@ -29,7 +34,8 @@ export class CrearCamaraComponent {
     private eS: CamaraService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cS: EntidadService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +45,11 @@ export class CrearCamaraComponent {
       tipo_camara: ['', Validators.required],
       area_vigilada: ['', Validators.required],
       estado: ['', Validators.required],
+      entidad: ['', Validators.required],
+    });
+
+    this.cS.list().subscribe((data) => {
+      this.listaEntidades = data;
     });
   }
 
@@ -49,6 +60,7 @@ export class CrearCamaraComponent {
       this.camara.tipo_camara = this.form.value.tipo_camara;
       this.camara.area_vigilada = this.form.value.area_vigilada;
       this.camara.estado = this.form.value.estado;
+      this.camara.entidad.idEntidad = this.form.value.entidad;
 
       this.eS.insert(this.camara).subscribe((data) => {
         this.eS.list().subscribe((data) => {
@@ -56,7 +68,7 @@ export class CrearCamaraComponent {
         });
       });
 
-      this.router.navigate(['camara']);
+      this.router.navigate(['camaras']);
     }
   }
 
@@ -67,4 +79,5 @@ export class CrearCamaraComponent {
     }
     return control;
   }
+
 }

@@ -3,10 +3,58 @@ h1{
     font-weight: bold;
 }
 
-button{
-    left:222px;
-    width:100px;
-    height: 50px;
-    padding:10px;
-    margin: 10px;
+.contenedor .formulario {
+
+    display: inline-flexbox;
+    width: 831px;
+    background-color: #000;
+
+}
+
+
+h1 {
+    color: #FFF;
+    margin-top: 50px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 80px;
+    letter-spacing: -0.84px;
+    text-transform: uppercase;
+}
+
+
+.contenedor .formulario .linea {
+    stroke-width: 1px;
+    stroke: #FFF;
+    width: 657px;
+    padding: 1px;
+    flex-shrink: 0;
+
+}
+
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+mat-form-field {
+
+    margin-right:10px;
+    margin-left: 10px;
+    width:40%;
+
+}
+
+button {
+
+    margin-left: 19px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
 }

@@ -50,11 +50,9 @@ export class CrearActasComponent {
       this.listaSospechosos = data
     })
 
-    
   }
 
   aceptar(): void {
-    
     if (this.form.valid) {
       this.acta.id_acta = this.form.value.id
       this.acta.detalles = this.form.value.detalles;
@@ -66,7 +64,6 @@ export class CrearActasComponent {
       else {
         this.acta.usuario.id = this.loginService.showId()
       }
-
 
       if (this.edicion) {
         console.log(this.acta)
@@ -84,7 +81,7 @@ export class CrearActasComponent {
           console.log("insertar2222")
         });
       }
-      
+
       this.router.navigate(['/actas']);
     } else {
       this.mensaje = 'Por favor complete todos los campos obligatorios.';
@@ -98,7 +95,7 @@ export class CrearActasComponent {
     }
     return control;
   }
-  
+
   init() {
     if (this.edicion) {
       this.aS.listId(this.id).subscribe((data) => {
