@@ -10,16 +10,8 @@
     <div class="container">
       <br/>
       <h1 style="text-align: center">TIPOS DE ENTIDAD</h1>
-      <div class="search-and-button">
-        <mat-form-field class="search-box">
-          <mat-icon matPrefix>search</mat-icon>
-          <mat-label>Buscar</mat-label>
-          <input matInput (keyup)="filter($event)" #input />
-      </mat-form-field>
-      
         <button mat-raised-button style="background-color: #21201F; color: white;" class="new-button" routerLink="/tipoentidad/nuevo" >
           Nuevo</button>
-    </div>
       <br/>
       <div class="container-2">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%">

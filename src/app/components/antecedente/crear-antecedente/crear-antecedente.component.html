@@ -8,7 +8,7 @@
   <body>
     <div class="form-register">
       <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-        <h1>REGISTRAR ANTECENDENTES</h1>
+        <h2>REGISTRAR ANTECENDENTES</h2>
        
         <br>
         <mat-form-field>
@@ -116,9 +116,25 @@
           </mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="#ABABA9">Registrar</button>
+        <button
+          mat-raised-button
+          style="
+            margin-right: 5%;
+            background-color: #20211f;
+            color: #f4f7f9;
+            font-weight: 800;
+          "
+        >
+          Aceptar
+        </button>
+        <button
+          mat-raised-button
+          style="background-color: #d6cdc9; color: #20211f; font-weight: 800"
+          routerLink="/antecedentes"
+        >
+          Cancelar
+        </button>
       </form>
     </div>
   </body>
 </html>
-
