@@ -33,8 +33,8 @@ export class CrearRoleComponent implements OnInit {
   public roles: Role[] = [];
   lista_users: Users[]=[];
   tipos: { value: string; viewValue: string }[] = [
-    { value: 'Policia', viewValue: 'Policia' },
-    { value: 'Agente', viewValue: 'Agente' },
+    { value: 'POLICIA', viewValue: 'POLICIA' },
+    { value: 'AGENTE', viewValue: 'AGENTE' },
   ];
 
   constructor(
