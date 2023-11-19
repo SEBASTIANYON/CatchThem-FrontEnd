@@ -69,7 +69,7 @@ const routes: Routes = [
     component: TipoEntidadComponent,
     children: [
       { path: 'nuevo', component: CrearTipoEntidadComponent, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      { path: 'edicion/:id', component: CrearTipoEntidadComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
+      { path: 'edicion/:id', component: CrearTipoEntidadComponent, data: {role: ['ADMIN']},canActivate: [GuardService],}
     ]
   },
   {
@@ -137,12 +137,6 @@ const routes: Routes = [
         data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
         canActivate: [GuardService],
       },
-      {
-        path: 'list',
-        component: ListarCamaraComponent,
-        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
-        canActivate: [GuardService],
-      }
     ],
   },
   

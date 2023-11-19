@@ -53,7 +53,7 @@ export class CrearUsuarioComponent implements OnInit {
       nombre: ['', Validators.required],
       correo: ['', [Validators.required, this.validarCorreo]],
       telefono: ['', [Validators.required]],
-      imagen: ['', Validators.required],
+      imagen: [''],
       entidad: ['', Validators.required],
     });
 
@@ -123,11 +123,10 @@ export class CrearUsuarioComponent implements OnInit {
           nombre: new FormControl(data.nombre, Validators.required),
           correo: new FormControl(data.correo, [Validators.required, this.validarCorreo]),
           telefono: new FormControl(data.telefono, Validators.required),
-          imagen: new FormControl(data.imagen, Validators.required),
+          imagen: new FormControl(data.imagen),
           entidad: new FormControl(data.entidad.idEntidad, Validators.required),
         });
       });
     }
   }
 }
-

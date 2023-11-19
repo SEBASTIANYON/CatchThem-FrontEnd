@@ -54,7 +54,7 @@
         routerLinkActive
         #rla4="routerLinkActive"
         [active]="rla4.isActive"
-        *ngIf="role == 'ADMIN'" 
+        *ngIf="role == 'ADMIN'|| role == 'AGENTE' || role == 'POLICIA'" 
         >CAMARAS</a
       >
       <a
@@ -97,6 +97,7 @@
         routerLinkActive
         #rla9="routerLinkActive"
         [active]="rla9.isActive"
+        *ngIf="role == 'ADMIN'"
         >TIPOS DE ENTIDAD</a
       >
       <a 

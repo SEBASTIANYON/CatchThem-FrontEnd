@@ -49,7 +49,7 @@ export class Reporte5Component implements OnInit {
         {
           data: data.map((item: any) => item.promedio),
           label: 'Cantidad de sospechosos por nacionalidad',
-          backgroundColor: ['#ABABA9','#4E4945', '#CCB4A1', '#DBCDC0', '#383735'],
+          backgroundColor: ['#ABABA9','#B8A392', '#F2EAE2', '#A48C79', '#323131','#46433F', '#A19794', '#FAF9F7'],
           borderColor: 'white',
         },
       ];

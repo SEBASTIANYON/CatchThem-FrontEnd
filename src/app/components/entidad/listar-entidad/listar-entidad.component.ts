@@ -56,8 +56,13 @@ export class ListarEntidadComponent implements OnInit {
   } 
   
   filter(en:any){
-    this.dataSource.filter=en.target.value.trim();
+    //filtrar por nombre y sector de entidad
+    this.dataSource.filterPredicate = (data: Entidad, filter: string) => {
+    return data.nombre.toLocaleLowerCase().includes(filter) || 
+    data.tipoEntidad.sector.toLocaleLowerCase().includes(filter)
   }
+  this.dataSource.filter=en.target.value.trim();
+}
 
   openDialog(idEntidad: number){
     this.dialog.open(DialogoConfirmacionComponent)

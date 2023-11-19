@@ -26,6 +26,9 @@ export class CrearAntecedenteComponent implements OnInit {
     { value: 'Desactivo', viewValue: 'Desactivo' },
   ];
 
+  maxFecha: Date = new Date(Date.now());
+
+
   delitos: { value: string; viewValue: string }[] = [
     { value: 'Robo', viewValue: 'Robo' },
     { value: 'Informatico', viewValue: 'Informatico' },

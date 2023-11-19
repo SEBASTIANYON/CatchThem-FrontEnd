@@ -10,7 +10,8 @@
   <body>
     <div class="contenedor">
       <div class="formulario">
-        <h1>Registrar Tipo de Entidad</h1>
+         <h1 [hidden]="edicion" style="text-align: center;">Registrar Tipo Entidad</h1>
+         <h1 [hidden]="edicion !== true" style="text-align: center;">Editar Tipo Entidad</h1>
         <br class="linea">
         <br>
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
