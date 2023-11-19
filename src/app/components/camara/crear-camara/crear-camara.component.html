@@ -9,7 +9,7 @@
   <body>
     <div class="contenedor">
       <div class="formulario">
-        <h1>Registrar Camara</h1>
+        <h1>REGISTRAR CAMARA</h1>
 
         <br />
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
@@ -92,8 +92,19 @@
             </mat-error>
           </mat-form-field>
 
-          <button mat-raised-button color="#ababa9">Registrar</button>
-          <p>{{ mensaje }}</p>
+          <button
+            mat-raised-button
+            style="background-color: #20211f; color: #f4f7f9; font-weight: 800; display: flex;"
+          >
+            Aceptar
+          </button>
+          <button
+            mat-raised-button
+            style="background-color: #d6cdc9; color: #20211f; font-weight: 800"
+            routerLink="/camaras"
+          >
+            Cancelar
+          </button>
         </form>
       </div>
     </div>

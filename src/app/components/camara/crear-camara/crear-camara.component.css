@@ -33,7 +33,7 @@ h1 {
     font-size: 50px;
     line-height: 80px;
     letter-spacing: -0.84px;
-    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .example-form {
@@ -54,7 +54,13 @@ h1 {
 }
 
 mat-form-field {
-    width: 100%;
+    width: 250%;
+}
+
+button{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%
 }
 
 button:hover{

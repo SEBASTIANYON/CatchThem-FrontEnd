@@ -23,20 +23,15 @@ body {
     width: 840px;
 }
 
-h2 {
+h1 {
     color: #000;
     margin: auto;
     width: inherit;
     text-align: center;
     font-size: 36px;
-
+    padding: 20px;
+    font-weight: bold;
 }
-
-svg {
-    width: inherit;
-    
-}
-
 
 .example-form mat-form-field {
     display: flexbox;
@@ -51,14 +46,11 @@ svg {
     left: 210px;
 }
 
-
-
-button {
-    display: block;
-    margin: auto;
-    margin-top: 10px;
-    width: 100px;
-
+button{
+    display: inline-block;
+    margin-top: 20%;
+    left: -110px;
+   
 }
 
 
