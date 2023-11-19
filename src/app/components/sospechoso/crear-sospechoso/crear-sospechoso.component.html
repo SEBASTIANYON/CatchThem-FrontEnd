@@ -30,13 +30,13 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Fecha de Nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" [max]="maxFecha" formControlName="nacimiento"/>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          
 
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Nacionalidad</mat-label>
@@ -85,7 +85,6 @@
           </div>
         </form>
       </div>
-      <div class="fondo2"></div>
     </div>
   </body>
 </html>
