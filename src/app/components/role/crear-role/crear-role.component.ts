@@ -8,6 +8,8 @@ import { Role } from 'src/app/models/Role';
 import { Users } from 'src/app/models/Users';
 import { RoleService } from 'src/app/services/role.service';
 import { UsersService } from 'src/app/services/users.service';
+import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-crear-role',
@@ -17,6 +19,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class CrearRoleComponent implements OnInit {
   dataSource: MatTableDataSource<Role> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  
   displayedColumns: string[] = [
     'id',
     'rol',
@@ -41,6 +44,7 @@ export class CrearRoleComponent implements OnInit {
     private route: ActivatedRoute,
     private uS: UsersService,
     private snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -75,6 +79,16 @@ export class CrearRoleComponent implements OnInit {
   hasAdminRole(user: Users): boolean {
     return this.roles.some(role => role.user.id === user.id && role.rol === 'ADMIN');
   } 
+
+  openDialog(id: number){
+    this.dialog.open(DialogoConfirmacionComponent)
+    .afterClosed()
+    .subscribe((confirmacion: Boolean) => {
+      if(confirmacion){
+        this.eliminar(id)
+      }
+    })
+  }
 
   aceptar(): void {
   if (this.form.valid) {

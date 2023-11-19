@@ -76,7 +76,7 @@
               <button *ngIf="element.rol!='ADMIN'" 
                 mat-raised-button
                 class="custom-button"
-                (click)="eliminar(element.id)"
+                (click)="openDialog(element.id)"
               >
   <mat-icon  >delete</mat-icon>
               </button>
