@@ -39,5 +39,53 @@
 
         </form>
     </div>
+
+    <div class="container ">
+      <br />
+      <h2 style="text-align: center">ROLES</h2>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 text-center">
+          <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>id</th>
+              <td mat-cell *matCellDef="let element">
+                  {{ element.id }}
+              </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="rol">
+              <th mat-header-cell *matHeaderCellDef>rol</th>
+              <td mat-cell *matCellDef="let element">
+                  {{ element.rol }}
+              </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="usuario">
+              <th mat-header-cell *matHeaderCellDef>usuario</th>
+              <td mat-cell *matCellDef="let element">
+                  {{ element.user.username }}
+              </td>
+          </ng-container>
+
+
+        
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-raised-button
+                class="custom-button"
+                (click)="eliminar(element.id)"
+              >
+  <mat-icon>delete</mat-icon>
+              </button>
+            </td></ng-container
+          >
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator style="background-color: transparent;" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
 </body>
 
