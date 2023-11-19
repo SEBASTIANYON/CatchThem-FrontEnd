@@ -39,11 +39,11 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
-import { RoleComponent } from './role/role.component';
-import { CrearRoleComponent } from './role/crear-role/crear-role.component';
-import { ReportesComponent } from './reportes/reportes.component';
-import { Reporte1Component } from './reportes/reporte1/reporte1.component';
+import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
+import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
+import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 
 
 @NgModule({
@@ -66,14 +66,13 @@ import { Reporte1Component } from './reportes/reporte1/reporte1.component';
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
-    UsuarioComponent,
-    ListarUsuarioComponent,
+
     CrearUsuarioComponent,
-    RoleComponent,
-    CrearRoleComponent,
-    ReportesComponent,
-    Reporte1Component,
-    
+    ListarUsuarioComponent,
+    UsuarioComponent,
+    TipoEntidadComponent,
+    ListarTipoEntidadComponent,
+    CrearTipoEntidadComponent
   ],
   imports: [
     CommonModule,
@@ -96,8 +95,7 @@ import { Reporte1Component } from './reportes/reporte1/reporte1.component';
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-    GoogleMapsModule
-    
+    GoogleMapsModule    
   ],
 })
 export class ComponentsModule { }

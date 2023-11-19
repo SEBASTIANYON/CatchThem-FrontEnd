@@ -2,88 +2,60 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <br/>
-      <h1 style="text-align: center">LISTA DE SOSPECHOSOS</h1>
-      <div class="button"><button mat-raised-button color="primary" routerLink="/sospechosos/nuevo">Nuevo</button></div>
-      <br/>
-      <div class="container-2">
-        <mat-form-field style="width: 100%">
-          <mat-label>Buscar</mat-label>
-          <input matInput (keyup)="filter($event)" #input />
+    <br />
+    <h1 style="text-align: center">LISTA DE SOSPECHOSOS</h1>
+    <div class="d-flex justify-content-between">
+      <div>
+        <mat-form-field style="width:140%;">
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput (keyup)="filter($event)" placeholder="Buscar sopechoso" />
         </mat-form-field>
-
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%">
-          <ng-container matColumnDef="idSospechoso">
-            <th mat-header-cell *matHeaderCellDef>Código</th>
-            <td mat-cell *matCellDef="let element">{{ element.idSospechoso }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="alias">
-            <th mat-header-cell *matHeaderCellDef>Alias</th>
-            <td mat-cell *matCellDef="let element">{{ element.alias }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="nacimiento">
-            <th mat-header-cell *matHeaderCellDef>Fecha de nacimiento</th>
-            <td mat-cell *matCellDef="let element">{{ element.nacimiento }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="genero">
-            <th mat-header-cell *matHeaderCellDef>Género</th>
-            <td mat-cell *matCellDef="let element">{{ element.genero }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="nacionalidad">
-            <th mat-header-cell *matHeaderCellDef>Nacionalidad</th>
-            <td mat-cell *matCellDef="let element">{{ element.nacionalidad }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="descripcion">
-            <th mat-header-cell *matHeaderCellDef>Descripción</th>
-            <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
-            --card--
-            <mat-card class="descripcion">
-              <mat-card-header>
-                <mat-card-title-group>
-                  <mat-card-title>A</mat-card-title>
-                  <mat-card-subtitle>A</mat-card-subtitle>
-                  <img mat-card-sm-image src="" >
-                </mat-card-title-group>
-              </mat-card-header>
-            </mat-card>
-          </ng-container>
-
-          <ng-container matColumnDef="historial">
-            <th mat-header-cell *matHeaderCellDef>Historial</th>
-            <td mat-cell *matCellDef="let element">{{ element.historial }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="estado">
-            <th mat-header-cell *matHeaderCellDef>Estado</th>
-            <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="fecharegistro">
-            <th mat-header-cell *matHeaderCellDef>Fecha de Registro</th>
-            <td mat-cell *matCellDef="let element">{{ element.fecharegistro }}</td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-        <mat-paginator appStylePaginator  [length]="200" [pageSizeOptions]="[10, 50, 100]" [showFirstLastButtons]="true">
-        </mat-paginator>
+      </div>
+      <div class="buttons" >
+        <button class="" mat-mini-fab *ngIf="role == 'ADMIN' || role == 'POLICIA' || role == 'AGENTE'"
+          style="background-color: #ABABA9; color:#20211f; font-weight: 800;" (click)="reload()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+        <button mat-raised-button *ngIf="role == 'ADMIN' || role == 'POLICIA' || role == 'AGENTE'"
+          style="background-color: #20211f; color:#F4F7F9; font-weight: 800;" routerLink="/sospechosos/nuevo">
+          Nuevo
+        </button>
       </div>
     </div>
+    <div class="container">
+      <div class="card-container">
+        <mat-card class="example-card"  *ngFor="let a of obs | async ">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image" style="background-image: url('{{a.imagen}}'); background-size: cover;"></div>
+            <mat-card-title style="text-align: center; font-size: 30px; font-weight: bold;">{{ a.nombre }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-subtitle style="text-align: center; font-size: 20px; font-weight: bold;">"{{ a.alias }}"</mat-card-subtitle>
+            <br>
+            <p>Nacimiento : {{ a.nacimiento }}</p>
+            <p>Género : {{ a.genero }}</p>
+            <p>Nacionalidad : {{ a.nacionalidad }}</p>
+            <p>Descripcion : {{ a.descripcion}}</p>
+            <p>Historial : {{ a.historial }}</p>
+            <p>Estado : {{ a.estado }}</p>
+            <p>Fecha de registro : {{ a.fecharegistro }}</p>
+            <p>Nombre de Entidad:{{ a.entidad}} </p>
+          </mat-card-content>
+          <mat-card-actions class="justify-content-center">
+            <button *ngIf="role == 'ADMIN'" mat-mini-fab style="background-color: #20211f; color:#D6CDC9; font-weight: 800; margin: 20px;" [routerLink]="['edicion', a.idSospechoso]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button *ngIf="role == 'ADMIN'" mat-mini-fab style="background-color: #20211f; color:#D6CDC9; font-weight: 800; margin: 20px;" (click)="openDialog(a.idSospechoso)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <mat-paginator style="background-color: transparent;" [pageSizeOptions]="[3, 10, 15, 20]" showFirstLastButtons></mat-paginator>
+    </div>
   </body>
-</html> 
+</html>
