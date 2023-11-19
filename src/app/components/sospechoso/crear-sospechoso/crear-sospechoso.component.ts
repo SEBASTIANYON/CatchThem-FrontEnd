@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, Validators, AbstractControl,FormControl} from '
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
-
 @Component({
   selector: 'app-crear-sospechoso',
   templateUrl: './crear-sospechoso.component.html',
@@ -18,8 +17,8 @@ export class CrearSospechosoComponent {
 
   form: FormGroup = new FormGroup({});
   sospechoso: Sospechoso = new Sospechoso();
-  mensaje: string = '';
   listaEntidad: Entidad[] = []
+  mensaje: string = '';
   id: number = 0;
   edicion: boolean = false;
   maxFecha: Date = new Date(Date.now());
