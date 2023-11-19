@@ -63,18 +63,20 @@ const routes: Routes = [
     path:'usuario',
     component:UsuarioComponent,
     children:[
-      {path:'nuevo', component: CrearUsuarioComponent},
-      {path:'edicion/:id', component: CrearUsuarioComponent}
+      {path:'nuevo', component: CrearUsuarioComponent, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'edicion/:id', component: CrearUsuarioComponent , data: {role: ['ADMIN']},canActivate: [GuardService], }
     ]
   },
 
   {
     path:'role',
-    component:RoleComponent,
+    component:RoleComponent ,
+    data: {role: ['ADMIN']},canActivate: [GuardService],
   },
   {
     path:'reportes',
     component:ReportesComponent,
+    data: {role: ['ADMIN']},canActivate: [GuardService],
   }
 ];
 

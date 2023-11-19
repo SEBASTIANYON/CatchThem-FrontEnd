@@ -52,7 +52,9 @@ export class CrearRoleComponent implements OnInit {
     });
 
     this.uS.list().subscribe(data=>{
-      this.lista_users=data;
+      this.uS.list().subscribe(data => {
+        this.lista_users = data.filter(user => !this.hasAdminRole(user));
+      });
     })
 
     this.rS.list().subscribe((data: Role[]) => {
@@ -70,6 +72,9 @@ export class CrearRoleComponent implements OnInit {
     });
   }
 
+  hasAdminRole(user: Users): boolean {
+    return this.roles.some(role => role.user.id === user.id && role.rol === 'ADMIN');
+  } 
 
   aceptar(): void {
   if (this.form.valid) {
@@ -86,7 +91,7 @@ export class CrearRoleComponent implements OnInit {
         this.rS.list().subscribe((data) => {
           this.rS.setList(data);
         });
-        this.router.navigate(['usuario']);
+        this.router.navigate(['role']);
       });
     } else {
       this.mensaje = 'El usuario ya posee este rol';
@@ -117,6 +122,10 @@ isRoleValid(userId: number, rolValue: string): boolean {
       this.rS.list().subscribe((data) => {
         this.rS.setList(data);
       });
+    });
+
+    this.rS.getList().subscribe((data: Role[]) => {
+      this.roles = data;
     });
   }
   filter(en: any) {
