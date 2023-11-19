@@ -18,6 +18,9 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
 import { RoleComponent } from './role/role.component';
 import { AntecedenteComponent } from './antecedente/antecedente.component';
 import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte2Component } from './reportes/reporte2/reporte2.component';
+import { ListarCamaraComponent } from './camara/listar-camara/listar-camara.component';
 const routes: Routes = [
   {
     path: 'entidades', canActivate: [GuardService],
@@ -97,6 +100,26 @@ const routes: Routes = [
       {
         path: 'nuevo',
         component: CrearCamaraComponent,
+        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
+        canActivate: [GuardService],
+      },
+      {
+        path: 'list',
+        component: ListarCamaraComponent,
+        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
+        canActivate: [GuardService],
+      }
+    ],
+  },
+  {
+    path: 'reportes',
+    canActivate: [GuardService],
+    data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
+    component: ReportesComponent,
+    children: [
+      {
+        path: 'reportes2',
+        component: Reporte2Component,
         data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
         canActivate: [GuardService],
       },
