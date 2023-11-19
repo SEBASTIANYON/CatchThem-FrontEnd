@@ -16,14 +16,14 @@ import { Observable, of } from 'rxjs';
 export class ListarTipoEntidadComponent implements OnInit {
   dataSource: MatTableDataSource<TipoEntidad> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  role: string = ''
+  obs: Observable<any> | undefined
   displayedColumns: string[] = [
     'idTipo',
     'sector',
     'actualizar',
     'eliminar'
   ];
-  role: string = ''
-  obs: Observable<any> | undefined
 
   constructor(private iS: TipoEntidadService, private loginService:LoginService,
     public dialog: MatDialog) {}
@@ -38,7 +38,6 @@ export class ListarTipoEntidadComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
-    this.role = this.loginService.showRole()
   }
 
   openDialog(idTipo: number){
@@ -64,5 +63,4 @@ export class ListarTipoEntidadComponent implements OnInit {
   filter(en:any){
     this.dataSource.filter=en.target.value.trim();
   }
-
 }
