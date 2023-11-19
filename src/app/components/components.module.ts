@@ -1,3 +1,4 @@
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
@@ -42,6 +43,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte3Component } from './reportes/reporte3/reporte3.component';
+import { NgChartsModule } from 'ng2-charts';
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
@@ -49,6 +53,7 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { RoleComponent } from './role/role.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
+
 
 @NgModule({
   declarations: [
@@ -73,6 +78,8 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
+    ReportesComponent,
+    Reporte3Component,
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     UsuarioComponent,
@@ -104,7 +111,9 @@ import { CrearRoleComponent } from './role/crear-role/crear-role.component';
     MatDatepickerModule,
     ComponentsRoutingModule,
     MatDialogModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    NgChartsModule
+
   ],
 })
 export class ComponentsModule { }

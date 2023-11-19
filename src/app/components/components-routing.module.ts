@@ -11,6 +11,7 @@ import { AlertasComponent } from './alertas/alertas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GuardService } from '../services/guard.service';
+import { ReportesComponent } from './reportes/reportes.component';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -18,6 +19,7 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
 import { RoleComponent } from './role/role.component';
 import { AntecedenteComponent } from './antecedente/antecedente.component';
 import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
+
 const routes: Routes = [
   {
     path: 'entidades', canActivate: [GuardService],
@@ -55,15 +57,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'tipos', canActivate: [GuardService],
-    data: {role: ['POLICIA', 'AGENTE','ADMIN']},
-    component: TipoEntidadComponent,
-    children: [
-      { path: 'nuevo', component: CrearTipoEntidadComponent, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      { path: 'edicion/:id', component: CrearTipoEntidadComponent, data: {role: ['POLICIA', 'ADMIN']},canActivate: [GuardService],}
-    ]
-  },
-    {path:'usuario',
+    path:'usuario',
     component:UsuarioComponent,
     children:[
       {path:'nuevo', component: CrearUsuarioComponent},
@@ -73,6 +67,10 @@ const routes: Routes = [
   {
     path:'role',
     component:RoleComponent,
+  },
+  {
+    path:'reportes',
+    component:ReportesComponent,
   },
   {
     path: 'antecedentes',

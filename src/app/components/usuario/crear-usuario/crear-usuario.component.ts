@@ -81,16 +81,22 @@ export class CrearUsuarioComponent implements OnInit {
       this.usuario.password = this.form.value.password;
       this.usuario.nombre = this.form.value.nombre;
       this.usuario.correo = this.form.value.correo;
-
-      this.usuario.telefono = this.form.value.telefono;
-      this.usuario.imagen = this.form.value.imagen;
-      this.usuario.entidad.idEntidad = this.form.value.entidad;
+      this.usuario.telefono=this.form.value.telefono;
+      this.usuario.imagen=this.form.value.imagen;
+      this.usuario.entidad.idEntidad=this.form.value.entidad;
+      if (this.edicion) {
+        this.uS.update(this.usuario).subscribe(() => {
+          this.uS.list().subscribe((data) => {
+            this.uS.setList(data);
+          });
+        });
+      } else {
       this.uS.insert(this.usuario).subscribe((data) => {
         this.uS.list().subscribe((data) => {
           this.uS.setList(data);
         });
       });
-
+    }
       this.router.navigate(['usuario']);
     } else {
       this.mensaje = 'Por favor complete todos los campos obligatorios.';
@@ -109,7 +115,7 @@ export class CrearUsuarioComponent implements OnInit {
     if (this.edicion) {
       this.uS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id: new FormControl(data.id),
+          id:new FormControl(data.id),
           username: new FormControl(data.username),
           password: new FormControl(data.password),
           nombre: new FormControl(data.nombre),
