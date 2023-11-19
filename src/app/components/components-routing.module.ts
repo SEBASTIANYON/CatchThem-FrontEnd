@@ -77,6 +77,24 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'antecedentes',
+    canActivate: [GuardService],
+    data: { role: ['POLICIA', 'AGENTE', 'ADMIN'] },
+    component: AntecedenteComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: CrearAntecedenteComponent,
+        data: { role: ['ADMIN', 'POLICIA'] },
+        canActivate: [GuardService],
+      },
+    ],
+  },{
+    path:'reportes',
+    component:ReportesComponent,
+  },
+
+  {
     path:'role',
     component:RoleComponent ,
     data: {role: ['ADMIN']},canActivate: [GuardService],

@@ -49,10 +49,12 @@ import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
-import { RoleComponent } from './role/role.component';
-import { NgChartsModule } from 'ng2-charts';
-import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte4Component } from './reportes/reporte4/reporte4.component';
+import { AntecedenteComponent } from './antecedente/antecedente.component';
+import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
+import { ListarAntecedenteComponent } from './antecedente/listar-antecedente/listar-antecedente.component';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,11 @@ import { ReportesComponent } from './reportes/reportes.component';
     ReportesComponent,
     Reporte1Component,
     CrearRoleComponent,
+    ReportesComponent,
+    Reporte4Component,
+    AntecedenteComponent,
+    CrearAntecedenteComponent,
+    ListarAntecedenteComponent
 ],
   imports: [
     CommonModule,

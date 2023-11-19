@@ -23,7 +23,6 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .search-box {
@@ -48,3 +47,4 @@ table {
         width: 50%;
     }
 }
+

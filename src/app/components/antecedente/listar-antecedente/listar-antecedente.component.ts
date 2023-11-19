@@ -81,3 +81,4 @@ export class ListarAntecedenteComponent implements OnInit {
     this.dataSource.filter = en.target.value.trim();
   }
 }
+

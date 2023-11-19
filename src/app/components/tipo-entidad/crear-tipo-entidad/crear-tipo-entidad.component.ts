@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import {FormBuilder,FormGroup,Validators,AbstractControl,FormControl} from '@angular/forms';
 import { ActivatedRoute, Router,Params } from '@angular/router';
-
 import { TipoEntidadService } from 'src/app/services/tipoentidad.service';
 
 @Component({
@@ -25,7 +24,7 @@ export class CrearTipoEntidadComponent implements OnInit{
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private loginService: LoginService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +57,7 @@ export class CrearTipoEntidadComponent implements OnInit{
             this.iS.setList(data);
           });
         });
-      } 
+      }
       this.router.navigate(['/tipoentidad']);
     } else {
       this.mensaje = 'Por favor complete todos los campos obligatorios.';
@@ -84,4 +83,3 @@ export class CrearTipoEntidadComponent implements OnInit{
     } 
   }
 }
-
