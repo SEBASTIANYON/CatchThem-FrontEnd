@@ -19,6 +19,7 @@ import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.com
 import { RoleComponent } from './role/role.component';
 import { AntecedenteComponent } from './antecedente/antecedente.component';
 import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
+import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,13 @@ const routes: Routes = [
     path:'reportes',
     component:ReportesComponent,
     data: {role: ['ADMIN']},canActivate: [GuardService],
+    children:[
+      {path:'reporte1', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte2', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte3', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte4', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte5', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+    ]
   },
   {
     path: 'antecedentes',
