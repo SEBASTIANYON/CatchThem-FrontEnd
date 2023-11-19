@@ -92,6 +92,5 @@ export class CrearAntecedenteComponent implements OnInit {
     }
     return control;
   }
-
-
 }
+

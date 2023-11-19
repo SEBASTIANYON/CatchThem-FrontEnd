@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Subject, Observable } from 'rxjs';
-import { Entidad } from '../models/Entidad';
 import { SospechosoEntidadDTO } from '../models/SospechosoEntidadDTO';
+
+import { Observable, Subject } from 'rxjs';
+import { Entidad } from '../models/Entidad';
+import { EntidadCamarasDTO } from '../models/EntidadCamarasDTO';
+import { cantidadsospechososDTO } from '../models/cantidadsospechososDTO';
 
 const base_url = environment.base;
 @Injectable({
@@ -75,5 +78,24 @@ export class EntidadService {
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'), 
     });
+
+  getCantidadDeCamaras(): Observable<EntidadCamarasDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<EntidadCamarasDTO[]>(`${this.url}/cantidadcamaras`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    })
+  }
+
+
+
+  cantidadSospechosos():Observable<cantidadsospechososDTO[]>{
+    let token = sessionStorage.getItem('token');
+    return this.http.get<cantidadsospechososDTO[]>(`${this.url}/cantidadsospechosos`,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    })
   }
 }

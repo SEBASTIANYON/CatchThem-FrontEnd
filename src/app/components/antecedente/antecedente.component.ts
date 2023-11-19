@@ -9,5 +9,5 @@ import { ActivatedRoute } from '@angular/router';
 export class AntecedenteComponent {
 
   constructor(public route:ActivatedRoute){}
-
 }
+

@@ -43,15 +43,19 @@ import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dial
 import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
-import { RoleComponent } from './role/role.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
-import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte2Component } from './reportes/reporte2/reporte2.component';
+import { Reporte4Component } from './reportes/reporte4/reporte4.component';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
+import { RoleComponent } from './role/role.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +80,7 @@ import { NgChartsModule } from 'ng2-charts';
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
+    Reporte3Component,
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     UsuarioComponent,
@@ -83,9 +88,13 @@ import { NgChartsModule } from 'ng2-charts';
     ListarTipoEntidadComponent,
     CrearTipoEntidadComponent,
     RoleComponent,
+    ReportesComponent,
+    Reporte5Component,
+    Reporte1Component,
     CrearRoleComponent,
     ReportesComponent,
     Reporte2Component,
+    Reporte4Component,
 ],
   imports: [
     CommonModule,

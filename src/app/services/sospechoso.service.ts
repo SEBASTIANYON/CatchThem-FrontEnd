@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Sospechoso } from '../models/Sospechoso';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { SospechosoPorNacionalidadDTO } from '../models/SospechosoPorNacionalidadDTO';
 
 const base_url = environment.base;
 @Injectable({
@@ -64,4 +65,12 @@ export class SospechosoService {
         .set('Content-Type', 'application/json'),
     });
   }
+  getCantidadSospechosoPorNaci(): Observable<SospechosoPorNacionalidadDTO[]> {
+  let token = sessionStorage.getItem('token');
+  return this.http.get<SospechosoPorNacionalidadDTO[]>(`${this.url}/cantidadsospechososnacionalidad`, {
+    headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+  })
+}
 }

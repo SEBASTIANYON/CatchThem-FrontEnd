@@ -1,37 +1,49 @@
-body{
-background-color: #dedede;
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #DEDEDE;
+}
+
+.contenedor{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
 }
 
 h1 {
-    color: #000;
     margin-top: 50px;
-    text-align: center;
-    font-family: Inter;
-    font-size: 50px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 80px;
-    letter-spacing: -0.84px;
-    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    color: #171C26;
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
-.example-form {
+.formulario {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.example-full-width {
+    width: calc(100% - 20px);
+    margin-top: 50px;
+}
+  
+button {
+    margin-top: 70px;
+}
+
+.buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    justify-content: space-between;
+    margin-left: 140px;
 }
 
-.contenedor .formulario .example-form .linea {
-    stroke-width: 1px;
-    stroke: #FFF;
-    width: 657px;
-    height: 1px;
-    flex-shrink: 0;
-    border: 1px;
-}
-
-mat-form-field {
-    width: 50%;
+@media (max-width: 600px) {
+    .container {
+        max-width: 90%;
+    }
 }
 

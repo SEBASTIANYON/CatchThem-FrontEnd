@@ -12,7 +12,6 @@
       <br />
       <div class="container">
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Nombre</mat-label>
             <input matInput placeholder="Nombre" formControlName="nombre"/>
@@ -31,13 +30,13 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Fecha de Nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" [max]="maxFecha" formControlName="nacimiento"/>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
+          
 
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Nacionalidad</mat-label>
@@ -47,7 +46,8 @@
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Imagen</mat-label>
             <input matInput placeholder="Colocar imagen" formControlName="imagen"/>
-          </mat-form-field>
+          </mat-form-field>        
+          
 
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Estado</mat-label>

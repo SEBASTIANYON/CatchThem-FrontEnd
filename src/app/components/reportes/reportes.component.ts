@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./reportes.component.css'],
 })
 export class ReportesComponent {
-  
+ 
   constructor(public route: ActivatedRoute) {}
 
 }

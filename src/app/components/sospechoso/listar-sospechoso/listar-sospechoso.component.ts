@@ -8,11 +8,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of } from 'rxjs';
 
-
 @Component({
   selector: 'app-listar-sospechoso',
   templateUrl: './listar-sospechoso.component.html',
-  styleUrls: ['./listar-sospechoso.component.css'],
+  styleUrls: ['./listar-sospechoso.component.css']
 })
 export class ListarSospechosoComponent implements OnInit {
   dataSource: MatTableDataSource<Sospechoso> = new MatTableDataSource();
@@ -28,6 +27,7 @@ export class ListarSospechosoComponent implements OnInit {
   ngOnInit(): void {
 
     console.log("carga ngoninit")
+
 
     this.oS.list().subscribe((data) => {
 
@@ -48,7 +48,6 @@ export class ListarSospechosoComponent implements OnInit {
     this.oS.delete(id).subscribe((data) => {
       this.oS.list().subscribe((data) => {
         this.oS.setList(data);
-
         this.obs = this.dataSource.connect();
       });
     });
