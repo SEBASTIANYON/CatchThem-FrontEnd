@@ -17,10 +17,9 @@ import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
-
   styleUrls: ['./crear-usuario.component.css'],
-
 })
+
 export class CrearUsuarioComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   usuario: Users = new Users();
@@ -52,7 +51,7 @@ export class CrearUsuarioComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       nombre: ['', Validators.required],
-      correo: ["", [Validators.required, this.validarCorreo]],
+      correo: ['', [Validators.required, this.validarCorreo]],
       telefono: ['', [Validators.required]],
       imagen: ['', Validators.required],
       entidad: ['', Validators.required],
@@ -75,7 +74,10 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   aceptar(): void {
+
+ 
     if (this.form.valid) {
+
       this.usuario.id = this.form.value.id;
       this.usuario.username = this.form.value.username;
       this.usuario.password = this.form.value.password;
