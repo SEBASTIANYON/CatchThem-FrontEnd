@@ -51,16 +51,6 @@ export class ListarTipoEntidadComponent implements OnInit {
     })
   }
   
-
-  openDialog(idTipo: number){
-    this.dialog.open(DialogoConfirmacionComponent)
-    .afterClosed()
-    .subscribe((confirmacion: Boolean) => {
-      if(confirmacion){
-        this.eliminar(idTipo)
-      }
-    })
-  }
   
   eliminar(id: number) {
     this.iS.delete(id).subscribe((data) => {

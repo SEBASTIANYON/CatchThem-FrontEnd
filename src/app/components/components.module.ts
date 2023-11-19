@@ -1,3 +1,4 @@
+import { NgChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
@@ -51,10 +52,9 @@ import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/l
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte4Component } from './reportes/reporte4/reporte4.component';
-import { AntecedenteComponent } from './antecedente/antecedente.component';
-import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
-import { ListarAntecedenteComponent } from './antecedente/listar-antecedente/listar-antecedente.component';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
+import { RoleComponent } from './role/role.component';
+
 
 @NgModule({
   declarations: [
