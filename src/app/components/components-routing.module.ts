@@ -137,12 +137,6 @@ const routes: Routes = [
         data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
         canActivate: [GuardService],
       },
-      {
-        path: 'list',
-        component: ListarCamaraComponent,
-        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
-        canActivate: [GuardService],
-      }
     ],
   },
   
