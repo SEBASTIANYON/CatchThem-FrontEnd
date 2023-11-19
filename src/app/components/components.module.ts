@@ -1,4 +1,3 @@
-import { NgChartsModule } from 'ng2-charts';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
@@ -50,11 +49,12 @@ import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
-import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte4Component } from './reportes/reporte4/reporte4.component';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { RoleComponent } from './role/role.component';
-
+import { NgChartsModule } from 'ng2-charts';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +88,7 @@ import { RoleComponent } from './role/role.component';
     CrearTipoEntidadComponent,
     RoleComponent,
     ReportesComponent,
+    Reporte5Component
     Reporte1Component,
     CrearRoleComponent,
     ReportesComponent,
@@ -119,7 +120,6 @@ import { RoleComponent } from './role/role.component';
     ComponentsRoutingModule,
     MatDialogModule,
     GoogleMapsModule,
-    NgChartsModule
   ],
 })
 export class ComponentsModule { }

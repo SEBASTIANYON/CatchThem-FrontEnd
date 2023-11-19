@@ -8,5 +8,4 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ReportesComponent {
   constructor(public route: ActivatedRoute) {}
-
 }

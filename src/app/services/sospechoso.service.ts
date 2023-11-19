@@ -64,4 +64,12 @@ export class SospechosoService {
         .set('Content-Type', 'application/json'),
     });
   }
+  getCantidadSospechosoPorNaci(): Observable<SospechosoPorNacionalidadDTO[]> {
+  let token = sessionStorage.getItem('token');
+  return this.http.get<SospechosoPorNacionalidadDTO[]>(`${this.url}/cantidadsospechososnacionalidad`, {
+    headers: new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json'),
+  })
+}
 }
