@@ -102,13 +102,13 @@ const routes: Routes = [
   {
     path:'reportes',
     component:ReportesComponent,
-    data: {role: ['ADMIN']},canActivate: [GuardService],
+    data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService],
     children:[
-      {path:'reporte1', component: Reporte1Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte2', component: Reporte2Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte3', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte4', component: Reporte4Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte5', component: Reporte5Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte1', component: Reporte1Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte2', component: Reporte2Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte3', component: Reporte3Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte4', component: Reporte4Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte5', component: Reporte5Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
     ]
   },
   {
