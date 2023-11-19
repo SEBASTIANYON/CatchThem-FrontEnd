@@ -17,6 +17,8 @@ import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/cre
 import { UsuarioComponent } from './usuario/usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { RoleComponent } from './role/role.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 
 const routes: Routes = [
   {
@@ -84,8 +86,15 @@ const routes: Routes = [
   {
     path:'role',
     component:RoleComponent,
-  }
+  },
 
+  {
+    path: 'reportes',
+    component: ReportesComponent,
+    children:[
+      {path:'reporte5', component: Reporte5Component},
+    ]
+  },
 
   //Colocar las rutas para las demas entidades
 ];
