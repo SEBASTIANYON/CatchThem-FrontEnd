@@ -40,7 +40,6 @@ export class Reporte5Component implements OnInit {
   barChartType: ChartType = 'bar'; // Cambiado a 'bar' para un gráfico de barras
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
-
   constructor(private oS: SospechosoService) {}
 
   ngOnInit(): void {
