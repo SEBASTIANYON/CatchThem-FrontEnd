@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <title>Document</title>
   </head>
 
   <body>
-    <div class="contenedor">
-      <div class="fondo"></div>
-      <div class="formulario">
-        <h1>Registrar Entidad</h1>
+    <div class="container">
+      <h1>Registrar Entidad</h1>
+      <div class="form">
         <br class="linea">
         <br>
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
@@ -31,17 +31,21 @@
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <mat-label>Tipo de Entidad</mat-label>
-            <mat-select formControlName="tipoEntidad">
-              <mat-option *ngFor="let p of tipos" [value]="p.value">
-                {{p.viewValue}}
+            <mat-label>TipoEntidad</mat-label>
+            <mat-select formControlName="TipoEntidad">
+              <mat-option *ngFor="let l of listaTipo" [value]="l.idTipo">
+                {{l.sector}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           
-          <button mat-raised-button color="primary">Registrar</button>
-          <p>{{mensaje}}</p>
-
+          <div class="buttons">
+            <button mat-raised-button
+            style="background-color: #21201F; color: #FFFFFF;">Aceptar</button>
+            <button mat-raised-button 
+            style="background-color: rgb(189, 188, 188); color: #000000;"routerLink="/entidades">Cancelar</button>
+            <p>{{mensaje}}</p>
+          </div>
         </form>
       </div>
     </div>

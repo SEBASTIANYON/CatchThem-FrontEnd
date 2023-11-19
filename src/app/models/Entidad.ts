@@ -6,4 +6,8 @@ export class Entidad {
   direccion: string = '';
   telefono: string = '';
   tipoEntidad: TipoEntidad = new TipoEntidad();
+
+  get tipoEntidadTexto(): string {
+  return this.tipoEntidad ? this.tipoEntidad.sector : '';
+}
 }
