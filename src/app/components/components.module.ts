@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgFor } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -27,24 +28,31 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AntecedenteComponent } from './antecedente/antecedente.component';
+import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
 import { ActasComponent } from './actas/actas.component';
 import { CrearActasComponent } from './actas/crear-actas/crear-actas.component';
 import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { ListarActasComponent } from './actas/listar-actas/listar-actas.component';
 import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.component';
+import { ListarAntecedenteComponent } from './antecedente/listar-antecedente/listar-antecedente.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dialogo-confirmacion.component';
 import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
-import { RoleComponent } from './role/role.component';
-import { CrearRoleComponent } from './role/crear-role/crear-role.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
+import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
+import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
+import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
+import { RoleComponent } from './role/role.component';
+import { CrearRoleComponent } from './role/crear-role/crear-role.component';
 
 
 @NgModule({
@@ -58,24 +66,29 @@ import { NgChartsModule } from 'ng2-charts';
     CamaraComponent,
     ListarCamaraComponent,
     CrearCamaraComponent,
+    AntecedenteComponent,
+    CrearAntecedenteComponent,
     ActasComponent,
     CrearActasComponent,
     CrearAlertasComponent,
     AlertasComponent,
     ListarActasComponent,
     ListarAlertasComponent,
+    ListarAntecedenteComponent,
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
-    UsuarioComponent,
-    ListarUsuarioComponent,
-    CrearUsuarioComponent,
-    RoleComponent,
-    CrearRoleComponent,
     ReportesComponent,
     Reporte3Component,
-    
-  ],
+    CrearUsuarioComponent,
+    ListarUsuarioComponent,
+    UsuarioComponent,
+    TipoEntidadComponent,
+    ListarTipoEntidadComponent,
+    CrearTipoEntidadComponent,
+    RoleComponent,
+    CrearRoleComponent,
+],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -83,6 +96,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
+    NgFor,
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
@@ -99,6 +113,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatDialogModule,
     GoogleMapsModule,
     NgChartsModule
+
   ],
 })
 export class ComponentsModule { }

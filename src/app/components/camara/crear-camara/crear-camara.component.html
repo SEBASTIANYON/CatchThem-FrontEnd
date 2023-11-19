@@ -8,12 +8,18 @@
 
   <body>
     <div class="contenedor">
-      <div class="fondo"></div>
+    
       <div class="formulario">
         <h1>Registrar Camara</h1>
-        <br class="linea" />
+        
         <br />
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>id_camara</mat-label>
+            <input matInput placeholder="Id" formControlName="id_camara" />
+          </mat-form-field>
+
           <mat-form-field class="example-full-width">
             <mat-label>Ubicacion</mat-label>
             <input
@@ -50,7 +56,16 @@
             </mat-select>
           </mat-form-field>
 
-          <button mat-raised-button color="primary">Registrar</button>
+          <mat-form-field class="example-full-width">
+            <mat-label>Entidad</mat-label>
+            <mat-select formControlName="entidad">
+              <mat-option *ngFor="let p of listaEntidades" [value]="p.idEntidad">
+                {{ p.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button color="#ababa9">Registrar</button>
           <p>{{ mensaje }}</p>
         </form>
       </div>

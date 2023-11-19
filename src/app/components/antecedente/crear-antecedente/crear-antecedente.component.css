@@ -1,0 +1,86 @@
+* {
+    width: auto;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-color: #DEDEDE;
+}
+
+.form-register {
+    
+    width: auto;
+
+}
+
+.example-form {
+   
+    top: 50px;
+    width: 840px;
+}
+
+h2 {
+    color: #000;
+    margin: auto;
+    width: inherit;
+    text-align: center;
+    font-size: 36px;
+
+}
+
+svg {
+    width: inherit;
+    
+}
+
+
+.example-form mat-form-field {
+    display: flexbox;
+    width: 350px;
+    margin: 15px 35px 0 35px;
+    overflow-x: hidden;
+
+}
+
+.example-form .last {
+    position: relative;
+    left: 210px;
+}
+
+
+
+button {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 100px;
+
+}
+
+
+button:hover{
+    border: 2px groove black;
+}
+
+
+
+.pagination {
+    display: inline-flex;
+    width: inherit;
+    margin-top: -10px;
+}
+
+button:hover{
+    border: 2px groove black;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+  }
