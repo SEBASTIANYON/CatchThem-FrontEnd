@@ -40,7 +40,7 @@ export class Reporte2Component implements OnInit {
           label: 'Edad promedio',
           data: data.map((item) => item.edadPromedio),
           type: 'bar',
-          backgroundColor: this.colores,
+          backgroundColor: ['#ABABA9','#B8A392', '#F2EAE2', '#A48C79', '#323131','#46433F', '#A19794', '#FAF9F7'],
           borderColor: 'rgba(192, 192, 192, 1)',
           borderWidth: 2,
         },

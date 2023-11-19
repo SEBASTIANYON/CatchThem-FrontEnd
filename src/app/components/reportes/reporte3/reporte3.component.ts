@@ -34,7 +34,7 @@ export class Reporte3Component implements OnInit {
         {
           data: data.map((item) => item.cantidadSospechosos),
           label: 'Cantidad de sospechosos',
-          backgroundColor: 'rgba(0, 130, 0, 0.5)',
+          backgroundColor: ['#ABABA9','#B8A392', '#F2EAE2', '#A48C79', '#323131','#46433F', '#A19794', '#FAF9F7'],
           borderColor: 'rgba(173, 216, 230, 1)',
           borderWidth: 1,
         },
