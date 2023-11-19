@@ -5,7 +5,7 @@ export class Users {
   id: number = 0;
   username: string = '';
   password: string = '';
-  enabled: boolean = false;
+  enabled: boolean = true;
   nombre: string = '';
   correo: string = '';
   telefono: string = '';
