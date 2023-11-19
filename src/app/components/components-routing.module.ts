@@ -10,7 +10,6 @@ import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.com
 import { AlertasComponent } from './alertas/alertas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuardService } from '../services/guard.service';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
@@ -25,6 +24,7 @@ import { Reporte2Component } from './reportes/reporte2/reporte2.component';
 import { ListarCamaraComponent } from './camara/listar-camara/listar-camara.component';
 import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 import { Reporte4Component } from './reportes/reporte4/reporte4.component';
+import { GuardService } from '../services/guards.service';
 
 const routes: Routes = [
   {
