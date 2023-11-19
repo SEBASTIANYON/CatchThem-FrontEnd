@@ -8,6 +8,8 @@ import { AlertaService } from 'src/app/services/alerta.service';
 import { LoginService } from 'src/app/services/login.service';
 import { RoleService } from 'src/app/services/role.service';
 import { UsersService } from 'src/app/services/users.service';
+import { DialogoConfirmacionComponent } from '../../dialog/dialogo-confirmacion/dialogo-confirmacion.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-listar-usuario',
@@ -24,7 +26,7 @@ export class ListarUsuarioComponent implements OnInit {
   username: string = ''
   entidad: string = ''
 
-  constructor(private uS: UsersService, private rS: RoleService,private loginService: LoginService, private aS:ActasinterrogatorioService, private alS:AlertaService) {}
+  constructor(private uS: UsersService, private rS: RoleService,private loginService: LoginService, private aS:ActasinterrogatorioService, private alS:AlertaService,public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.uS.list().subscribe((data: Users[]) => {
@@ -141,6 +143,16 @@ export class ListarUsuarioComponent implements OnInit {
     eliminarActasRecursivo(uniqueActas, 0);
   }
   
+  openDialog(id: number){
+    this.dialog.open(DialogoConfirmacionComponent)
+    .afterClosed()
+    .subscribe((confirmacion: Boolean) => {
+      if(confirmacion){
+        this.eliminar(id)
+      }
+    })
+  }
+
   eliminarUsuario(id: number) {
     this.uS.delete(id).subscribe(() => {
       this.uS.list().subscribe((data) => {
