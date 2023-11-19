@@ -39,7 +39,7 @@ export class ListarAntecedenteComponent implements OnInit {
   constructor(
     private aS: AntecedentePenalService,
     private formBuilder: FormBuilder,
-    private sS: SospechosoService,
+    private oS: SospechosoService,
     public route: ActivatedRoute,
     private router: Router,
     private loginService: LoginService
@@ -49,7 +49,7 @@ export class ListarAntecedenteComponent implements OnInit {
   role: string = '';
 
   ngOnInit(): void {
-    this.sS.list().subscribe((data) => {
+    this.oS.list().subscribe((data) => {
       this.listasospechosos = data;
     });
 
