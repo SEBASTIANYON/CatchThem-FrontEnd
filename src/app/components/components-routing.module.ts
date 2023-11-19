@@ -59,7 +59,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'tipos', canActivate: [GuardService],
+    path: 'tipoentidad', canActivate: [GuardService],
     data: {role: ['POLICIA', 'AGENTE','ADMIN']},
     component: TipoEntidadComponent,
     children: [
