@@ -28,7 +28,7 @@ export class Reporte4Component implements OnInit {
         {
           data: data.map((item) => item.cantidad_antecedentes),
           label: 'Cantidad de antecedentes por delito',
-          backgroundColor: ['#4682B4', '#000033', '#000080'],
+          backgroundColor: '#554750',
           borderColor: 'white',
         },
       ];
