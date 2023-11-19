@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import {FormBuilder,FormGroup,Validators,AbstractControl,FormControl} from '@angular/forms';
 import { ActivatedRoute, Router,Params } from '@angular/router';
+
 import { TipoEntidadService } from 'src/app/services/tipoentidad.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class CrearTipoEntidadComponent implements OnInit{
   mensaje: string = '';
   idTipo: number = 0;
   edicion: boolean = false;
+
 
   constructor(
     private iS: TipoEntidadService,
@@ -82,3 +84,4 @@ export class CrearTipoEntidadComponent implements OnInit{
     } 
   }
 }
+

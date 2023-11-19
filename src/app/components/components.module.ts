@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgFor } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -26,12 +27,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AntecedenteComponent } from './antecedente/antecedente.component';
+import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
 import { ActasComponent } from './actas/actas.component';
 import { CrearActasComponent } from './actas/crear-actas/crear-actas.component';
 import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { ListarActasComponent } from './actas/listar-actas/listar-actas.component';
 import { ListarAlertasComponent } from './alertas/listar-alertas/listar-alertas.component';
+import { ListarAntecedenteComponent } from './antecedente/listar-antecedente/listar-antecedente.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -39,6 +43,7 @@ import { DialogoConfirmacionComponent } from './dialog/dialogo-confirmacion/dial
 import { DialogoMapaComponent } from './dialog/dialogo-mapa/dialogo-mapa.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
@@ -60,16 +65,19 @@ import { ReportesComponent } from './reportes/reportes.component';
     CamaraComponent,
     ListarCamaraComponent,
     CrearCamaraComponent,
+    AntecedenteComponent,
+    CrearAntecedenteComponent,
     ActasComponent,
     CrearActasComponent,
     CrearAlertasComponent,
     AlertasComponent,
     ListarActasComponent,
     ListarAlertasComponent,
+    ListarAntecedenteComponent,
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
-    CrearRoleComponent,
+    Reporte3Component,
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     UsuarioComponent,
@@ -79,7 +87,8 @@ import { ReportesComponent } from './reportes/reportes.component';
     RoleComponent,
     ReportesComponent,
     Reporte1Component
-  ],
+    CrearRoleComponent,
+],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -87,6 +96,7 @@ import { ReportesComponent } from './reportes/reportes.component';
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
+    NgFor,
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,

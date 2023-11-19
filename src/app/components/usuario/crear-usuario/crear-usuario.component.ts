@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {
   AbstractControl,
   FormBuilder,
@@ -6,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Entidad } from 'src/app/models/Entidad';
 import { Users } from 'src/app/models/Users';
@@ -17,6 +19,7 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './crear-usuario.component.html',
   styleUrls: ['./crear-usuario.component.css'],
 })
+
 export class CrearUsuarioComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   usuario: Users = new Users();
@@ -42,6 +45,7 @@ export class CrearUsuarioComponent implements OnInit {
       this.edicion = data['id'] != null;
       this.init();
     });
+
     this.form = this.formBuilder.group({
       id: [''],
       username: ['', Validators.required],
@@ -52,6 +56,7 @@ export class CrearUsuarioComponent implements OnInit {
       imagen: ['', Validators.required],
       entidad: ['', Validators.required],
     });
+
 
     this.eS.list().subscribe((data) => {
       this.lista_entidades = data;
@@ -69,23 +74,31 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   aceptar(): void {
+
  
     if (this.form.valid) {
-      
+
       this.usuario.id = this.form.value.id;
       this.usuario.username = this.form.value.username;
       this.usuario.password = this.form.value.password;
       this.usuario.nombre = this.form.value.nombre;
       this.usuario.correo = this.form.value.correo;
-      this.usuario.telefono = this.form.value.telefono;
-      this.usuario.imagen = this.form.value.imagen;
-      this.usuario.entidad.idEntidad = this.form.value.entidad;
+      this.usuario.telefono=this.form.value.telefono;
+      this.usuario.imagen=this.form.value.imagen;
+      this.usuario.entidad.idEntidad=this.form.value.entidad;
+      if (this.edicion) {
+        this.uS.update(this.usuario).subscribe(() => {
+          this.uS.list().subscribe((data) => {
+            this.uS.setList(data);
+          });
+        });
+      } else {
       this.uS.insert(this.usuario).subscribe((data) => {
         this.uS.list().subscribe((data) => {
           this.uS.setList(data);
         });
       });
-
+    }
       this.router.navigate(['usuario']);
     } else {
       this.mensaje = 'Por favor complete todos los campos obligatorios.';
@@ -104,7 +117,7 @@ export class CrearUsuarioComponent implements OnInit {
     if (this.edicion) {
       this.uS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id: new FormControl(data.id),
+          id:new FormControl(data.id),
           username: new FormControl(data.username),
           password: new FormControl(data.password),
           nombre: new FormControl(data.nombre),
@@ -117,3 +130,4 @@ export class CrearUsuarioComponent implements OnInit {
     }
   }
 }
+

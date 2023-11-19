@@ -10,9 +10,11 @@ import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-crear-sospechoso',
   templateUrl: './crear-sospechoso.component.html',
-  styleUrls: ['./crear-sospechoso.component.css'],
+  styleUrls: ['./crear-sospechoso.component.css']
 })
 export class CrearSospechosoComponent {
+
+
   form: FormGroup = new FormGroup({});
   sospechoso: Sospechoso = new Sospechoso();
   listaEntidad: Entidad[] = []
@@ -21,10 +23,10 @@ export class CrearSospechosoComponent {
   edicion: boolean = false;
   maxFecha: Date = new Date(Date.now());
   tipos: { value: string; viewValue: string }[] = [
-    { value: 'Masculino', viewValue: 'Masculino' },
     { value: 'Femenino', viewValue: 'Femenino' },
+    { value: 'Masculino', viewValue: 'Masculino' }
   ];
-
+  
   tipos2: { value2: string; viewValue2: string }[] = [
     { value2: 'Capturado', viewValue2: 'Capturado' },
     { value2: 'Libre', viewValue2: 'Libre' },
@@ -57,7 +59,8 @@ export class CrearSospechosoComponent {
       historial: ['', Validators.required],
       estado: ['', Validators.required],
       fecharegistro: ['', Validators.required],
-      imagen:['', Validators.required]
+      imagen:['', Validators.required],
+      entidad:['']
     });
 
     this.eS.list().subscribe(data => {
@@ -67,6 +70,7 @@ export class CrearSospechosoComponent {
   }
 
   aceptar(): void {
+
     if (this.form.valid) {
       this.sospechoso.idSospechoso = this.form.value.idSospechoso;
       this.sospechoso.nombre = this.form.value.nombre;
@@ -80,7 +84,7 @@ export class CrearSospechosoComponent {
       this.sospechoso.fecharegistro = this.form.value.fecharegistro;
       this.sospechoso.imagen = this.form.value.imagen;
       this.sospechoso.entidad.idEntidad= this.form.value.entidad;
- 
+
       if(this.edicion){
         this.sospechoso.entidad.idEntidad = this.form.value.entidad
       }
@@ -121,16 +125,17 @@ export class CrearSospechosoComponent {
       this.oS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           idSospechoso: new FormControl(data.idSospechoso),
-          nombre: new FormControl(data.nombre),
-          alias: new FormControl(data.alias),
-          nacimiento: new FormControl(data.nacimiento),
-          genero: new FormControl(data.genero),
-          nacionalidad: new FormControl(data.nacionalidad),
-          descripcion: new FormControl(data.descripcion),
-          historial: new FormControl(data.historial),
-          estado: new FormControl(data.estado),
-          fecharegistro: new FormControl(data.fecharegistro),
-          imagen: new FormControl(data.imagen),
+          nombre: new FormControl(data.nombre, Validators.required),
+          alias: new FormControl(data.alias, Validators.required),
+          nacimiento: new FormControl(data.nacimiento, Validators.required),
+          genero: new FormControl(data.genero, Validators.required),
+          nacionalidad: new FormControl(data.nacionalidad, Validators.required),
+          descripcion: new FormControl(data.descripcion, Validators.required),
+          historial: new FormControl(data.historial, Validators.required),
+          estado: new FormControl(data.estado, Validators.required),
+          fecharegistro: new FormControl(data.fecharegistro, Validators.required),
+          imagen: new FormControl(data.imagen, Validators.required),
+          entidad: new FormControl(data.entidad.idEntidad),
         });
       });
     }

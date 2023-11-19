@@ -3,64 +3,64 @@
 
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+  </head>
 
-<body style="background-color: #dedede;">
-    <div class="container" style="text-align: center">
-        <br>
-        <h2>Registro de usuario</h2>
-        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+  <body style="background-color: #dedede;">
+      <div class="container" style="text-align: center">
+          <br>
+          <h2>Registro de usuario</h2>
+          <form [formGroup]="form" (submit)="aceptar()" class="example-form">
 
-          <mat-form-field class="example-full-width">
-            <mat-label>username</mat-label>
-            <input matInput placeholder="username" formControlName="username" />
-          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>username</mat-label>
+              <input matInput placeholder="username" formControlName="username" />
+            </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>password</mat-label>
-            <input type="password" matInput placeholder="password" formControlName="password" />
-          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>password</mat-label>
+              <input type="password" matInput placeholder="password" formControlName="password" />
+            </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>nombre</mat-label>
-            <input matInput placeholder="nombre" formControlName="nombre" />
-          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>nombre</mat-label>
+              <input matInput placeholder="nombre" formControlName="nombre" />
+            </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>Correo</mat-label>
-            <input matInput placeholder="Correo" formControlName="correo" />
-            <mat-error *ngIf="form?.get('correo')?.hasError('sinArroba')">
-              El correo electrónico debe contener "@".
-            </mat-error>
-          </mat-form-field>
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>telefono</mat-label>
-            <input type="number" matInput placeholder="telefono" formControlName="telefono" maxlength="9" />
-          </mat-form-field>
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>imagen</mat-label>
-            <input matInput placeholder="imagen" formControlName="imagen" />
-          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Correo</mat-label>
+              <input matInput placeholder="Correo" formControlName="correo" />
+              <mat-error *ngIf="form?.get('correo')?.hasError('sinArroba')">
+                El correo electrónico debe contener "@".
+              </mat-error>
+            </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>entidad</mat-label>
-            <mat-select formControlName="entidad">
-              <mat-option *ngFor="let l of lista_entidades" [value]="l.idEntidad">
-                {{l.nombre}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-          <button mat-raised-button color="primary">Registrar</button>
-          <p>{{mensaje}}</p>
+            <mat-form-field class="example-full-width">
+              <mat-label>telefono</mat-label>
+              <input type="number" matInput placeholder="telefono" formControlName="telefono" maxlength="9" />
+            </mat-form-field>
 
-        </form>
-    </div>
-</body>
+            <mat-form-field class="example-full-width">
+              <mat-label>imagen</mat-label>
+              <input matInput placeholder="imagen" formControlName="imagen" />
+            </mat-form-field>
 
+            <mat-form-field class="example-full-width">
+              <mat-label>entidad</mat-label>
+              <mat-select formControlName="entidad">
+                <mat-option *ngFor="let l of lista_entidades" [value]="l.idEntidad">
+                  {{l.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Registrar</button>
+            <p>{{mensaje}}</p>
+
+          </form>
+      </div>
+  </body>
+</html>

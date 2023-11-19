@@ -1,21 +1,28 @@
-
 <mat-toolbar class="menu" *ngIf="verificar()">
-  <div class="container-fluid container-xl d-flex align-items-center justify-content-center">
-    <img src="/assets/img/logo2.png" class="logo">
+  <div
+    class="container-fluid container-xl d-flex align-items-center justify-content-center"
+  >
+    <img src="/assets/img/logo2.png" class="logo" />
   </div>
-  <div class="container text-end align-self-center"><strong style="color: #ababa9;">Usuario:</strong> {{username}}</div>
-  <div class="container text-end align-self-center"><strong style="color: #ababa9;">Entidad:</strong> {{entidad}}</div>
-  <div class="container text-end align-self-center"><button (click)="cerrar()"
-      routerLink="/login"><mat-icon>logout</mat-icon></button></div>
-
+  <div class="container text-center align-self-center align-items-center" style="display: flex; justify-content: center;">
+    <strong style="color: #ababa9; display: flex; margin-right: 10px;" class="align-items-center" ><mat-icon>person</mat-icon></strong> {{ username }}
+  </div>
+  <div class="container text-center align-self-center align-items-center" style="display: flex; justify-content: center;">
+    <strong style="color: #ababa9; display: flex; margin-right: 10px;"><mat-icon>home</mat-icon></strong> {{ entidad }}
+  </div>
+  <div class="container text-center align-self-center align-items-center">
+    <button
+    class="container text-center align-self-center align-items-center"  style="display: flex; justify-content: center; "
+     (click)="cerrar()" routerLink="/login"><mat-icon style="margin-right: 10px;">logout</mat-icon>  Salir</button>
+  </div>
 </mat-toolbar>
 
-<div style="background-color: #21201F;" *ngIf="verificar()">
+<div style="background-color: #21201f" *ngIf="verificar()">
   <div class="container-sm">
     <nav mat-tab-nav-bar>
       <a color="success" mat-tab-link routerLink="/entidades" routerLinkActive #rla="routerLinkActive"
         [active]="rla.isActive" *ngIf="role == 'ADMIN'">ENTIDADES</a>
-      <a color="success" mat-tab-link routerLink="/usuarios" routerLinkActive #rla2="routerLinkActive"
+      <a color="success" mat-tab-link routerLink="/usuario" routerLinkActive #rla2="routerLinkActive"
         [active]="rla2.isActive" *ngIf="role == 'ADMIN'">USUARIOS</a>
       <a mat-tab-link routerLink="/sospechosos" routerLinkActive #rla3="routerLinkActive"
         [active]="rla3.isActive">SOSPECHOSO</a>
@@ -25,18 +32,19 @@
         [active]="rla5.isActive">ANTENCEDENTES PENALES</a>
       <a mat-tab-link routerLink="/alertas" routerLinkActive #rla6="routerLinkActive"
         [active]="rla6.isActive">ALERTAS</a>
+      <a mat-tab-link routerLink="/reportes" routerLinkActive #rla6="routerLinkActive"
+        [active]="rla6.isActive">REPORTES</a>
       <a mat-tab-link routerLink="/actas" routerLinkActive #rla7="routerLinkActive" [active]="rla7.isActive">ACTAS</a>
 
-      <a mat-tab-link routerLink="/roles" routerLinkActive #rla8="routerLinkActive" [active]="rla8.isActive"
+      <a mat-tab-link routerLink="/role" routerLinkActive #rla8="routerLinkActive" [active]="rla8.isActive"
         *ngIf="role == 'ADMIN'">ROLES</a>
       <a mat-tab-link routerLink="/tipoentidad" routerLinkActive #rla9="routerLinkActive" [active]="rla9.isActive">TIPOS DE
         ENTIDAD</a>
+
     </nav>
   </div>
 </div>
-
-<br>
-
+<br />
 
 <div>
   <router-outlet></router-outlet>
