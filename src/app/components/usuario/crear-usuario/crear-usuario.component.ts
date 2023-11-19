@@ -118,13 +118,13 @@ export class CrearUsuarioComponent implements OnInit {
       this.uS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id:new FormControl(data.id),
-          username: new FormControl(data.username),
-          password: new FormControl(data.password),
-          nombre: new FormControl(data.nombre),
-          correo: new FormControl(data.correo),
-          telefono: new FormControl(data.telefono),
-          imagen: new FormControl(data.imagen),
-          entidad: new FormControl(data.entidad.idEntidad),
+          username: new FormControl(data.username, Validators.required),
+          password: new FormControl(data.password, Validators.required),
+          nombre: new FormControl(data.nombre, Validators.required),
+          correo: new FormControl(data.correo, [Validators.required, this.validarCorreo]),
+          telefono: new FormControl(data.telefono, Validators.required),
+          imagen: new FormControl(data.imagen, Validators.required),
+          entidad: new FormControl(data.entidad.idEntidad, Validators.required),
         });
       });
     }
