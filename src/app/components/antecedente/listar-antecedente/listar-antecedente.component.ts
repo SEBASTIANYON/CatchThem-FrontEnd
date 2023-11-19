@@ -66,6 +66,16 @@ export class ListarAntecedenteComponent implements OnInit {
     });
 
     this.role = this.loginService.showRole();
+    if(this.role !== 'ADMIN'){
+      this.displayedColumns = [
+        'id',
+        'delito',
+        'fecha_comision',
+        'fecha_condena',
+        'sentencia',
+        'sospechoso',
+      ];
+    }
   }
 
   obtenerControlCampo(nombreCampo: string): AbstractControl {

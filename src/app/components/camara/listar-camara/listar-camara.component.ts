@@ -39,6 +39,17 @@ export class ListarCamaraComponent {
     });
 
     this.role = this.loginService.showRole();
+
+    if(this.role !== 'ADMIN'){
+      this.displayedColumns = [
+        'id_camara',
+        'ubicacion',
+        'tipo_camara',
+        'area_vigilada',
+        'estado',
+        'entidad',
+      ];
+    }
   }
 
   //se agrega eliminar por id
