@@ -13,7 +13,7 @@
     <h2 style="text-align: center">ACTAS DE INTERROGATORIO</h2>
     <div class="d-flex justify-content-between">
       <div>
-        <mat-form-field style="width:140%;">
+        <mat-form-field>
           <mat-icon matPrefix>search</mat-icon>
           <input matInput (keyup)="filter($event)" placeholder="Buscar sopechoso/usuario" />
         </mat-form-field>
@@ -24,14 +24,12 @@
           <mat-icon>refresh</mat-icon>
         </button>
 
-
         <button *ngIf="role == 'ADMIN' || role == 'POLICIA'" mat-raised-button
           style="background-color: #20211f; color:#F4F7F9; font-weight: 800;" routerLink="/actas/nuevo">
           Nuevo
         </button>
       </div>
     </div>
-
     <div class="container">
       <div class="card-container">
         <mat-card class="example-card" *ngFor="let a of obs | async ">
@@ -58,8 +56,6 @@
       <mat-paginator style="background-color: transparent;" [pageSizeOptions]="[6, 30, 60, 90]"
         showFirstLastButtons></mat-paginator>
     </div>
-
   </div>
 </body>
-
 </html>

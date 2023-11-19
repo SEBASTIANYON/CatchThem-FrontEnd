@@ -1,3 +1,5 @@
+import { Sospechoso } from './Sospechoso';
+
 export class AntecedentePenal {
   id_antecedente: number = 0;
   delito: string = '';
@@ -6,4 +8,5 @@ export class AntecedentePenal {
   sentencia: string = '';
   ubicacion: string = '';
   estado: string = '';
+  sospechoso: Sospechoso= new Sospechoso();
 }
