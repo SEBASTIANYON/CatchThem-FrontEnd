@@ -24,6 +24,7 @@ import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear
 import { Reporte2Component } from './reportes/reporte2/reporte2.component';
 import { ListarCamaraComponent } from './camara/listar-camara/listar-camara.component';
 import { Reporte3Component } from './reportes/reporte3/reporte3.component';
+import { Reporte4Component } from './reportes/reporte4/reporte4.component';
 
 const routes: Routes = [
   {
@@ -92,11 +93,7 @@ const routes: Routes = [
         canActivate: [GuardService],
       },
     ],
-  },{
-    path:'reportes',
-    component:ReportesComponent,
   },
-
   {
     path:'role',
     component:RoleComponent ,
@@ -107,11 +104,11 @@ const routes: Routes = [
     component:ReportesComponent,
     data: {role: ['ADMIN']},canActivate: [GuardService],
     children:[
-      {path:'reporte1', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte2', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte1', component: Reporte1Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte2', component: Reporte2Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
       {path:'reporte3', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte4', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte5', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte4', component: Reporte4Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte5', component: Reporte5Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
     ]
   },
   {
@@ -148,20 +145,7 @@ const routes: Routes = [
       }
     ],
   },
-  {
-    path: 'reportes',
-    canActivate: [GuardService],
-    data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
-    component: ReportesComponent,
-    children: [
-      {
-        path: 'reportes2',
-        component: Reporte2Component,
-        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
-        canActivate: [GuardService],
-      },
-    ],
-  },
+  
 ];
 
 @NgModule({
