@@ -1,10 +1,25 @@
+.container{
+    width: 35%;
+}
+
+h1{
+    font-size: 35px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+
 .botones-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
   }
   
-  button {    
+
+  button {
+    background-color: #20211F;
+    color: aliceblue;
+    border: none;
     padding: 10px 15px;
     cursor: pointer;
     text-decoration: none;
@@ -12,6 +27,10 @@
     border-radius: 5px; /* Agrega esquinas redondeadas */
   }
   
+  button:last-child {
+    margin-right: 0;
+  }
   
-  
-  
+  button:hover {
+    
+  }

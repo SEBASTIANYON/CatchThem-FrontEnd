@@ -2,7 +2,8 @@ import { AntecedentePenal } from './../models/AntecedentePenal';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { AntecedentesPorDelitoDTO } from '../models/AntecentesPorDeltitoDTO';
 
 const base_url = environment.base;
 @Injectable({
@@ -24,7 +25,6 @@ export class AntecedentePenalService {
 
   insert(ant: AntecedentePenal) {
     let token = sessionStorage.getItem('token');
-
     return this.http.post(this.url, ant, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
@@ -41,23 +41,43 @@ export class AntecedentePenalService {
   }
 
   listId(id: number) {
-    return this.http.get<AntecedentePenal>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<AntecedentePenal>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   /*
   update(ant: AntecedentePenal) {
     let token = sessionStorage.getItem('token');
-    return this.http.put(this.url, ant);
+    return this.http.put(this.url, ant, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   */
  
   delete(id: number) {
     let token = sessionStorage.getItem('token');
-
     return this.http.delete(`${this.url}/${id}`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
-        .set('Content-Type', 'application'),
+        .set('Content-Type', 'application/json'),
     });
+  }
+
+  getCount(): Observable<AntecedentesPorDelitoDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<AntecedentesPorDelitoDTO[]>(
+      `${this.url}/DelitoPorAntecedente`,
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${token}`)
+          .set('Content-Type', 'application/json'),
+      }
+    );
   }
 }

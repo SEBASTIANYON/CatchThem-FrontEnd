@@ -1,6 +1,11 @@
-<router-outlet></router-outlet>
-<div [hidden]="route.children.length !== 0">
-    <app-reporte3></app-reporte3>
-</div>
+<div class="botones-container">
+    <button mat-button routerLink="reporte1" style="background-color: #21201F; color: white;">Reporte 1</button>
+    <button mat-button routerLink="reporte2" style="background-color: #21201F; color: white;">Reporte 2</button>
+    <button mat-button routerLink="reporte3" style="background-color: #21201F; color: white;">Reporte 3</button>
+    <button mat-button routerLink="reporte4" style="background-color: #21201F; color: white;">Reporte 4</button>
+    <button mat-button routerLink="reporte5" style="background-color: #21201F; color: white;">Reporte 5</button>
+  </div>
 
+  <br>
 
+  <router-outlet></router-outlet>

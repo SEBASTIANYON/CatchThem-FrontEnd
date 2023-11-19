@@ -81,7 +81,7 @@ export class CrearAntecedenteComponent implements OnInit {
         });
       });
 
-      this.router.navigate(['components/antecedentes']);
+      this.router.navigate(['/antecedentes']);
     }
   }
 
@@ -92,6 +92,5 @@ export class CrearAntecedenteComponent implements OnInit {
     }
     return control;
   }
-
-
 }
+

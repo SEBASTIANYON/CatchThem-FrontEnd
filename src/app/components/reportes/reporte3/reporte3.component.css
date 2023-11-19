@@ -1,4 +1,3 @@
-/* nombre-de-tu-componente.component.css */
 
 .botones-container {
     display: flex;
@@ -6,9 +5,10 @@
     margin-top: 20px;
   }
   
+
   button {
-    background-color: #000;
-    color: #fff;
+    background-color: #20211F;
+    color: aliceblue;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -22,6 +22,6 @@
   }
   
   button:hover {
-    background-color: #333;
+    
   }
   

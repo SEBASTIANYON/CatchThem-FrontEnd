@@ -10,17 +10,21 @@ import { CrearAlertasComponent } from './alertas/crear-alertas/crear-alertas.com
 import { AlertasComponent } from './alertas/alertas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuardService } from '../services/guard.service';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
-import { ReportesComponent } from './reportes/reportes.component';
 import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { CrearUsuarioComponent } from './usuario/crear-usuario/crear-usuario.component';
 import { RoleComponent } from './role/role.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 import { AntecedenteComponent } from './antecedente/antecedente.component';
 import { CrearAntecedenteComponent } from './antecedente/crear-antecedente/crear-antecedente.component';
+import { Reporte2Component } from './reportes/reporte2/reporte2.component';
+import { ListarCamaraComponent } from './camara/listar-camara/listar-camara.component';
 import { Reporte3Component } from './reportes/reporte3/reporte3.component';
+import { Reporte4Component } from './reportes/reporte4/reporte4.component';
+import { GuardService } from '../services/guards.service';
 
 const routes: Routes = [
   {
@@ -77,6 +81,20 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'antecedentes',
+    canActivate: [GuardService],
+    data: { role: ['POLICIA', 'AGENTE', 'ADMIN'] },
+    component: AntecedenteComponent,
+    children: [
+      {
+        path: 'nuevo',
+        component: CrearAntecedenteComponent,
+        data: { role: ['ADMIN', 'POLICIA'] },
+        canActivate: [GuardService],
+      },
+    ],
+  },
+  {
     path:'role',
     component:RoleComponent ,
     data: {role: ['ADMIN']},canActivate: [GuardService],
@@ -84,13 +102,13 @@ const routes: Routes = [
   {
     path:'reportes',
     component:ReportesComponent,
-    data: {role: ['ADMIN']},canActivate: [GuardService],
+    data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService],
     children:[
-      {path:'reporte1', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte2', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte3', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte4', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
-      {path:'reporte5', component: Reporte3Component, data: {role: ['ADMIN']},canActivate: [GuardService], },
+      {path:'reporte1', component: Reporte1Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte2', component: Reporte2Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte3', component: Reporte3Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte4', component: Reporte4Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
+      {path:'reporte5', component: Reporte5Component, data: {role: ['ADMIN','POLICIA']},canActivate: [GuardService], },
     ]
   },
   {
@@ -119,8 +137,15 @@ const routes: Routes = [
         data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
         canActivate: [GuardService],
       },
+      {
+        path: 'list',
+        component: ListarCamaraComponent,
+        data: { role: ['ADMIN', 'POLICIA', 'AGENTE'] },
+        canActivate: [GuardService],
+      }
     ],
   },
+  
 ];
 
 @NgModule({

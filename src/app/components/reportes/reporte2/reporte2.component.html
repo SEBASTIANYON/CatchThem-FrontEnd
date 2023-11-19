@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reporte 2</title>
+  </head>
+  <body style="background-color: #dedede;">
+    
+    <div class="container">
+      <div style="text-align: center">
+        <h1>Edad promedio de sospechosos por Entidad</h1>
+      </div>
+
+      <div style="text-align: center">
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType"
+        >
+        </canvas>
+      </div>
+    </div>
+    <!-- 
+
+      <div class="container">
+        <div style="text-align: center">
+          <h1>Cantidad de sospechosos por Entidad</h1>
+        </div>
+        
+        <div style="text-align: center">
+          <canvas
+          baseChart
+          [datasets]="barChartData2"
+          [labels]="barChartLabels2"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType2"
+          >
+        </canvas>
+      </div>
+    </div>
+  --></body>
+</html>

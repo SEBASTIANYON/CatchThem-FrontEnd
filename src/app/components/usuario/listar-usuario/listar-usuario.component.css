@@ -9,9 +9,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 10px;
-  }
-  
-  
+  } 
   
   .imagen{
     width: 100%; /* Establece el ancho de la imagen al 100% del ancho de la tarjeta */
@@ -19,3 +17,10 @@ body {
     max-width: 100%; /* Establece un tamaño máximo de 100% para mantener la responsividad */
   }
 
+  h1{ 
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 700;
+    padding: 20px;
+  }

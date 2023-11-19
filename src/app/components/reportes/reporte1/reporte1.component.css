@@ -1,3 +1,30 @@
 .container {
     width: 30%;
 }
+
+
+.botones-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+
+  button {
+    background-color: #20211F;
+    color: aliceblue;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 15px; /* Ajusta el espacio entre los botones según sea necesario */
+    border-radius: 5px; /* Agrega esquinas redondeadas */
+  }
+  
+  button:last-child {
+    margin-right: 0;
+  }
+  
+  button:hover {
+    
+  }

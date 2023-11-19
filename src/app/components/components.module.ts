@@ -49,10 +49,13 @@ import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 import { CrearRoleComponent } from './role/crear-role/crear-role.component';
+import { Reporte2Component } from './reportes/reporte2/reporte2.component';
+import { Reporte4Component } from './reportes/reporte4/reporte4.component';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { RoleComponent } from './role/role.component';
 import { NgChartsModule } from 'ng2-charts';
-import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,6 @@ import { ReportesComponent } from './reportes/reportes.component';
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
-    Reporte3Component,
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     UsuarioComponent,
@@ -85,9 +87,14 @@ import { ReportesComponent } from './reportes/reportes.component';
     ListarTipoEntidadComponent,
     CrearTipoEntidadComponent,
     RoleComponent,
+    CrearRoleComponent,
+    ReportesComponent,
     ReportesComponent,
     Reporte1Component,
-    CrearRoleComponent,
+    Reporte2Component,
+    Reporte3Component,
+    Reporte4Component,
+    Reporte5Component,
 ],
   imports: [
     CommonModule,
@@ -112,7 +119,7 @@ import { ReportesComponent } from './reportes/reportes.component';
     ComponentsRoutingModule,
     MatDialogModule,
     GoogleMapsModule,
-    NgChartsModule
+    NgChartsModule,
   ],
 })
 export class ComponentsModule { }

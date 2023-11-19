@@ -8,5 +8,5 @@ export class AntecedentePenal {
   sentencia: string = '';
   ubicacion: string = '';
   estado: string = '';
-  sospechoso: Sospechoso= new Sospechoso();
+  sospechoso: Sospechoso = new Sospechoso();
 }

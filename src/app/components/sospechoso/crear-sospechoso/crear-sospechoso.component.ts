@@ -59,7 +59,7 @@ export class CrearSospechosoComponent {
       historial: ['', Validators.required],
       estado: ['', Validators.required],
       fecharegistro: ['', Validators.required],
-      imagen:['', Validators.required],
+      imagen:[''],
       entidad:['']
     });
 
@@ -134,7 +134,7 @@ export class CrearSospechosoComponent {
           historial: new FormControl(data.historial, Validators.required),
           estado: new FormControl(data.estado, Validators.required),
           fecharegistro: new FormControl(data.fecharegistro, Validators.required),
-          imagen: new FormControl(data.imagen, Validators.required),
+          imagen: new FormControl(data.imagen),
           entidad: new FormControl(data.entidad.idEntidad),
         });
       });

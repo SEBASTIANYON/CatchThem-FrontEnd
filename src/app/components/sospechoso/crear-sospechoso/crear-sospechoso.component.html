@@ -8,7 +8,8 @@
   <br>
   <body style="background-color: #dedede;">
     <div class="container">
-      <h1 style="text-align: center;">REGISTRAR SOSPECHOSO</h1>
+      <h1 [hidden]="edicion" style="text-align: center;">Registrar Sospechoso</h1>
+      <h1 [hidden]="edicion !== true" style="text-align: center;">Editar Sospechoso</h1>
       <br />
       <div class="container">
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
@@ -30,13 +31,13 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Fecha de Nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" [max]="maxFecha" formControlName="nacimiento"/>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          
 
           <mat-form-field style="padding: 20px; width: 23%">
             <mat-label>Nacionalidad</mat-label>
@@ -85,7 +86,6 @@
           </div>
         </form>
       </div>
-      <div class="fondo2"></div>
     </div>
   </body>
 </html>
