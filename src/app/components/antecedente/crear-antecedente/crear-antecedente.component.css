@@ -23,20 +23,15 @@ body {
     width: 840px;
 }
 
-h2 {
+h1 {
     color: #000;
     margin: auto;
     width: inherit;
     text-align: center;
     font-size: 36px;
-
+    padding: 20px;
+    font-weight: bold;
 }
-
-svg {
-    width: inherit;
-    
-}
-
 
 .example-form mat-form-field {
     display: flexbox;
