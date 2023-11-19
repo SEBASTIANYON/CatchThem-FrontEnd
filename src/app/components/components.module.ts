@@ -1,6 +1,6 @@
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ComponentsRoutingModule } from './components-routing.module';
 import { CrearCamaraComponent } from './camara/crear-camara/crear-camara.component';
 import { ListarCamaraComponent } from './camara/listar-camara/listar-camara.component';
@@ -45,6 +45,7 @@ import { TipoEntidadComponent } from './tipo-entidad/tipo-entidad.component';
 import { CrearTipoEntidadComponent } from './tipo-entidad/crear-tipo-entidad/crear-tipo-entidad.component';
 import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/listar-tipo-entidad.component';
 
+
 @NgModule({
   declarations: [
     EntidadComponent,
@@ -65,6 +66,7 @@ import { ListarTipoEntidadComponent } from './tipo-entidad/listar-tipo-entidad/l
     DialogComponent,
     DialogoConfirmacionComponent,
     DialogoMapaComponent,
+
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     UsuarioComponent,

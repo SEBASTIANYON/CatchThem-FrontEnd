@@ -42,7 +42,6 @@ export class CrearUsuarioComponent implements OnInit {
       this.edicion = data['id'] != null;
       this.init();
     });
-
     this.form = this.formBuilder.group({
       id: [''],
       username: ['', Validators.required],
@@ -70,7 +69,9 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   aceptar(): void {
+ 
     if (this.form.valid) {
+      
       this.usuario.id = this.form.value.id;
       this.usuario.username = this.form.value.username;
       this.usuario.password = this.form.value.password;
