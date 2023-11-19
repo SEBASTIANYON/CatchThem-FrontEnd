@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <div class="form-listar">
+  <body style="background-color: #DEDEDE;">
+    <div class="container">
       <h1>LISTAR ANTECEDENTES</h1>
       <div class="buscador">
         <mat-form-field>
@@ -92,7 +92,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
       <mat-paginator
-        class="pagination"
+        
         [pageSizeOptions]="[5, 10, 25, 100]"
         showFirstLastButtons
       ></mat-paginator>
