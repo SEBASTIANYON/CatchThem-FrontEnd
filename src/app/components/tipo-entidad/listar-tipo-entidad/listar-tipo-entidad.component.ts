@@ -27,7 +27,6 @@ export class ListarTipoEntidadComponent implements OnInit {
 
   constructor(private iS: TipoEntidadService, private loginService:LoginService,
     public dialog: MatDialog) {}
-
   ngOnInit(): void {
     this.iS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
@@ -38,6 +37,8 @@ export class ListarTipoEntidadComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
+
+  this.role = this.loginService.showRole()
   }
 
   openDialog(idTipo: number){
@@ -50,11 +51,11 @@ export class ListarTipoEntidadComponent implements OnInit {
     })
   }
   
+  
   eliminar(id: number) {
     this.iS.delete(id).subscribe((data) => {
       this.iS.list().subscribe((data) => {
         this.iS.setList(data);
-
         this.obs=this.dataSource.connect()
       });
     });
@@ -64,3 +65,4 @@ export class ListarTipoEntidadComponent implements OnInit {
     this.dataSource.filter=en.target.value.trim();
   }
 }
+

@@ -29,12 +29,16 @@
         <p>entidad : {{user.entidad.nombre}}</p>
         <p>Roles:</p>
         <ul>
-          <li *ngFor="let role of user.roles">{{role.rol}}</li>
+          <!-- Usar un conjunto (Set) para mantener roles únicos -->
+          <ng-container *ngFor="let role of getUniqueRoles(user.id)">
+            <li>{{ role.rol }}</li>
+          </ng-container>
         </ul>
+        
       </mat-card-content>
-      <mat-card-actions>
+      <mat-card-actions >
         <button mat-button [routerLink]="['edicion', user.id]"><mat-icon>create</mat-icon></button>
-        <button mat-button (click)="eliminar(user.id)"><mat-icon>delete_outline</mat-icon>
+        <button *ngIf="!hasAdminRole(getUniqueRoles(user.id))" mat-button (click)="eliminar(user.id)"><mat-icon>delete_outline</mat-icon>
         </button>
       </mat-card-actions>
     </mat-card>
@@ -42,4 +46,3 @@
 </div>
 </body>
 </html>
-

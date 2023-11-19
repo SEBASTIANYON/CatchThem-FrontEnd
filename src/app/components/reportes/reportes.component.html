@@ -1,4 +1,6 @@
-<div [hidden]="route.children.length">
-    <app-reporte5></app-reporte5>
-</div>
 <router-outlet></router-outlet>
+<div [hidden]="route.children.length !== 0">
+    <app-reporte3></app-reporte3>
+</div>
+
+

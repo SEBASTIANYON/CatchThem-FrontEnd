@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antecedente</title>
+  </head>
+  <body>
+    <div class="form-register">
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <h2>REGISTRAR ANTECENDENTES</h2>
+       
+        <br>
+        <mat-form-field>
+          <mat-label>Delito</mat-label>
+          <mat-select formControlName="delito">
+            <mat-option *ngFor="let d of delitos" [value]="d.value">
+              {{ d.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('delito')?.errors?.['required']"
+          >
+            El delito es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Sentencia</mat-label>
+          <input matInput placeholder="Sentencia" formControlName="sentencia" />
+          <mat-error
+            *ngIf="obtenerControlCampo('sentencia')?.errors?.['required']"
+          >
+            La sentencia es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Ubicacion</mat-label>
+          <input matInput placeholder="Ubicacion" formControlName="ubicacion" />
+          <mat-error
+            *ngIf="obtenerControlCampo('ubicacion')?.errors?.['required']"
+          >
+            La ubicacion es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="estado">
+            <mat-option *ngFor="let e of estados" [value]="e.value">
+              {{ e.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('estado')?.errors?.['required']"
+          >
+            El estado es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Fecha de comision</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="fecha_comision"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('fecha_comision')?.errors?.['required']"
+          >
+            La fecha de comision es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Fecha de condena</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            formControlName="fecha_condena"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('fecha_condena')?.errors?.['required']"
+          >
+            La fecha de condena es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="last">
+          <mat-label>Sospechoso</mat-label>
+          <mat-select formControlName="sospechoso">
+            <mat-option
+              *ngFor="let s of listasospechosos"
+              [value]="s.idSospechoso"
+            >
+              {{ s.nombre }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('sospechoso')?.errors?.['required']"
+          >
+            El sospechoso es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="#ABABA9">Registrar</button>
+      </form>
+    </div>
+  </body>
+</html>
+

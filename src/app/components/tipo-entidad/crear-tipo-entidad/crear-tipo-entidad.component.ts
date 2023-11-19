@@ -18,12 +18,13 @@ export class CrearTipoEntidadComponent implements OnInit{
   idTipo: number = 0;
   edicion: boolean = false;
 
+
   constructor(
     private iS: TipoEntidadService,
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private loginService: LoginService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -56,7 +57,7 @@ export class CrearTipoEntidadComponent implements OnInit{
             this.iS.setList(data);
           });
         });
-      } 
+      }
       this.router.navigate(['/tipoentidad']);
     } else {
       this.mensaje = 'Por favor complete todos los campos obligatorios.';

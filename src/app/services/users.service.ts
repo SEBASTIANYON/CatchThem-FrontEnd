@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Users } from '../models/Users';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, Subject } from 'rxjs';
 const base_url = environment.base;
@@ -12,11 +12,21 @@ export class UsersService {
   private listaCambio = new Subject<Users[]>();
   constructor(private http: HttpClient) {}
   list() {
-    return this.http.get<Users[]>(this.url);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Users[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   insert(us: Users) {
-    return this.http.post(this.url, us);
+    let token = sessionStorage.getItem('token');
+    return this.http.post(this.url, us, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   setList(listaNueva: Users[]) {
@@ -28,20 +38,39 @@ export class UsersService {
   }
 
   listId(id: number) {
-    return this.http.get<Users>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<Users>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   insertarRol(authority: string, id: number) {
     const body = { authority, id: id }; 
-
-    return this.http.post<any>(`${this.url}/insertarrol`, body);
+    let token = sessionStorage.getItem('token');
+    return this.http.post<any>(`${this.url}/insertarrol`, body, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   update(u: Users) {
-    return this.http.put(this.url, u);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url, u, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 }

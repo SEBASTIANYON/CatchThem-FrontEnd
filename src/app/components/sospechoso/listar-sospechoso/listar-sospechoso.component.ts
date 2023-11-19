@@ -15,54 +15,59 @@ import { Observable, of } from 'rxjs';
 })
 export class ListarSospechosoComponent implements OnInit {
   dataSource: MatTableDataSource<Sospechoso> = new MatTableDataSource();
-  @ViewChild(MatPaginator ,{static: true}) paginator!: MatPaginator;
-  obs: Observable<any> | undefined
-  role: string = ''
-
-  constructor(private oS: SospechosoService, public dialog: MatDialog, private loginService: LoginService,) {}
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  obs: Observable<any> | undefined;
+  role: string = '';
+  constructor(
+    private oS: SospechosoService,
+    public dialog: MatDialog,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
 
+    console.log("carga ngoninit")
+
+
     this.oS.list().subscribe((data) => {
+
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;      
-      this.obs=this.dataSource.connect()
+      this.dataSource.paginator = this.paginator;
+      this.obs = this.dataSource.connect();
     });
 
-    
     this.oS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
-    
-    this.role = this.loginService.showRole()
+
+    this.role = this.loginService.showRole();
   }
-  
+
   eliminar(id: number) {
     this.oS.delete(id).subscribe((data) => {
       this.oS.list().subscribe((data) => {
         this.oS.setList(data);
-        
-        this.obs = this.dataSource.connect()
+        this.obs = this.dataSource.connect();
       });
     });
   }
 
-  openDialog(idSospechoso: number){
+  openDialog(idSospechoso: number) {
     this.dialog.open(DialogoConfirmacionComponent)
-    .afterClosed()
-    .subscribe((confirmacion: Boolean) => {
-      if(confirmacion){
-        this.eliminar(idSospechoso)
-      }
-    })
+      .afterClosed()
+      .subscribe((confirmacion: Boolean) => {
+        if (confirmacion) {
+          this.eliminar(idSospechoso);
+        }
+      });
   }
 
-  reload(){
+  reload() {
     this.oS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-      this.obs = this.dataSource.connect()
+      this.obs = this.dataSource.connect();
     });
 
     this.oS.getList().subscribe((data) => {
@@ -71,7 +76,19 @@ export class ListarSospechosoComponent implements OnInit {
     });
   }
 
-  filter(en:any){
-    this.dataSource.filter=en.target.value.trim();
+  filter(en: any) {
+    this.dataSource.filterPredicate = (data: Sospechoso, filter: string) => {
+      return data.entidad.nombre.toLocaleLowerCase().includes(filter) ||
+      data.idSospechoso.toLocaleString().includes(filter)  ||
+      data.nombre.toLocaleString().includes(filter)  ||
+      data.alias.toLocaleString().includes(filter)  ||
+      data.descripcion.toLocaleString().includes(filter)  ||
+      data.estado.toLocaleString().includes(filter)  ||
+      data.genero.toLocaleString().includes(filter)  ||
+      data.historial.toLocaleString().includes(filter)  ||
+      data.nacionalidad.toLocaleString().includes(filter)
+    }
+
+    this.dataSource.filter = en.target.value.trim();
   }
 }
