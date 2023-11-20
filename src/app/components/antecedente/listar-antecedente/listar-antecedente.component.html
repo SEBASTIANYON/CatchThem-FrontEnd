@@ -22,6 +22,7 @@
       </div>
       <div>
         <button class="nuevo"
+          *ngIf="role == 'ADMIN' || role == 'POLICIA'"
           mat-raised-button
           style="background-color: #20211f; color: #f4f7f9; font-weight: 800"
           routerLink="/antecedentes/nuevo"
